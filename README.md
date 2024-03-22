@@ -33,6 +33,9 @@ Dependencies:
 
 Download:
 1.Do Git clone https://github.com/redkittty/envixty-dotfiles.git
+
 2.Move the dotfiles to your home directory
+
 3.(Optional) Modify the Rust Alias to match your Rust Project Directory
+
 4.Your Done (As when the .zshrc is run, the plugins will automatically install)
