@@ -22,6 +22,7 @@ Shortcuts:
 - Shift+Tab: Undo
 - HOME: Beginning of Line
 - END: End of Line
+- Ctrl+Arroews: Go back or forward a word
 
 For the rust aliases, you will have to manually modify it to go to your home directory.
 
