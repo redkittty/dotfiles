@@ -33,6 +33,7 @@ Dependencies:
 - Git
 
 Download:
+
 1.Do Git clone https://github.com/redkittty/envixty-dotfiles.git
 
 2.Move the dotfiles to your home directory
