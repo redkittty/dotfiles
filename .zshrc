@@ -25,6 +25,10 @@ bindkey '^[[H' beginning-of-line
 # End of line with END
 bindkey '^[[F' end-of-line
 
+# Navigate Words with Ctrl+Arrows
+bindkey '^[[1;5D' backward-word
+bindkey '^[[1;5C' forward-word
+
 # Aliases
 # Rust Folder
 alias rs="cd ~/Documents/Code/Rust"
