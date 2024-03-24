@@ -4,7 +4,7 @@ Download:
 
 1. Do Git clone https://github.com/redkittty/envixty-dotfiles.git
 
-2. Make bootstrap.sh and programs.sh executable
+2. Make bootstrap.sh executable
   
 3. Run bootstrap.sh 
 
