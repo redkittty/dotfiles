@@ -8,6 +8,8 @@ blacklist=(
     .git
     .gitignore
     .DS_Store
+    LICENSE
+    README.md
     bootstrap.sh
     # Add more files and directories to exclude as needed
 )
