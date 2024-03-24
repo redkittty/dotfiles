@@ -1,4 +1,18 @@
 # envixty-dotfiles
+
+Download:
+
+1. Do Git clone https://github.com/redkittty/envixty-dotfiles.git
+
+2. Make bootstrap.sh and programs.sh executable
+  
+3. Run bootstrap.sh 
+
+3. (Optional) Modify the Rust Alias to match your Rust Project Directory
+
+4. Your Done (As when the .zshrc is run, the plugins will automatically install)
+
+
 My dotfiles
 
 .zshrc:
@@ -31,13 +45,3 @@ This is tested on gnome-terminal
 Dependencies:
 - ZSH v4.3.11 or later (only tested on ZSH 5.9)
 - Git
-
-Download:
-
-1.Do Git clone https://github.com/redkittty/envixty-dotfiles.git
-
-2.Move the dotfiles to your home directory
-
-3.(Optional) Modify the Rust Alias to match your Rust Project Directory
-
-4.Your Done (As when the .zshrc is run, the plugins will automatically install)
