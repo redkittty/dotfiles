@@ -11,6 +11,7 @@ blacklist=(
     LICENSE
     README.md
     bootstrap.sh
+    programs.sh
     # Add more files and directories to exclude as needed
 )
 
@@ -36,4 +37,4 @@ done
 
 echo "Copy process complete."
 echo "Now installing Programs"
-source ~/.scripts/programs.sh
+source ./programs.sh
