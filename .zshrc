@@ -30,6 +30,14 @@ bindkey '^[[1;5D' backward-word
 bindkey '^[[1;5C' forward-word
 
 # Aliases
+# Ls Colors
+alias ls="ls -lah --color=auto"
+
+# Parent Directory alias
+alias ..="cd .."
+alias ...="cd ../.."
+alias ~="cd ~"
+
 # Rust Folder
 alias rs="cd ~/Documents/Code/Rust"
 
