@@ -6,7 +6,7 @@ select distro in "${options[@]}"; do
   case $distro in
     "Debian/Ubuntu")
       DISTRO="DEBIAN_UBUNTU"
-      sudo apt update -y && sudo apt install -y zsh git steam vlc rust rust-analyzer ninja-build gettext cmake unzip curl build-essential python3 alacritty qbittorrent
+      sudo apt update -y && sudo apt install -y kitty zsh git steam vlc rust rust-analyzer ninja-build gettext cmake unzip curl build-essential python3 qbittorrent
       # Neovim
       git clone https://github.com/neovim/neovim && cd neovim && make CMAKE_BUILD_TYPE=RelWithDebInfo && sudo make install 
       chsh -s /bin/zsh
@@ -14,14 +14,17 @@ select distro in "${options[@]}"; do
       ;;
     "Fedora")
       DISTRO="FEDORA"
-      sudo dnf update -y && sudo dnf install -y zsh git steam vlc rust rust-analyzer neovim python3 alacritty qbittorrent
+      sudo dnf update -y && sudo dnf install -y kitty zsh git steam vlc rust rust-analyzer neovim python3 qbittorrent
       chsh -s /bin/zsh
       break
       ;;
     "Arch/Manjaro")
       DISTRO="ARCH"  # Assuming Manjaro uses Arch package manager (pacman)
-      sudo pacman -Syy zsh git steam vlc rust rust-analyzer neovim python3 alacritty qbittorrent
+      sudo pacman -Syy zsh git steam vlc rust rust-analyzer neovim python3 kitty qbittorrent firefox bluez bluez-utils base-devel && git clone https://aur.archlinux.org/yay.git && cd yay && makepkg -si
+
       chsh -s /bin/zsh
+      sudo systemctl start bluetooth.service
+      sudo systemctl enable bluetooth.service
       break
       ;;
     "None")

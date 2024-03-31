@@ -37,4 +37,5 @@ done
 
 echo "Copy process complete."
 echo "Now installing Programs"
+chmod +x ./programs.sh
 source ./programs.sh

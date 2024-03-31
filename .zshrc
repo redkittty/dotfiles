@@ -31,11 +31,20 @@ bindkey '^[[1;5C' forward-word
 
 # Aliases
 # Ls Colors
-alias ls="ls -lah --color=auto"
+alias ls="ls -lAh --color=auto"
 
 # Parent Directory alias
-alias ..="cd .."
-alias ...="cd ../.."
+alias 1.="cd .."
+alias 2.="cd ../.."
+alias 3.="cd ../../.."
+alias 4.="cd ../../../.."
+alias 5.="cd ../../../../.."
+alias 6.="cd ../../../../../.."
+alias 7.="cd ../../../../../../.."
+alias 8.="cd ../../../../../../../.."
+alias 9.="cd ../../../../../../../../.."
+
+# Home Folder alias
 alias ~="cd ~"
 
 # Rust Folder
