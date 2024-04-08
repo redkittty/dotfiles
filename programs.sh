@@ -6,7 +6,19 @@ select distro in "${options[@]}"; do
   case $distro in
     "Debian/Ubuntu")
       DISTRO="DEBIAN_UBUNTU"
-      sudo apt update -y && sudo apt install -y kitty zsh git steam vlc rust rust-analyzer ninja-build gettext cmake unzip curl build-essential python3 qbittorrent
+      sudo apt update -y && sudo apt install -y kitty 
+      sudo apt install -y zsh 
+      sudo apt install -y steam 
+      sudo apt install -y vlc 
+      sudo apt install -y rustc 
+      sudo apt install -y ninja-build 
+      sudo apt install -y gettext 
+      sudo apt install -y cmake 
+      sudo apt install -y unzip 
+      sudo apt install -y curl 
+      sudo apt install -y build-essential 
+      sudo apt install -y python3 
+      sudo apt install -y qbittorrent
       # Neovim
       git clone https://github.com/neovim/neovim && cd neovim && make CMAKE_BUILD_TYPE=RelWithDebInfo && sudo make install 
       chsh -s /bin/zsh
