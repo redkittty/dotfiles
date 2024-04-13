@@ -36,7 +36,7 @@ select distro in "${options[@]}"; do
       chsh -s /bin/zsh
       sudo systemctl start bluetooth.service
       sudo systemctl enable bluetooth.service
-      cd ~
+      cd ..
       chmod +x ./aur.sh
       source ./aur.sh
       ;;
