@@ -12,6 +12,7 @@ blacklist=(
     README.md
     bootstrap.sh
     programs.sh
+    aur.sh
     # Add more files and directories to exclude as needed
 )
 
