@@ -22,23 +22,25 @@ select distro in "${options[@]}"; do
       # Neovim
       git clone https://github.com/neovim/neovim && cd neovim && make CMAKE_BUILD_TYPE=RelWithDebInfo && sudo make install 
       chsh -s /bin/zsh
-      break
+      # Git login script
+      chmod +x ./gitsetup.sh
+      source ./gitsetup.sh
       ;;
     "Fedora")
       DISTRO="FEDORA"
       sudo dnf update -y && sudo dnf install -y kitty zsh git steam vlc rust rust-analyzer neovim python3 qbittorrent
       chsh -s /bin/zsh
-      break
+      chmod +x ./gitsetup.sh
+      source ./gitsetup.sh
       ;;
     "Arch/Manjaro")
       DISTRO="ARCH"  # Assuming Manjaro uses Arch package manager (pacman)
-      sudo pacman -Syy zsh git steam vlc rust rust-analyzer neovim python3 kitty qbittorrent firefox bluez bluez-utils base-devel && git clone https://aur.archlinux.org/librewolf.git && cd librewolf && makepkg -si
+      sudo pacman -Syy pcmanfm htop zsh git steam vlc rust rust-analyzer neovim python3 kitty qbittorrent firefox bluez bluez-utils base-devel
       chsh -s /bin/zsh
       sudo systemctl start bluetooth.service
       sudo systemctl enable bluetooth.service
-      cd ..
-      chmod +x ./aur.sh
-      source ./aur.sh
+      chmod +x ./arwm.sh
+      source ./arwm.sh
       ;;
     "None")
       exit 0

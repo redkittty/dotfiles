@@ -6,6 +6,7 @@ dotfiles_dir="./"
 # Blacklist of files and directories to exclude from copying
 blacklist=(
     .git
+    .config/awesome
     .gitignore
     .DS_Store
     LICENSE

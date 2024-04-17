@@ -45,16 +45,15 @@ end
 
 -- {{{ Variable definitions
 -- Themes define colours, icons, font and wallpapers.
-beautiful.init("~/.config/awesome/theme.lua")
+-- beautiful.init("~/.config/awesome/theme.lua")
 
 -- This is used later as the default terminal and editor to run.
 terminal = "kitty"
 editor = "nvim"
 editor_cmd = terminal .. " -e " .. editor
-browser = "librewolf"
+browser = "firefox"
 steam = "steam"
 files = "pcmanfm"
-display = "arandr"
 
 -- Volume Notification
 local volume_popup
@@ -356,8 +355,6 @@ globalkeys = gears.table.join(
               {description = "Opens steam", group = "applications"}),
     awful.key({ altkey,          }, "3", function () awful.spawn(files) end,
               {description = "Opens a file manager", group = "applications"}),
-    awful.key({ altkey,          }, "d", function () awful.spawn(display) end,
-              {description = "Opens a GUI display manager", group = "applications"}),
     
     -- Prompt
     awful.key({ modkey },            "r",     function () awful.screen.focused().mypromptbox:run() end,

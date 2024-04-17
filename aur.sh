@@ -22,3 +22,7 @@ select aur in "${options[@]}"; do
 			::
 	esac
 done
+
+git clone https://aur.archlinux.org/nerd-fonts-git.git && cd nerd-fonts-git && makepkg -si && cd -
+chmod +x ./gitsetup.sh
+source ./gitsetup.sh

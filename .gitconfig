@@ -1,0 +1,18 @@
+[core]
+  editor = nvim
+
+[color "branch"]
+  current = green
+  local = yellow
+  remote = red
+
+[alias]
+  co = checkout
+  st = status -sb
+  br = branch
+  ci = commit
+  fo = fetch origin
+  pu = push
+
+[help]
+  autocorrect = 1

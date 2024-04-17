@@ -47,8 +47,14 @@ alias 9.="cd ../../../../../../../../.."
 # Home Folder alias
 alias ~="cd ~"
 
+# Previous Directory
+alias c-="cd -"
+
 # Rust Folder
 alias rs="cd ~/Documents/Code/Rust"
+
+# Code Folder
+alias co="cd ~/Documents/Code"
 
 # Neovim
 alias vi="nvim"
