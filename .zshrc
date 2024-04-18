@@ -33,6 +33,10 @@ bindkey '^[[1;5C' forward-word
 # Ls Colors
 alias ls="ls -lAh --color=auto"
 
+# Kitty kitten aliases
+alias icat="kitten icat"
+
+
 # Parent Directory alias
 alias 1.="cd .."
 alias 2.="cd ../.."

@@ -27,12 +27,16 @@ Finally, execute bootstrap.sh:
 ./bootstrap.sh
 ```
 
+To do it in one line, do this
+
+```zsh
+git clone https://github.com/redkittty/envixty-dotfiles.git && cd envixty-dotfiles && chmod +x bootstrap.sh && ./bootstrap.sh
+```
+
 
 My dotfiles include configs for
 
 - Kitty Terminal
-
-- AwesomeWM
 
 - Hyprland
 
