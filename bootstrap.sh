@@ -6,7 +6,6 @@ dotfiles_dir="./"
 # Blacklist of files and directories to exclude from copying
 blacklist=(
     .git
-    .config/awesome
     .gitignore
     .DS_Store
     LICENSE
@@ -14,6 +13,7 @@ blacklist=(
     bootstrap.sh
     programs.sh
     aur.sh
+    gitsetup.sh
     # Add more files and directories to exclude as needed
 )
 
