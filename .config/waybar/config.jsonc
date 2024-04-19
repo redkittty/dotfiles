@@ -17,16 +17,15 @@
         "hyprland/window"
     ],
     "modules-right": [
+        "tray",
         "mpd",
-        "idle_inhibitor",
         "network",
         "cpu",
         "memory",
         "temperature",
         "keyboard-state",
         "sway/language",
-        "clock",
-        "tray"
+        "clock" 
     ],
 
     // Modules configuration
