@@ -45,13 +45,13 @@ button {
 /* https://github.com/Alexays/Waybar/wiki/FAQ#the-workspace-buttons-have-a-strange-hover-effect */
 button:hover {
     background: inherit;
-    box-shadow: inset 0 -3px #ffffff;
+    box-shadow: inset 0 -3px #FBF1C7;
 }
 
 #workspaces button {
     padding: 0 5px;
     background-color: transparent;
-    color: #ffffff;
+    color: #FBF1C7;
 }
 
 #workspaces button:hover {
@@ -60,11 +60,11 @@ button:hover {
 
 #workspaces button.focused {
     background-color: #64727D;
-    box-shadow: inset 0 -3px #ffffff;
+    box-shadow: inset 0 -3px #FBF1C7;
 }
 
 #workspaces button.urgent {
-    background-color: #eb4d4b;
+    background-color: #FB4934;
 }
 
 #mode {
@@ -90,7 +90,7 @@ button:hover {
 #power-profiles-daemon,
 #mpd {
     padding: 0 10px;
-    color: #ffffff;
+    color: #FBF1C7;
 }
 
 #window,
@@ -109,7 +109,8 @@ button:hover {
 }
 
 #clock {
-    background-color: #64727D;
+    background-color: #A89984;
+    color: #FBF1C7;
 }
 
 #battery {
@@ -160,17 +161,17 @@ button:hover {
 }
 
 label:focus {
-    background-color: #000000;
+    background-color: #1D2021;
 }
 
 #cpu {
-    background-color: #2ecc71;
-    color: #000000;
+    background-color: #8EC07C;
+    color: #1D2021;
 }
 
 #memory {
-    background-color: #9b59b6;
-    color: #FFFFFF;
+    background-color: #B16286;
+    color: #FBF1C7;
 }
 
 #disk {
@@ -182,16 +183,16 @@ label:focus {
 }
 
 #network {
-    background-color: #2980b9;
+    background-color: #458588;
 }
 
 #network.disconnected {
-    background-color: #f53c3c;
+    background-color: #FB4934;
 }
 
 #pulseaudio {
     background-color: #f1c40f;
-    color: #000000;
+    color: #1D2021;
 }
 
 #pulseaudio.muted {
@@ -201,7 +202,7 @@ label:focus {
 
 #wireplumber {
     background-color: #fff0f5;
-    color: #000000;
+    color: #1D2021;
 }
 
 #wireplumber.muted {
@@ -223,11 +224,13 @@ label:focus {
 }
 
 #temperature {
-    background-color: #f0932b;
+    background-color: #FE8019;
+    color: #FBF1C7;
 }
 
 #temperature.critical {
-    background-color: #eb4d4b;
+    background-color: #CC241D;
+    color: #FBF1C7;
 }
 
 #tray {
@@ -253,8 +256,8 @@ label:focus {
 }
 
 #mpd {
-    background-color: #66cc99;
-    color: #2a5c45;
+    background-color: transparent;
+    color: #FABD2F;
 }
 
 #mpd.disconnected {

@@ -24,5 +24,6 @@ select aur in "${options[@]}"; do
 done
 
 git clone https://aur.archlinux.org/nerd-fonts-git.git && cd nerd-fonts-git && makepkg -si && cd -
+git clone https://aur.archlinux.org/hyprpicker-git.git && cd hyprpicker-git && makepkg -si && cd -
 chmod +x ./gitsetup.sh
 source ./gitsetup.sh
