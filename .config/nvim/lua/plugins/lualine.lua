@@ -10,6 +10,7 @@ local config = function()
     sections = {
       lualine_a = {
         {
+          'mode',
           'buffers',
         },
       },

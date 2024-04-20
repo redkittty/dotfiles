@@ -10,6 +10,7 @@ blacklist=(
     .DS_Store
     LICENSE
     README.md
+    CONFIGS.md
     bootstrap.sh
     programs.sh
     aur.sh

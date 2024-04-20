@@ -1,3 +1,4 @@
+local keybind = vim.keymap.set
 local opt = vim.opt
 -- Lazy.nvim Package Manager
 local lazypath = vim.fn.stdpath("data") .. "/lazy/lazy.nvim"
@@ -34,9 +35,14 @@ opt.number = true
 opt.relativenumber = false
 opt.colorcolumn = '188'
 opt.completeopt = "menuone,noselect"
+opt.showmode = false
 
 -- Behaviour
 opt.hidden = true
 opt.errorbells = false
 opt.swapfile = false
 opt.backup = false
+
+-- Keymappings
+-- Nvim Tree Toggle
+vim.keymap.set("n", "<space>e", "<cmd>NvimTreeToggle<CR>")
