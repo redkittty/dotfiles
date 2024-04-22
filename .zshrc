@@ -36,6 +36,9 @@ alias ls="ls -lAh --color=auto"
 # Kitty kitten aliases
 alias icat="kitten icat"
 
+# Htop alias
+alias top="htop"
+
 
 # Parent Directory alias
 alias 1.="cd .."

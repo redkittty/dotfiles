@@ -35,12 +35,12 @@ select distro in "${options[@]}"; do
       ;;
     "Arch/Manjaro")
       DISTRO="ARCH"  # Assuming Manjaro uses Arch package manager (pacman)
-      sudo pacman -Syy pcmanfm htop zsh git steam vlc rust rust-analyzer neovim python3 kitty qbittorrent firefox bluez bluez-utils base-devel waybar hyprpaper ttf-font-awesome wl-clipboard
+      sudo pacman -Syy pcmanfm htop zsh git steam vlc rust rust-analyzer neovim python3 kitty qbittorrent firefox bluez bluez-utils base-devel man-db ttf-font-awesome
       chsh -s /bin/zsh
       sudo systemctl start bluetooth.service
       sudo systemctl enable bluetooth.service
-      chmod +x ./aur.sh
-      source ./aur.sh
+      chmod +x ./archwm.sh
+      source ./archwm.sh
       ;;
     "None")
       exit 0

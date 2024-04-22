@@ -1,5 +1,5 @@
 #!/bin/sh
-# AUR Helper selection prompt
+# AUR Helper/Program Install Script
 PS3="Select Which AUR Helper to install: "
 options=("Yay" "Paru" "None")
 select aur in "${options[@]}"; do
@@ -23,7 +23,6 @@ select aur in "${options[@]}"; do
 	esac
 done
 
-git clone https://aur.archlinux.org/nerd-fonts-git.git && cd nerd-fonts-git && makepkg -si && cd -
-git clone https://aur.archlinux.org/hyprpicker-git.git && cd hyprpicker-git && makepkg -si && cd -
+git clone https://aur.archlinux.org/nerd-fonts-git.git && cd nerd-fonts-git && makepkg -si && cd ..
 chmod +x ./gitsetup.sh
 source ./gitsetup.sh
