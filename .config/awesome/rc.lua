@@ -51,6 +51,7 @@ beautiful.init(theme_path)
 
 -- Autostart Programs
 awful.spawn.with_shell("picom")
+awful.spawn.with_shell("xrandr --output HDMI-1 --primary --mode 1920x1080 --rate 144.00 --output eDP-1 --mode 1920x1080 --rate 59.98 --left-of HDMI-1")
 
 
 -- This is used later as the default terminal and editor to run.
@@ -115,7 +116,7 @@ mykeyboardlayout = awful.widget.keyboardlayout()
 
 -- {{{ Wibar
 -- Create a textclock widget
-mytextclock = wibox.widget.textclock()
+mytextclock = wibox.widget.textclock(" %a %b %d, I:%M %p ")
 
 -- Create a wibox for each screen and add it
 local taglist_buttons = gears.table.join(
