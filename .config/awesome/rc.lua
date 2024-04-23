@@ -58,8 +58,14 @@ awful.spawn.with_shell("xrandr --output HDMI-1 --primary --mode 1920x1080 --rate
 browser = "firefox"
 steam = "steam"
 terminal = "kitty"
-editor = os.getenv("EDITOR") or "nano"
+editor = "nvim"
 editor_cmd = terminal .. " -e " .. editor
+
+-- Menus (Rofi)
+menu = "rofi -show drun"
+altab = "rofi -show window"
+calculator = "rofi -show calc"
+emoji = "rofi -show emoji"
 
 -- Default modkey.
 -- Usually, Mod4 is the key with a logo between Control and Alt.
@@ -170,6 +176,7 @@ local function set_wallpaper(s)
     end
 end
 
+
 -- Re-set wallpaper when a screen's geometry changes (e.g. different resolution)
 screen.connect_signal("property::geometry", set_wallpaper)
 
@@ -205,14 +212,14 @@ awful.screen.connect_for_each_screen(function(s)
     }
 
     -- Create the wibox
-    s.mywibox = awful.wibar({ position = "top", screen = s })
+    s.mywibox = awful.wibar({ position = "top", screen = s, height = 22 })
 
     -- Add widgets to the wibox
     s.mywibox:setup {
         layout = wibox.layout.align.horizontal,
         { -- Left widgets
             layout = wibox.layout.fixed.horizontal,
-            mylauncher,
+            -- mylauncher,
             s.mytaglist,
             s.mypromptbox,
         },
@@ -339,8 +346,16 @@ globalkeys = gears.table.join(
               {description = "opens steam", group = "launcher"}),
 
     -- Prompt
-    awful.key({ modkey },            "r",     function () awful.screen.focused().mypromptbox:run() end,
-              {description = "run prompt", group = "launcher"}),
+    --awful.key({ modkey },            "r",     function () awful.screen.focused().mypromptbox:run() end,
+              --{description = "run prompt", group = "launcher"}),
+    awful.key({ modkey,           }, "r", function () awful.spawn(menu) end,
+              {description = "opens run prompt", group = "launcher"}),
+    awful.key({ modkey,           }, "TAB", function () awful.spawn(altab) end,
+              {description = "opens up window switcher", group = "launcher"}),
+    awful.key({ modkey, "Mod1"    }, "1", function () awful.spawn(calculator) end,
+              {description = "opens up calculator", group = "launcher"}),
+    awful.key({ modkey, "Mod1"    }, "e", function () awful.spawn(emoji) end,
+              {description = "opens up emoji select", group = "launcher"}),
 
     awful.key({ modkey }, "x",
               function ()

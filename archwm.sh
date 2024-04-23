@@ -12,7 +12,7 @@ select wm in "${options[@]}"; do
       ;;
     "Awesome")
       WM = "AWESOME"
-      sudo pacman -Syyu picom blueman
+      sudo pacman -Syyu picom blueman rofi rofi-emoji rofi-calc
       # Xrandr Monitor Settings
       xrandr --output HDMI-1 --primary --mode 1920x1080 --rate 144.00 --output eDP-1 --mode 1920x1080 --rate 59.98 --left-of HDMI-1
       ;;

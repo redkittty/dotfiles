@@ -15,6 +15,7 @@ blacklist=(
     programs.sh
     aur.sh
     gitsetup.sh
+    archwm.sh
     # Add more files and directories to exclude as needed
 )
 
