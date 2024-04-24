@@ -2,6 +2,7 @@
 # Distro selection prompt
 PS3="Select your Linux distribution: "
 options=("Debian/Ubuntu" "Fedora" "Arch/Manjaro" "None")
+echo "NOTE: DEBIAN AND FEDORA PACKAGE LISTS ARE ABANDONED"
 select distro in "${options[@]}"; do
   case $distro in
     "Debian/Ubuntu")
