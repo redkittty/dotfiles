@@ -12,10 +12,7 @@ blacklist=(
     README.md
     CONFIGS.md
     bootstrap.sh
-    programs.sh
-    aur.sh
-    gitsetup.sh
-    archwm.sh
+    .scripts
     # Add more files and directories to exclude as needed
 )
 
@@ -41,5 +38,6 @@ done
 
 echo "Copy process complete."
 echo "Now installing Programs"
+cd .scripts
 chmod +x ./programs.sh
 source ./programs.sh
