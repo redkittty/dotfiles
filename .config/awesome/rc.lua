@@ -350,7 +350,7 @@ globalkeys = gears.table.join(
               --{description = "run prompt", group = "launcher"}),
     awful.key({ modkey,           }, "r", function () awful.spawn(menu) end,
               {description = "opens run prompt", group = "launcher"}),
-    awful.key({ modkey,           }, "TAB", function () awful.spawn(altab) end,
+    awful.key({ modkey,           }, "Tab", function () awful.spawn(altab) end,
               {description = "opens up window switcher", group = "launcher"}),
     awful.key({ modkey, "Mod1"    }, "1", function () awful.spawn(calculator) end,
               {description = "opens up calculator", group = "launcher"}),
