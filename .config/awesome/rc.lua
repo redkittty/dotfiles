@@ -66,6 +66,7 @@ menu = "rofi -show drun"
 altab = "rofi -show window"
 calculator = "rofi -show calc"
 emoji = "rofi -show emoji"
+power = "powermenu.sh"
 
 -- Default modkey.
 -- Usually, Mod4 is the key with a logo between Control and Alt.
@@ -291,7 +292,7 @@ globalkeys = gears.table.join(
 
     -- Volume
     awful.key({ }, "XF86AudioRaiseVolume", function ()
-          awful.util.spawn("wpctl set-volume @DEFAULT_AUDIO_SINK@ 5%+") -- Increase volume by 2dB
+          awful.util.spawn("wpctl set-volume @DEFAULT_AUDIO_SINK@ 5%+")-- Increase volume by 2dB
     end),
     awful.key({ }, "XF86AudioLowerVolume", function ()
           awful.util.spawn("wpctl set-volume @DEFAULT_AUDIO_SINK@ 5%-") -- Decrease volume by 2dB
@@ -346,30 +347,16 @@ globalkeys = gears.table.join(
               {description = "opens steam", group = "launcher"}),
 
     -- Prompt
-    --awful.key({ modkey },            "r",     function () awful.screen.focused().mypromptbox:run() end,
-              --{description = "run prompt", group = "launcher"}),
     awful.key({ modkey,           }, "r", function () awful.spawn(menu) end,
               {description = "opens run prompt", group = "launcher"}),
     awful.key({ modkey,           }, "Tab", function () awful.spawn(altab) end,
               {description = "opens up window switcher", group = "launcher"}),
-    awful.key({ modkey, "Mod1"    }, "1", function () awful.spawn(calculator) end,
+    awful.key({ modkey,           }, "=", function () awful.spawn(calculator) end,
               {description = "opens up calculator", group = "launcher"}),
-    awful.key({ modkey, "Mod1"    }, "e", function () awful.spawn(emoji) end,
+    awful.key({ modkey,           }, "e", function () awful.spawn(emoji) end,
               {description = "opens up emoji select", group = "launcher"}),
-
-    awful.key({ modkey }, "x",
-              function ()
-                  awful.prompt.run {
-                    prompt       = "Run Lua code: ",
-                    textbox      = awful.screen.focused().mypromptbox.widget,
-                    exe_callback = awful.util.eval,
-                    history_path = awful.util.get_cache_dir() .. "/history_eval"
-                  }
-              end,
-              {description = "lua execute prompt", group = "awesome"}),
-    -- Menubar
-    awful.key({ modkey }, "p", function() menubar.show() end,
-              {description = "show the menubar", group = "launcher"})
+    awful.key({ modkey,           }, "p", function () awful.spawn(power) end,
+              {description = "opens up power-menu", group = "launcher"})
 )
 
 clientkeys = gears.table.join(
