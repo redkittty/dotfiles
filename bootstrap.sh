@@ -13,7 +13,7 @@ blacklist=(
     CONFIGS.md
     bootstrap.sh
     .scripts
-    bin
+    root
     # Add more files and directories to exclude as needed
 )
 
@@ -38,7 +38,7 @@ for item in "$dotfiles_dir"*; do
 done
 
 # Copies Scripts over to the bin directory
-chmod +x bin/powermenu.sh && sudo cp -r bin/powermenu.sh /usr/local/bin
+chmod +x root/usr/local/bin/powermenu.sh && sudo cp -r root/usr/local/bin/powermenu.sh /usr/local/bin
 # Add more scripts here as needed
 
 echo "Copy process complete."
