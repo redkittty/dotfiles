@@ -38,7 +38,9 @@ My dotfiles include configs for
 
 - Kitty Terminal
 
-- Hyprland
+- AwesomeWM
+
+- Neofetch
 
 - ZSH
 
