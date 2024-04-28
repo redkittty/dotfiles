@@ -1,4 +1,4 @@
-#!/bin/sh
+#!/bin/bash
 # Arch WM Selection Script
 # Installs additional programs for a wm
 PS3="Select your WM/DE: "

@@ -1,4 +1,4 @@
-#!/bin/sh
+#!/bin/bash
 # AUR Helper/Program Install Script
 PS3="Select Which AUR Helper to install: "
 options=("Yay" "Paru" "None")
