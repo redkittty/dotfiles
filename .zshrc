@@ -30,16 +30,16 @@ bindkey '^[[1;5D' backward-word
 bindkey '^[[1;5C' forward-word
 
 # Aliases
-
-# Sudo as Doas
-alias sudo="doas --"
+# Sudo to Doas
+alias sudo="doas"
 
 # Doas
 alias doas="doas --"
 
 # Pacman Aliases
 alias pacsyu="doas pacman -Syyu"
-alias parsua="paru -Sua --noconfirm"
+alias pacrem="doas pacman -R"
+alias parsya="paru -Sua --noconfirm"
 alias yaysyu="yay -Syu"
 
 # Ls Colors

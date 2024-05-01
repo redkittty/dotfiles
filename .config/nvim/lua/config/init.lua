@@ -44,5 +44,12 @@ opt.swapfile = false
 opt.backup = false
 
 -- Keymappings
+-- Ctrl + Backspace for deleting previous word
+keybind("i", "<C-BS>", "<C-W>")
+
+-- Saving in Edit Mode
+keybind("i", "<C-w>", "<cmd>w<CR>")
+
 -- Nvim Tree Toggle
-vim.keymap.set("n", "<space>e", "<cmd>NvimTreeToggle<CR>")
+keybind("n", "<space>e", "<cmd>NvimTreeToggle<CR>")
+keybind("n", "<S-e>", "<cmd>NvimTreeFocus<CR>")
