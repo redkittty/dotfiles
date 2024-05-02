@@ -30,6 +30,8 @@ bindkey '^[[1;5D' backward-word
 bindkey '^[[1;5C' forward-word
 
 # Aliases
+# Neofetch to Neowofetch
+alias neofetch="neowofetch"
 # Sudo to Doas
 alias sudo="doas"
 
