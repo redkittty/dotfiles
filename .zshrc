@@ -40,6 +40,7 @@ alias doas="doas --"
 
 # Pacman Aliases
 alias pacsyu="doas pacman -Syyu"
+alias pacs="doas pacman -S"
 alias pacrem="doas pacman -R"
 alias parsya="paru -Sua --noconfirm"
 alias yaysyu="yay -Syu"
