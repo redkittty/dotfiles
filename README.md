@@ -1,4 +1,4 @@
-# envixty-dotfiles
+# dotfiles
 These are my dotfiles
 
 In order to install my dotfiles do this:
