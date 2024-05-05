@@ -24,6 +24,7 @@ select aur in "${options[@]}"; do
 done
 
 git clone https://aur.archlinux.org/nerd-fonts-git.git && cd nerd-fonts-git && makepkg -si && cd ..
+git clone https://aur.archlinux.org/rofi-wifi-menu-git.git && cd rofi-wifi-menu-git && makepkg -si && cd ..
 git clone https://github.com/redkittty/shell-color-scripts.git && cd shell-color-scripts && makepkg -si && cd ..
 chmod +x ./gitsetup.sh
 source ./gitsetup.sh

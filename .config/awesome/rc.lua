@@ -55,6 +55,7 @@ beautiful.border_width = 1.5
 
 -- Autostart Programs
 awful.spawn.with_shell("picom")
+awful.spawn.with_shell("flameshot")
 awful.spawn.with_shell("xrandr --output HDMI-1 --primary --mode 1920x1080 --rate 144.00 --output eDP-1 --mode 1920x1080 --rate 59.98 --left-of HDMI-1")
 
 
@@ -71,6 +72,7 @@ altab = "rofi -show window"
 calculator = "rofi -show calc"
 emoji = "rofi -show emoji"
 power = "powermenu.sh"
+wifi = "rofi-wifi-menu"
 
 -- Default modkey.
 -- Usually, Mod4 is the key with a logo between Control and Alt.
@@ -278,8 +280,6 @@ globalkeys = gears.table.join(
         end,
         {description = "focus previous by index", group = "client"}
     ),
-    awful.key({ modkey,           }, "w", function () mymainmenu:show() end,
-              {description = "show main menu", group = "awesome"}),
 
     -- Layout manipulation
     awful.key({ modkey, "Shift"   }, "j", function () awful.client.swap.byidx(  1)    end,
@@ -368,8 +368,9 @@ globalkeys = gears.table.join(
               {description = "opens up emoji select", group = "launcher"}),
     awful.key({ modkey,           }, "p", function () awful.spawn(power) end,
               {description = "opens up power-menu", group = "launcher"}),
-    awful.key({ modkey,           }, "t", function () awful.spawn(editor_cmd) end,
-              {description = "lanches text editor", group = "launcher"})
+    awful.key({ modkey,           }, "w", function () awful.spawn(wifi) end,
+              {description = "shows wifi menu", group = "launcher"})
+
 )
 
 clientkeys = gears.table.join(
