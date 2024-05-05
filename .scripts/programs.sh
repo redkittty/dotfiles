@@ -14,8 +14,8 @@ select choice in "${options[@]}"; do
       # ZSH Setup
       chsh -s /bin/zsh
       # Plugin Setup
-      git clone https://github.com/zsh-users/zsh-autosuggestions ~/.zsh/zsh-autosuggestions
-      git clone https://github.com/zsh-users/zsh-syntax-highlighting.git ~/.zsh/zsh-syntax-highlighting/
+      git clone https://github.com/zsh-users/zsh-autosuggestions ~/.config/zsh/plugins/zsh-autosuggestions
+      git clone https://github.com/zsh-users/zsh-syntax-highlighting.git ~/.config/zsh/plugins/zsh-syntax-highlighting/
 
       # Bluetooth Setup
       sudo systemctl start bluetooth.service
