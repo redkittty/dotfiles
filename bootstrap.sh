@@ -38,7 +38,7 @@ for item in "$dotfiles_dir"*; do
 done
 
 # Copies Scripts over to the bin directory
-chmod +x root/usr/local/bin/powermenu.sh && sudo cp -r root/usr/local/bin/powermenu.sh /usr/local/bin
+sudo cp root/usr/share/libalpm/hooks/dash-binsh.hook /usr/share/libalpm/hooks
 # Add more scripts here as needed
 
 echo "Copy process complete."
