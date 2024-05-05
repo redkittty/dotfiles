@@ -3,7 +3,7 @@
 # For the Rust Shortcuts, Modify the path for your own rust folder
 
 # History
-HISTFILE=~/.zsh_history
+HISTFILE=~/.config/zsh/.zsh_history
 HISTSIZE=3000
 SAVEHIST=3000
 setopt appendhistory
@@ -128,9 +128,11 @@ alias rpr="cd target/release"
 alias rpd="cd target/debug"
 
 # Plugins
-git clone https://github.com/zsh-users/zsh-autosuggestions ~/.zsh/zsh-autosuggestions
-git clone https://github.com/zsh-users/zsh-syntax-highlighting.git ~/.zsh/zsh-syntax-highlighting/
+git clone https://github.com/zsh-users/zsh-autosuggestions ~/.config/zsh/plugins/zsh-autosuggestions
+git clone https://github.com/zsh-users/zsh-syntax-highlighting.git ~/.config/zsh/plugins/zsh-syntax-highlighting/
+# Clear and Color Script
 clear
 colorscript -r
-source ~/.zsh/zsh-autosuggestions/zsh-autosuggestions.zsh
-source ~/.zsh/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
+# Loads Plugins
+source ~/.config/zsh/plugins/zsh-autosuggestions/zsh-autosuggestions.zsh
+source ~/.config/zsh/plugins/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
