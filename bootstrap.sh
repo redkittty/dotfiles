@@ -14,6 +14,7 @@ blacklist=(
     bootstrap.sh
     .scripts
     root
+    .screenshots
     # Add more files and directories to exclude as needed
 )
 
