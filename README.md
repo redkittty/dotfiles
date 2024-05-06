@@ -1,6 +1,6 @@
 # dotfiles
 
-[Screenshot of my dotfiles](https://github.com/redkittty/dotfiles/blob/main/.screenshots/dotfiles1.png)
+![Screenshot of my dotfiles](https://github.com/redkittty/dotfiles/blob/main/.screenshots/dotfiles1.png)
 
 # NOTE: These are only intended for Arch Linux
 These are my dotfiles
