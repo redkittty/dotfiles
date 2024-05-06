@@ -1,6 +1,8 @@
 # dotfiles
 
-# NOTE: These are only mean't for ARCH Linux
+[Screenshot of my dotfiles](https://github.com/redkittty/dotfiles/blob/main/.screenshots/dotfiles1.png)
+
+# NOTE: These are only intended for Arch Linux
 These are my dotfiles
 
 In order to install my dotfiles do this:
