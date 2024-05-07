@@ -32,6 +32,7 @@ bindkey '^[[1;5C' forward-word
 # Aliases
 # Neofetch to Neowofetch
 alias neofetch="neowofetch"
+
 # Sudo to Doas
 alias sudo="doas"
 
@@ -41,12 +42,30 @@ alias doas="doas --"
 # Pacman Aliases
 alias pacsyu="doas pacman -Syyu"
 alias pacs="doas pacman -S"
+alias pacsy="doas pacman -Syy"
 alias pacrem="doas pacman -R"
-alias parsya="paru -Sua --noconfirm"
+
+# Aur Helper Aliases
+alias parsyu="paru -Sua --noconfirm"
 alias yaysyu="yay -Syu"
 
-# Ls Colors
-alias ls="ls -lAh --color=auto"
+# ls to exa
+alias ls='eza -al --color=always --group-directories-first --icons' # my preferred listing
+alias la='eza -a --color=always --group-directories-first --icons'  # all files and dirs
+alias ll='eza -l --color=always --group-directories-first --icons'  # long format
+alias lt='eza -aT --color=always --group-directories-first --icons' # tree listing
+alias l1='eza -al --color=always --group-directories-first --icons ../' # ls on the PARENT directory
+alias l2='eza -al --color=always --group-directories-first --icons ../../' # ls on directory 2 levels up
+alias l3='eza -al --color=always --group-directories-first --icons ../../../' # ls on directory 3 levels up
+alias l4='eza -al --color=always --group-directories-first --icons ../../../../' # ls on directory 4 levels up
+alias l5='eza -al --color=always --group-directories-first --icons ../../../../../' # ls on directory 5 levels up
+alias l6='eza -al --color=always --group-directories-first --icons ../../../../../../' # ls on directory 6 levels up
+alias l7='eza -al --color=always --group-directories-first --icons ../../../../../../../' # ls on directory 7 levels up
+alias l8='eza -al --color=always --group-directories-first --icons ../../../../../../../../' # ls on directory 8 levels up
+alias l9='eza -al --color=always --group-directories-first --icons ../../../../../../../../../' # ls on directory 9 levels up
+
+# the terminal rickroll
+alias rr='curl -s -L https://raw.githubusercontent.com/keroserene/rickrollrc/master/roll.sh | bash'
 
 # Kitty kitten aliases
 alias icat="kitten icat"
@@ -93,6 +112,10 @@ function ex {
 fi
 }
 
+# E and F grep aliases
+alias egrep="grep -E"
+alias fgrep="grep -F"
+
 # Parent Directory alias
 alias 1.="cd .."
 alias 2.="cd ../.."
@@ -127,12 +150,27 @@ alias rcr="cargo run"
 alias rpr="cd target/release"
 alias rpd="cd target/debug"
 
-# Plugins
-git clone https://github.com/zsh-users/zsh-autosuggestions ~/.config/zsh/plugins/zsh-autosuggestions
-git clone https://github.com/zsh-users/zsh-syntax-highlighting.git ~/.config/zsh/plugins/zsh-syntax-highlighting/
+# Keybinds
+# Delete previous word with ctrl+backspace
+bindkey '^H' backward-kill-word
+
+# Undo with Shift+Tab
+bindkey '^[[Z' undo
+
+# Beginning of line with HOME
+bindkey '^[[H' beginning-of-line
+
+# End of line with END
+bindkey '^[[F' end-of-line
+
+# Navigate Words with Ctrl+Arrows
+bindkey '^[[1;5D' backward-word
+bindkey '^[[1;5C' forward-word
+
 # Clear and Color Script
 clear
 colorscript -r
+
 # Loads Plugins
 source ~/.config/zsh/plugins/zsh-autosuggestions/zsh-autosuggestions.zsh
 source ~/.config/zsh/plugins/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
