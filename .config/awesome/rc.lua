@@ -66,6 +66,7 @@ steam = "steam"
 terminal = "kitty"
 editor = "nvim"
 editor_cmd = terminal .. " -e " .. editor
+edit = "emacs"
 
 -- Menus (Rofi)
 menu = "rofi -show drun"
@@ -357,6 +358,8 @@ globalkeys = gears.table.join(
               {description = "opens web browser", group = "launcher"}),
     awful.key({ modkey,           }, "g", function () awful.spawn(steam) end,
               {description = "opens steam", group = "launcher"}),
+    awful.key({ modkey,           }, "t", function () awful.spawn(edit) end,
+              {description = "opens text editor", group = "launcher"}),
 
     -- Prompt
     awful.key({ modkey,           }, "r", function () awful.spawn(menu) end,

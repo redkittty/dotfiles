@@ -12,7 +12,7 @@ setopt appendhistory
 autoload -U colors && colors
 PS1="%B%{$fg[red]%}[%{$fg[yellow]%}%n%{$fg[green]%}@%{$fg[blue]%}%M %{$fg[magenta]%}%~%{$fg[red]%}]%{$reset_color%}$%b "
 
-# Keybinds
+### Keybinds ###
 # Delete previous word with ctrl+backspace
 bindkey '^H' backward-kill-word
 
@@ -29,7 +29,8 @@ bindkey '^[[F' end-of-line
 bindkey '^[[1;5D' backward-word
 bindkey '^[[1;5C' forward-word
 
-# Aliases
+### Aliases ###
+### GENERAL ###
 # Neofetch to Neowofetch
 alias neofetch="neowofetch"
 
@@ -133,15 +134,25 @@ alias ~="cd ~"
 # Previous Directory
 alias c-="cd -"
 
+### TEXT EDITORS ###
+
+# Neovim
+alias vi="nvim"
+alias vim="nvim"
+
+# Emacs
+# GUI EMACS
+alias em="emacs"
+# TERM Emacs
+alias emt="emacs -nw"
+
+### CODE ###
+
 # Rust Folder
 alias rs="cd ~/Documents/Code/Rust"
 
 # Code Folder
 alias co="cd ~/Documents/Code"
-
-# Neovim
-alias vi="nvim"
-alias vim="nvim"
 
 # Rust Build
 alias rbr="cargo build --release"
@@ -149,23 +160,6 @@ alias rbd="cargo build"
 alias rcr="cargo run"
 alias rpr="cd target/release"
 alias rpd="cd target/debug"
-
-# Keybinds
-# Delete previous word with ctrl+backspace
-bindkey '^H' backward-kill-word
-
-# Undo with Shift+Tab
-bindkey '^[[Z' undo
-
-# Beginning of line with HOME
-bindkey '^[[H' beginning-of-line
-
-# End of line with END
-bindkey '^[[F' end-of-line
-
-# Navigate Words with Ctrl+Arrows
-bindkey '^[[1;5D' backward-word
-bindkey '^[[1;5C' forward-word
 
 # Clear and Color Script
 clear

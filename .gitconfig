@@ -1,5 +1,5 @@
 [core]
-  editor = nvim
+  editor = emacs
 
 [color "branch"]
   current = green
@@ -17,3 +17,6 @@
 
 [help]
   autocorrect = 1
+[user]
+	name = redkittty
+	email = 114357508+redkittty@users.noreply.github.com
