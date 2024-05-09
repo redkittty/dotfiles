@@ -57,6 +57,9 @@ beautiful.border_width = 1.5
 awful.spawn.with_shell("picom")
 awful.spawn.with_shell("nm-applet")
 awful.spawn.with_shell("flameshot")
+-- Emacs Server Daemon (REMOVE IF NOT USING EMACS)
+awful.spawn.with_shell("/usr/bin/emacs --daemon &")
+-- Custom Montior config (REMOVE IF MONITORS CHANGED) (ONLY INCLUDED FOR PERSONAL SETUP)
 awful.spawn.with_shell("xrandr --output HDMI-1 --primary --mode 1920x1080 --rate 144.00 --output eDP-1 --mode 1920x1080 --rate 59.98 --left-of HDMI-1")
 
 
@@ -64,9 +67,10 @@ awful.spawn.with_shell("xrandr --output HDMI-1 --primary --mode 1920x1080 --rate
 browser = "firefox"
 steam = "steam"
 terminal = "kitty"
-editor = "nvim"
-editor_cmd = terminal .. " -e " .. editor
-edit = "emacs"
+edit = "emacsclient -c -a 'emacs'"
+
+-- If you have an editor like nvim or nano as edit
+editor_cmd = terminal .. " -e " .. edit
 
 -- Menus (Rofi)
 menu = "rofi -show drun"

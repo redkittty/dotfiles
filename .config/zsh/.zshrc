@@ -142,7 +142,7 @@ alias vim="nvim"
 
 # Emacs
 # GUI EMACS
-alias em="emacs"
+alias em="emacsclient -c -a 'emacs'"
 # TERM Emacs
 alias emt="emacs -nw"
 
