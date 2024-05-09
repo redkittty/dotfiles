@@ -3,10 +3,10 @@
 #
 
 # Makes PATH ~/.local/bin
-export PATH="$PATH:$HOME/.local/bin"
+export PATH="$PATH:$HOME/.local/bin:$HOME/.config/emacs/bin"
 1
 # Default Programs
-export EDITOR="nvim"
+export EDITOR="emacs"
 export TERMINAL="kitty"
 export BROWSER="Firefox"
 
