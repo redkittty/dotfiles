@@ -47,7 +47,9 @@ alias pacsy="doas pacman -Syy"
 alias pacrem="doas pacman -R"
 
 # Aur Helper Aliases
-alias parsyu="paru -Sua --noconfirm"
+alias parusyu="paru -Sua --noconfirm"
+alias parus="paru -S"
+alias yays="yay -S"
 alias yaysyu="yay -Syu"
 
 # ls to exa
