@@ -57,6 +57,7 @@ beautiful.border_width = 1.5
 awful.spawn.with_shell("picom")
 awful.spawn.with_shell("nm-applet")
 awful.spawn.with_shell("flameshot")
+awful.spawn.with_shell("conky")
 -- Emacs Server Daemon (REMOVE IF NOT USING EMACS)
 awful.spawn.with_shell("/usr/bin/emacs --daemon &")
 -- Custom Montior config (REMOVE IF MONITORS CHANGED) (ONLY INCLUDED FOR PERSONAL SETUP)

@@ -13,13 +13,13 @@ select wm in "${options[@]}"; do
       ;;
     "Awesome")
       WM="AWESOME"
-      sudo pacman -Syyu picom blueman rofi rofi-emoji rofi-calc flameshot
+      sudo pacman -Syyu picom blueman rofi rofi-emoji rofi-calc flameshot conky
       # Xrandr Monitor Settings
       xrandr --output HDMI-1 --primary --mode 1920x1080 --rate 144.00 --output eDP-1 --mode 1920x1080 --rate 59.98 --left-of HDMI-1
       git clone https://github.com/streetturtle/awesome-wm-widgets.git ~/.config/awesome/awesome-wm-widgets
       rm -rf ~/.config/waybar ~/.config/hypr
       ;;
-      ;;
+
     "OtherX11")
       WM="OTHERX11"
       xrandr --output HDMI-1 --primary --mode 1920x1080 --rate 144.00 --output eDP-1 --mode 1920x1080 --rate 59.98 --left-of HDMI-1
