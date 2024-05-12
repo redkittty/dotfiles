@@ -8,6 +8,7 @@ export PATH="$PATH:$HOME/.local/bin:$HOME/.config/emacs/bin"
 # Default Programs
 export EDITOR="emacs"
 export TERMINAL="kitty"
+export TERM="kitty"
 export BROWSER="Firefox"
 
 # ~/Cleanup
@@ -15,4 +16,3 @@ export BROWSER="Firefox"
 export XDG_CONFIG_HOME="$HOME/.config"
 export XDG_DATA_HOME="$HOME/.local/share"
 export XDG_CACHE_HOME="$HOME/.cache"
-export ZDOTDIR="$XDG_CONFIG_HOME/zsh"

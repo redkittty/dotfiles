@@ -10,7 +10,7 @@ setopt appendhistory
 
 # Use my zsh prompt
 autoload -U colors && colors
-PS1="%B%{$fg[red]%}[%{$fg[yellow]%}%n%{$fg[green]%}@%{$fg[blue]%}%M %{$fg[magenta]%}%~%{$fg[red]%}]%{$reset_color%}$%b "
+#PS1="%B%{$fg[red]%}[%{$fg[yellow]%}%n%{$fg[green]%}@%{$fg[blue]%}%M %{$fg[magenta]%}%~%{$fg[red]%}]%{$reset_color%}$%b "
 
 ### Keybinds ###
 # Delete previous word with ctrl+backspace
@@ -45,6 +45,7 @@ alias pacsyu="doas pacman -Syyu"
 alias pacs="doas pacman -S"
 alias pacsy="doas pacman -Syy"
 alias pacrem="doas pacman -R"
+alias pacrems="doas pacman -Rs"
 
 # Aur Helper Aliases
 alias parusyu="paru -Sua --noconfirm"
@@ -170,3 +171,4 @@ colorscript -r
 # Loads Plugins
 source ~/.config/zsh/plugins/zsh-autosuggestions/zsh-autosuggestions.zsh
 source ~/.config/zsh/plugins/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
+eval "$(starship init zsh)"
