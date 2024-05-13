@@ -6,7 +6,7 @@ select choice in "${options[@]}"; do
   case $choice in
     "Yes")
       CHOICE="YES"  # Assuming Manjaro uses Arch package manager (pacman)
-      sudo pacman -Syy emacs eza doas dash pcmanfm htop zsh git steam mpv rust rust-analyzer neovim python3 kitty qbittorrent firefox bluez bluez-utils base-devel man-db ttf-font-awesome noto-fonts-emoji hyfetch || echo "This script only supports Arch-based Distros"
+      sudo pacman -Syy emacs fish eza doas dash pcmanfm htop zsh git steam mpv rust rust-analyzer neovim python3 kitty qbittorrent firefox bluez bluez-utils base-devel man-db ttf-font-awesome noto-fonts-emoji hyfetch || echo "This script only supports Arch-based Distros"
 
       # Dash Setup
       mkdir ~/bin && sudo mv /bin/sh ~/bin/sh.bak && sudo ln -s /usr/bin/dash /bin/sh
@@ -14,8 +14,9 @@ select choice in "${options[@]}"; do
       # DOOM EMACS Setup
       git clone --depth 1 https://github.com/doomemacs/doomemacs ~/.config/emacs && ~/.config/emacs/bin/doom install
 
-      # ZSH Setup
-      chsh -s /bin/zsh
+      # Fish Setup
+      chsh -s /bin/fish
+
       # Plugin Setup
       git clone https://github.com/zsh-users/zsh-autosuggestions ~/.config/zsh/plugins/zsh-autosuggestions
       git clone https://github.com/zsh-users/zsh-syntax-highlighting.git ~/.config/zsh/plugins/zsh-syntax-highlighting/
