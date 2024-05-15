@@ -52,4 +52,10 @@ keybind("i", "<C-w>", "<cmd>w<CR>")
 
 -- Nvim Tree Toggle
 keybind("n", "<space>e", "<cmd>NvimTreeToggle<CR>")
-keybind("n", "<S-e>", "<cmd>NvimTreeFocus<CR>")
+keybind("n", "<space>we", "<cmd>NvimTreeFocus<CR>")
+
+-- Neogit
+keybind("n", "<space>gg", "<cmd>Neogit<CR>")
+
+-- Telescope
+keybind("n", "<space>f", "<cmd>Telescope<CR>")
