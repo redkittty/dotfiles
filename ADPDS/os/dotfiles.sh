@@ -1,6 +1,7 @@
 #!/bin/bash
 
-# Dotfiles directory (current directory)
+# Dotfiles directory (2 directories back)
+cd ..
 dotfiles_dir="./"
 
 # Blacklist of files and directories to exclude from copying
@@ -10,9 +11,8 @@ blacklist=(
     .DS_Store
     LICENSE
     README.md
-    CONFIGS.md
-    bootstrap.sh
-    .scripts
+    ADPDS
+    man.md
     root
     .screenshots
     # Add more files and directories to exclude as needed
@@ -38,12 +38,7 @@ for item in "$dotfiles_dir"*; do
     fi
 done
 
-# Copies Scripts over to the bin directory
-sudo cp root/usr/share/libalpm/hooks/dash-binsh.hook /usr/share/libalpm/hooks
-# Add more scripts here as needed
+# Doom Emacs setup
+~/.config/emacs/bin/doom sync
 
 echo "Copy process complete."
-echo "Now installing Programs"
-cd .scripts
-chmod +x ./programs.sh
-source ./programs.sh

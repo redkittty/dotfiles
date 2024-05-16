@@ -22,19 +22,19 @@ cd dotfiles
 After that, give execute permissions to bootstrap.sh:
 
 ```zsh
-chmod +x bootstrap.sh
+chmod +x ADPDS/boot.sh
 ```
 
 Finally, execute bootstrap.sh:
 
 ```zsh
-./bootstrap.sh
+bash ADPDS/boot.sh
 ```
 
 To do it in one line, do this
 
 ```zsh
-git clone https://github.com/redkittty/dotfiles.git && cd dotfiles && chmod +x bootstrap.sh && ./bootstrap.sh
+git clone https://github.com/redkittty/dotfiles.git && cd dotfiles && chmod +x ADPDS/boot.sh && bash ADPDS/boot.sh
 ```
 
 
@@ -48,4 +48,4 @@ My dotfiles include configs for
 
 - Git
 
-- Neovim
+- Doom Emacs
