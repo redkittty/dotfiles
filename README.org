@@ -4,6 +4,8 @@
 
 [[https://github.com/redkittty/dotfiles/blob/main/.screenshots/dotfiles1.png]]
 
+
+These are my dotfiles
 * Install
 In order to install my dotfiles do this:
 
@@ -12,6 +14,8 @@ git clone https://github.com/redkittty/dotfiles.git && cd dotfiles && chmod +x A
 #+end_src
 
 A script will automatically be loaded to install the dotfiles and related programs
+
+The script is based on another project I have called [[https://github.com/redkittty/ADPDS][ADPDS (Automated Dotfiles and Programs Deployment Script)]]
 
 Currently, the Script only supports Arch Linux
 
