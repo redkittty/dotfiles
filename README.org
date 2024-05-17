@@ -1,0 +1,29 @@
+#+title: dotfiles
+#+author: Envixty (redkittty on Github)
+#+startup: showeverything
+
+[[https://github.com/redkittty/dotfiles/blob/main/.screenshots/dotfiles1.png]]
+
+* Install
+In order to install my dotfiles do this:
+
+#+begin_src zsh
+git clone https://github.com/redkittty/dotfiles.git && cd dotfiles && chmod +x ADPDS/boot.sh && bash ADPDS/boot.sh
+#+end_src
+
+A script will automatically be loaded to install the dotfiles and related programs
+
+Currently, the Script only supports Arch Linux
+
+
+My dotfiles contain configs for:
+
+- Alacritty
+
+- AwesomeWM
+
+- ZSH
+
+- Git
+
+- Doom Emacs
