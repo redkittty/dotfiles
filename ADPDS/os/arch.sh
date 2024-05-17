@@ -39,7 +39,7 @@ function install_software() {
   echo -e "${yellow}Updating Software and Repos...${reset}"
   sudo pacman -Syyu
   echo -e "${yellow}Now installing packages!${reset}"
-  sudo pacman -S emacs fish eza doas dash pcmanfm htop zsh git steam mpv unzip rust rust-analyzer blueman neovim python3 kitty qbittorrent firefox bluez bluez-utils base-devel man-db ttf-font-awesome pyright noto-fonts-emoji hyfetch || echo -e "${red}This script only supports Arch-based Distros${reset}"; sleep 3.5; exit 1
+  sudo pacman -S emacs fish eza doas dash pcmanfm htop zsh alacritty tmux git steam mpv unzip rust rust-analyzer blueman neovim python3 kitty qbittorrent firefox bluez bluez-utils base-devel man-db ttf-font-awesome pyright noto-fonts-emoji hyfetch || echo -e "${red}This script only supports Arch-based Distros${reset}"; sleep 3.5; exit 1
   echo -e "${green}Done installing software!${reset}"
   echo -e "${yellow}Now installing AUR packages!${reset}"
   git clone https://aur.archlinux.org/paru.git && cd paru && makepkg -si

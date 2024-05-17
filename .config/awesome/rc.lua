@@ -67,7 +67,7 @@ awful.spawn.with_shell("xrandr --output HDMI-1 --primary --mode 1920x1080 --rate
 -- This is used later as the default terminal and editor to run.
 browser = "firefox"
 steam = "steam"
-terminal = "kitty"
+terminal = "alacritty -e tmux"
 edit = "emacsclient -c -a 'emacs'"
 
 -- If you have an editor like nvim or nano as edit
@@ -119,8 +119,16 @@ myawesomemenu = {
    { "quit", function() awesome.quit() end },
 }
 
-mymainmenu = awful.menu({ items = { { "awesome", myawesomemenu, beautiful.awesome_icon },
-                                    { "open terminal", terminal }
+myinternetmenu = {
+    { "Firefox", browser },
+    { "qBittorrent", "qbittorrent" },
+}
+
+mymainmenu = awful.menu({ items = { { "Internet", myinternetmenu },
+                                    { "Awesome", myawesomemenu, beautiful.awesome_icon },
+                                    { "Open Terminal", terminal },
+                                    { "Open Text Editor", edit },
+                                    { "Open Steam", steam }
                                   }
                         })
 
