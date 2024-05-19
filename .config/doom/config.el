@@ -60,6 +60,24 @@
 (map! :leader
       :desc "Vterm popup toggle"     "v t" #'+vterm/toggle)
 
+;;;NEOTREE;;;
+
+(after! neotree
+  (setq neo-smart-open t
+        neo-window-fixed-size nil))
+(after! doom-themes
+  (setq doom-neotree-enable-variable-pitch t))
+(map! :leader
+      :desc "Toggle treemacs file viewer" "t e" #'+treemacs/toggle)
+
+;;; MINIMAP ;;;
+
+(setq minimap-window-location 'right)
+(map! :leader
+      (:prefix ("t" . "toggle")
+       :desc "Toggle minimap-mode" "m" #'minimap-mode))
+
+
 ;;; ORG MODE ;;;
 ;; GENERAL ;;
 
