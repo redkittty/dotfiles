@@ -45,33 +45,25 @@
 ;; `load-theme' function. This is the default:
 ;; doom-one if broken
 
+;;; THEME ;;;
 (setq doom-theme 'doom-gruvbox)
 
 ;; LINE NUMBERS ;;
 ;; To disable set to nil, for relative, set to relative
-
 (setq display-line-numbers-type 1)
 
 
 ;;; VTERM ;;;
-
 (setq shell-file-name "/bin/fish"
       vterm-max-scrollback 5000)
 (map! :leader
       :desc "Vterm popup toggle"     "v t" #'+vterm/toggle)
 
-;;;NEOTREE;;;
-
-(after! neotree
-  (setq neo-smart-open t
-        neo-window-fixed-size nil))
-(after! doom-themes
-  (setq doom-neotree-enable-variable-pitch t))
+;;; TREEMACS ;;;
 (map! :leader
       :desc "Toggle treemacs file viewer" "t e" #'+treemacs/toggle)
 
 ;;; MINIMAP ;;;
-
 (setq minimap-window-location 'right)
 (map! :leader
       (:prefix ("t" . "toggle")
