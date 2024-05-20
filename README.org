@@ -31,3 +31,6 @@ My dotfiles contain configs for:
 - Git
 
 - Doom Emacs
+
+For a manual here it is:
+[[https://github.com/redkittty/dotfiles/blob/main/man.org][Manual]]
