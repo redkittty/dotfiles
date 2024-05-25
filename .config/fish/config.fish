@@ -1,33 +1,24 @@
-### ENVIXTY'S FISH CONFIG ###
-
-# PATH
+#!/bin/fish
 set -e fish_user_paths
 set -U fish_user_paths $HOME/.local/bin $HOME/.config/emacs/bin /var/lib/flatpak/app $fish_user_paths
 
-### EXPORT ###
 set fish_greeting                                 # Supresses fish's intro message
 set TERM "xterm-256color"                         # Sets the terminal type
 set EDITOR "emacsclient -nw        "              # $EDITOR use Emacs in terminal
 set VISUAL "emacsclient -c -a emacs"              # $VISUAL use Emacs in GUI mode
 
-### "nvim" as manpager
+### "nvim" as manpager ###
 set -x MANPAGER "nvim +Man!"
 
-### Vi-Keybindings
+### Vi-Keybindings ###
 fish_vi_key_bindings
 
-### AUTOCOMPLETE AND HIGHLIGHT COLORS ###
 set fish_color_normal gray
 set fish_color_autosuggestion '545454'
 set fish_color_command green
 set fish_color_error 'fc0000'
 set fish_color_param gray
 
-### FUNCTIONS ###
-
-# Function for creating a backup file
-# ex: backup file.txt
-# result: copies file as file.txt.bak
 function backup --argument filename
     cp $filename $filename.bak
 end
@@ -77,9 +68,6 @@ function ex
     end
 end
 
-
-### Aliases ###
-### GENERAL ###
 # Neofetch to Neowofetch
 alias neofetch="neowofetch"
 
@@ -89,50 +77,33 @@ alias sudo="doas"
 # Doas
 alias doas="doas --"
 
-# Pacman Aliases
-alias pacsyu="doas pacman -Syyu"
-alias pacs="doas pacman -S"
-alias pacsy="doas pacman -Syy"
-alias pacrem="doas pacman -R"
-alias pacrems="doas pacman -Rs"
-alias pacun="doas rm /var/lib/pacman/db.lck"
-
-# Aur Helper Aliases
-alias parusyu="paru -Sua --noconfirm"
-alias parus="paru -S"
-alias yays="yay -S"
-alias yaysyu="yay -Syu"
-
-# ls to exa
-alias ls='eza -al --color=always --group-directories-first --icons' # my preferred listing
-alias la='eza -a --color=always --group-directories-first --icons'  # all files and dirs
-alias ll='eza -l --color=always --group-directories-first --icons'  # long format
-alias lt='eza -aT --color=always --group-directories-first --icons' # tree listing
-alias l1='eza -al --color=always --group-directories-first --icons ../' # ls on the PARENT directory
-alias l2='eza -al --color=always --group-directories-first --icons ../../' # ls on directory 2 levels up
-alias l3='eza -al --color=always --group-directories-first --icons ../../../' # ls on directory 3 levels up
-alias l4='eza -al --color=always --group-directories-first --icons ../../../../' # ls on directory 4 levels up
-alias l5='eza -al --color=always --group-directories-first --icons ../../../../../' # ls on directory 5 levels up
-alias l6='eza -al --color=always --group-directories-first --icons ../../../../../../' # ls on directory 6 levels up
-alias l7='eza -al --color=always --group-directories-first --icons ../../../../../../../' # ls on directory 7 levels up
-alias l8='eza -al --color=always --group-directories-first --icons ../../../../../../../../' # ls on directory 8 levels up
-alias l9='eza -al --color=always --group-directories-first --icons ../../../../../../../../../' # ls on directory 9 levels up
-
-# the terminal rickroll
-alias rr='curl -s -L https://raw.githubusercontent.com/keroserene/rickrollrc/master/roll.sh | bash'
-
-# Kitty kitten aliases
+# Icat
 alias icat="kitten icat"
 
-# Htop alias
-alias top="htop"
+# The Terminal Rickroll
+alias rr="curl -s -L https://raw.githubusercontent.com/keroserene/rickrollrc/master/roll.sh | bash"
+
+# ls to exa
+alias ls="eza -al --color=always --group-directories-first --icons" # my preferred listing
+alias la="eza -a --color=always --group-directories-first --icons"  # all files and dirs
+alias ll="eza -l --color=always --group-directories-first --icons"  # long format
+alias lt="eza -aT --color=always --group-directories-first --icons" # tree listing
+alias l1="eza -al --color=always --group-directories-first --icons ../" # ls on the PARENT directory
+alias l2="eza -al --color=always --group-directories-first --icons ../../" # ls on directory 2 levels up
+alias l3="eza -al --color=always --group-directories-first --icons ../../../" # ls on directory 3 levels up
+alias l4="eza -al --color=always --group-directories-first --icons ../../../../" # ls on directory 4 levels up
+alias l5="eza -al --color=always --group-directories-first --icons ../../../../../" # ls on directory 5 levels up
+alias l6="eza -al --color=always --group-directories-first --icons ../../../../../../" # ls on directory 6 levels up
+alias l7="eza -al --color=always --group-directories-first --icons ../../../../../../../" # ls on directory 7 levels up
+alias l8="eza -al --color=always --group-directories-first --icons ../../../../../../../../" # ls on directory 8 levels up
+alias l9="eza -al --color=always --group-directories-first --icons ../../../../../../../../../" # ls on directory 9 levels up
 
 # E and F grep aliases
 alias egrep="grep -E"
 alias fgrep="grep -F"
 
-# Interactive CP Command
-# Asks you if you want to overwrite a file
+# Interactive cp command
+# Asks to overwrite
 alias cp="cp -i"
 
 # Parent Directory alias
@@ -152,35 +123,32 @@ alias c~="cd ~"
 # Previous Directory
 alias c-="cd -"
 
-### TEXT EDITORS ###
+alias pacsyu="doas pacman -Syyu"
+alias pacs="doas pacman -S"
+alias pacsy="doas pacman -Syy"
+alias pacrem="doas pacman -R"
+alias pacrems="doas pacman -Rs"
+alias pacun="doas rm /var/lib/pacman/db.lck"
 
-# Neovim
+alias parusyu="paru -Sua --noconfirm"
+alias parus="paru -S"
+alias yays="yay -S"
+alias yaysyu="yay -Syu"
+
 alias vi="nvim"
 alias vim="nvim"
 
-# Emacs
-# GUI EMACS
-alias em="emacsclient -c -a 'emacs'"
-# TERM Emacs
-alias emt="emacs -nw"
+alias em="emacs -nw"
 
-### CODE ###
-
-# Rust Folder
 alias rs="cd ~/Documents/Code/Rust"
-
-# Code Folder
 alias co="cd ~/Documents/Code"
 
-# Rust Build
 alias rbr="cargo build --release"
 alias rbd="cargo build"
 alias rcr="cargo run"
 alias rpr="cd target/release"
 alias rpd="cd target/debug"
 
-### RANDOM COLOR SCRIPT ###
 colorscript -r
 
-### SETTING THE STARSHIP PROMPT ###
 starship init fish | source
