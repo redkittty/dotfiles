@@ -1,7 +1,23 @@
 #+title: AwesomeWM Config
 #+PROPERTY: header-args :tangle rc.lua
 
-* AwesomeWM Config
+* Table Of Contents :toc:
+- [[#about-this-config][About this Config]]
+- [[#imports][Imports]]
+- [[#error-handling][Error Handling]]
+- [[#theme][Theme]]
+- [[#autostart][Autostart]]
+- [[#application-variables][Application Variables]]
+- [[#layouts][Layouts]]
+- [[#menu][Menu]]
+- [[#wibar-monitors-and-wallpaper][Wibar, Monitors, and Wallpaper]]
+- [[#keybindings][Keybindings]]
+- [[#rules][Rules]]
+- [[#signals][Signals]]
+- [[#titlebar][Titlebar]]
+- [[#focus][Focus]]
+
+* About this Config
 [[https://awesomewm.org][AwesomeWM]] is a dynamic window manager based off of [[https://dwm.suckless.org][DWM]]. AwesomeWM is written in C and configured in Lua.
 Documentation can be found [[https://awesomewm.org/doc/api/][Here]].
 
@@ -11,6 +27,11 @@ My Github: https://github.com/redkittty
 My Mastodon (mastodon.social): https://mastodon.social/@envixty
 
 These Configs Are Made specifically for me and this is just a well documented way of doing this config
+
+Here is a screenshot of my config:
+[[https://github.com/redkittty/dotfiles/blob/main/.screenshots/dotfiles1.png]]
+
+
 
 * Imports
 These are necassary libraries that have to be loaded for this config
@@ -95,6 +116,7 @@ This automatically starts programs when the WM is launched
 | conky (System Monitor on the Wallpaper)        |
 | Emacs Daemon (Makes Emacs start quicker)       |
 | xrandr (My personal monitor configuration)     |
+|------------------------------------------------|
 
 #+begin_src lua
 awful.spawn.with_shell("picom")
