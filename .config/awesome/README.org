@@ -21,14 +21,20 @@
 [[https://awesomewm.org][AwesomeWM]] is a dynamic window manager based off of [[https://dwm.suckless.org][DWM]]. AwesomeWM is written in C and configured in Lua.
 Documentation can be found [[https://awesomewm.org/doc/api/][Here]].
 
+
 This is the AwesomeWM config of Envixty (redkittty on Github)
+
 My Personal Site: https://redkittty.github.io
+
 My Github: https://github.com/redkittty
+
 My Mastodon (mastodon.social): https://mastodon.social/@envixty
+
 
 These Configs Are Made specifically for me and this is just a well documented way of doing this config
 
 Here is a screenshot of my config:
+
 [[https://github.com/redkittty/dotfiles/blob/main/.screenshots/dotfiles1.png]]
 
 

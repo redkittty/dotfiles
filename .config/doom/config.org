@@ -1,0 +1,195 @@
+#+title: Doom Emacs Config
+#+PROPERTY: header-args :tangle config.el
+
+* Table of Contents :toc:
+- [[#about-this-config][About this Config]]
+- [[#theme][Theme]]
+- [[#line-numbers][Line Numbers]]
+- [[#vterm][Vterm]]
+- [[#neotree][Neotree]]
+- [[#minimap][Minimap]]
+- [[#org-mode][Org-Mode]]
+  - [[#general][General]]
+  - [[#font-size-headings][Font Size Headings]]
+
+* About this Config
+This is my personal [[https://github.com/doomemacs/doomemacs][Doom Emacs]] config. [[https://github.com/doomemacs/doomemacs][Doom Emacs]] is a configuration framework for [[https://gnu.org/software/emacs][GNU Emacs]]
+
+This config is made for my specific wants and needs and will be bloated for those
+
+
+This is the Doom Emacs config for Envixty (redkittty on Github)
+
+My Personal Site: https://redkittty.github.io
+
+My Github: https://github.com/redkittty
+
+My Mastodon (mastodon.social): https://mastodon.social/@envixty
+
+
+Screenshot of Doom Emacs Config:
+
+[[https://github.com/redkittty/dotfiles/blob/main/.screenshots/emacs-conf.png]]
+
+* Theme
+This segment defines theme and DOOMDIR
+
+For Themes,
+
+There are two ways to load a theme. Both assume the theme is installed and
+
+available. You can either set `doom-theme' or manually load a theme with the
+
+'load-theme' function.
+
+The theme is set to 'doom-gruvbox'
+
+
+For fonts, Doom exposes five (optional) variables for controlling fonts in Doom:
+
+|--------------------------------------------------------------------------------------------|
+| Font Variables                                                                             |
+|--------------------------------------------------------------------------------------------|
+| `doom-font' == the primary font to use                                                     |
+| `doom-variable-pitch-font' -- a non-monospace font (where applicable)                      |
+| `doom-big-font' -- used for `doom-big-font-mode'; use this for presentations or streaming. |
+| `doom-symbol-font' -- for symbols                                                          |
+| `doom-serif-font' -- for the `fixed-pitch-serif' fac                                       |
+|--------------------------------------------------------------------------------------------|
+
+#+begin_src emacs-lisp
+;;; $DOOMDIR/config.el -*- lexical-binding: t; -*-
+(setq doom-theme 'doom-gruvbox)
+#+end_src
+
+* Line Numbers
+This segment defines Line Numbers
+
+To disable line numbers set to nil, for relative line numbers, set to relative
+
+I set it to literal line numbers
+
+#+begin_src emacs-lisp
+(setq display-line-numbers-type 1)
+#+end_src
+
+* Vterm
+Vterm is a terminal Emulator available in Emacs
+
+This segment defines the shell Vterm uses, The max-scrollback,
+and the keybindings
+
+|---------------------------------|
+| Keybindings                     |
+|---------------------------------|
+| SPC v t (Toggles vterm's popup) |
+|---------------------------------|
+
+#+begin_src emacs-lisp
+(setq shell-file-name "/bin/fish"
+      vterm-max-scrollback 5000)
+(map! :leader
+      :desc "Vterm popup toggle"     "v t" #'+vterm/toggle)
+#+end_src
+
+* Neotree
+Neotree is a file tree for Emacs
+This segment is configs and keybindings for Neotree
+
+|---------------------------|
+| Keybindings               |
+|---------------------------|
+| SPC t e (Toggles Neotree) |
+|---------------------------|
+
+#+begin_src emacs-lisp
+(after! neotree
+  (setq neo-smart-open t
+        neo-window-fixed-size nil))
+(after! doom-themes
+  (setq doom-neotree-enable-variable-pitch t))
+(map! :leader
+      :desc "Toggle neotree file viewer" "t e" #'neotree-toggle)
+#+end_src
+
+* Minimap
+This segment is for the minimap plugin for Emacs and the keybindings
+
+The minimap is on the right of the screen
+
+|---------------------------|
+| Keybindings               |
+|---------------------------|
+| SPC t m (Toggles Minimap) |
+|---------------------------|
+
+#+begin_src emacs-lisp
+(setq minimap-window-location 'right)
+(map! :leader
+      (:prefix ("t" . "toggle")
+       :desc "Toggle minimap-mode" "m" #'minimap-mode))
+#+end_src
+
+* Org-Mode
+This segment is for configurations of [[https://orgmode.org/][Org-Mode]].
+
+
+[[https://orgmode.org][Org-Mode]] is a powerful note-taking feature and is what I am using to write this config.
+This is due to the fact that it is so powerful that I can turn these code blocks into actual
+code to execute.
+
+** General
+This segment is General Configs for Org-Mode along with a keybinding
+
+|--------------------------------------------------------|
+| Keybindings                                            |
+|--------------------------------------------------------|
+| SPC m B (Turns these src code blocks into actual code) |
+|--------------------------------------------------------|
+
+#+begin_src emacs-lisp
+(map! :leader
+      :desc "Org babel tangle" "m B" #'org-babel-tangle)
+(after! org
+  (setq org-directory "~/Documents/Org/"
+        org-default-notes-file (expand-file-name "notes.org" org-directory)
+        org-ellipsis " ▼ "
+        org-superstar-headline-bullets-list '("◉" "●" "○" "◆" "●" "○" "◆")
+        org-superstar-itembullet-alist '((?+ . ?➤) (?- . ?✦)) ; changes +/- symbols in item lists
+        org-log-done 'time
+        org-hide-emphasis-markers t
+        ;; ex. of org-link-abbrev-alist in action
+        ;; [[arch-wiki:Name_of_Page][Description]]
+        org-link-abbrev-alist    ; This overwrites the default Doom org-link-abbrev-list
+          '(("google" . "http://www.google.com/search?q=")
+            ("arch-wiki" . "https://wiki.archlinux.org/index.php/")
+            ("aw" . "https://wiki.archlinux.org/index,php/")
+            ("ddg" . "https://duckduckgo.com/?q=")
+            ("wiki" . "https://en.wikipedia.org/wiki/"))
+        org-table-convert-region-max-lines 20000
+        org-todo-keywords        ; This overwrites the default Doom org-todo-keywords
+          '((sequence
+             "TODO(t)"           ; A task that is ready to be tackled
+             "BLOG(b)"           ; Blog writing assignments
+             "GYM(g)"            ; Things to accomplish at the gym
+             "PROJ(p)"           ; A project that contains other tasks
+             "VIDEO(v)"          ; Video assignments
+             "WAIT(w)"           ; Something is holding up this task
+             "|"                 ; The pipe necessary to separate "active" states and "inactive" states
+             "DONE(d)"           ; Task has been completed
+             "CANCELLED(c)" )))) ; Task has been cancelled
+#+end_src
+
+** Font Size Headings
+This section defines how big the font and what the color are for the headings.
+
+These are based off-of Heading level
+
+#+begin_src emacs-lisp
+(custom-set-faces!
+  '(org-level-1 :height 1.5 :foreground "#B16286")
+  '(org-level-2 :height 1.3 :foreground "#8EC07C")
+  '(org-level-3 :height 1.2 :foreground "#D4879C")
+  '(org-level-4 :height 1.1 :foreground "#83A598")
+  '(org-level-5 :height 1.0 :foreground "#EEBD35"))
+#+end_src

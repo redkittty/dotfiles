@@ -1,85 +1,25 @@
 ;;; $DOOMDIR/config.el -*- lexical-binding: t; -*-
-;;
-;; ██████████                         ███               █████
-;;░░███░░░░░█                        ░░░               ░░███
-;; ░███  █ ░  ████████   █████ █████ ████  █████ █████ ███████   █████ ████
-;; ░██████   ░░███░░███ ░░███ ░░███ ░░███ ░░███ ░░███ ░░░███░   ░░███ ░███
-;; ░███░░█    ░███ ░███  ░███  ░███  ░███  ░░░█████░    ░███     ░███ ░███
-;; ░███ ░   █ ░███ ░███  ░░███ ███   ░███   ███░░░███   ░███ ███ ░███ ░███
-;; ██████████ ████ █████  ░░█████    █████ █████ █████  ░░█████  ░░███████
-;;░░░░░░░░░░ ░░░░ ░░░░░    ░░░░░    ░░░░░ ░░░░░ ░░░░░    ░░░░░    ░░░░░███
-;;                                                                ███ ░███
-;;                                                               ░░██████
-;;                                                                ░░░░░░
-;;
-
-;; ENVIXTY'S DOOM EMACS CONFIGURATION
-
-;; Place your private configuration here! Remember, you do not need to run 'doom sync' after modifying this file!
-
-;;; DOC ;;;
-;; Doom exposes five (optional) variables for controlling fonts in Doom:
-;;
-;; - `doom-font' -- the primary font to use
-;; - `doom-variable-pitch-font' -- a non-monospace font (where applicable)
-;; - `doom-big-font' -- used for `doom-big-font-mode'; use this for
-;;   presentations or streaming.
-;; - `doom-symbol-font' -- for symbols
-;; - `doom-serif-font' -- for the `fixed-pitch-serif' face
-;;
-;; Here are some additional functions/macros that will help you configure Doom.
-;;
-;; - `load!' for loading external *.el files relative to this one
-;; - `use-package!' for configuring packages
-;; - `after!' for running code after a package has loaded
-;; - `add-load-path!' for adding directories to the `load-path', relative to
-;;   this file. Emacs searches the `load-path' when you load packages with
-;;   `require' or `use-package'.
-;; - `map!' for binding new keys
-;;
-
-;;; GENERAL ;;;
-;; THEME ;;
-;; There are two ways to load a theme. Both assume the theme is installed and
-;; available. You can either set `doom-theme' or manually load a theme with the
-;; `load-theme' function. This is the default:
-;; doom-one if broken
-
 (setq doom-theme 'doom-gruvbox)
 
-;; LINE NUMBERS ;;
-;; To disable set to nil, for relative, set to relative
-
 (setq display-line-numbers-type 1)
-
-
-;;; VTERM ;;;
 
 (setq shell-file-name "/bin/fish"
       vterm-max-scrollback 5000)
 (map! :leader
       :desc "Vterm popup toggle"     "v t" #'+vterm/toggle)
 
-;;; NEOTREE ;;;
 (after! neotree
   (setq neo-smart-open t
         neo-window-fixed-size nil))
 (after! doom-themes
   (setq doom-neotree-enable-variable-pitch t))
 (map! :leader
-      :desc "Toggle neotree file viewer" "t e" #'neotree-toggle
-      :desc "Open directory in neotree"  "d n" #'neotree-dir)
-
-;;; MINIMAP ;;;
+      :desc "Toggle neotree file viewer" "t e" #'neotree-toggle)
 
 (setq minimap-window-location 'right)
 (map! :leader
       (:prefix ("t" . "toggle")
        :desc "Toggle minimap-mode" "m" #'minimap-mode))
-
-
-;;; ORG MODE ;;;
-;; GENERAL ;;
 
 (map! :leader
       :desc "Org babel tangle" "m B" #'org-babel-tangle)
@@ -112,7 +52,6 @@
              "DONE(d)"           ; Task has been completed
              "CANCELLED(c)" )))) ; Task has been cancelled
 
-;; CUSTOM ORG-MODE FONT SIZE HEADINGS ;;
 (custom-set-faces!
   '(org-level-1 :height 1.5 :foreground "#B16286")
   '(org-level-2 :height 1.3 :foreground "#8EC07C")
