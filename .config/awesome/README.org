@@ -1,3 +1,21 @@
+#+title: AwesomeWM Config
+#+PROPERTY: header-args :tangle rc.lua
+
+* AwesomeWM Config
+[[https://awesomewm.org][AwesomeWM]] is a dynamic window manager based off of [[https://dwm.suckless.org][DWM]]. AwesomeWM is written in C and configured in Lua.
+Documentation can be found [[https://awesomewm.org/doc/api/][Here]].
+
+This is the AwesomeWM config of Envixty (redkittty on Github)
+My Personal Site: https://redkittty.github.io
+My Github: https://github.com/redkittty
+My Mastodon (mastodon.social): https://mastodon.social/@envixty
+
+These Configs Are Made specifically for me and this is just a well documented way of doing this config
+
+* Imports
+These are necassary libraries that have to be loaded for this config
+
+#+begin_src lua
 -- If LuaRocks is installed, make sure that packages installed through it are
 -- found (e.g. lgi). If LuaRocks is not installed, do nothing.
 pcall(require, "luarocks.loader")
@@ -19,7 +37,16 @@ local calendar_widget = require("awesome-wm-widgets.calendar-widget.calendar")
 -- Enable hotkeys help widget for VIM and other apps
 -- when client with a matching name is opened:
 require("awful.hotkeys_popup.keys")
+#+end_src
 
+#+RESULTS:
+
+* Error Handling
+This checks if the config is valid and if it isn't, it falls back to the default in the root directory
+
+DO NOT TOUCH THIS
+
+#+begin_src lua
 -- Check if awesome encountered an error during startup and fell back to
 -- another config (This code will only ever execute for the fallback config)
 if awesome.startup_errors then
@@ -42,12 +69,34 @@ do
         in_error = false
     end)
 end
+#+end_src
 
+* Theme
+Defines default theme file which defines different things like colors, icons, fonts, and wallpapers
+
+This also defines things like gaps and border width
+
+#+begin_src lua
 local theme_path = string.format("%s/.config/awesome/themes/%s/theme.lua", os.getenv("HOME"), "default")
 beautiful.init(theme_path)
 beautiful.useless_gap = 2.3
 beautiful.border_width = 1.5
+#+end_src
 
+* Autostart
+This automatically starts programs when the WM is launched
+
+|------------------------------------------------|
+| List of Programs launched                      |
+|------------------------------------------------|
+| picom (X11 compositor)                         |
+| nm-applet (systray icon to see if I am online) |
+| flameshot (screenshot program)                 |
+| conky (System Monitor on the Wallpaper)        |
+| Emacs Daemon (Makes Emacs start quicker)       |
+| xrandr (My personal monitor configuration)     |
+
+#+begin_src lua
 awful.spawn.with_shell("picom")
 awful.spawn.with_shell("nm-applet")
 awful.spawn.with_shell("flameshot")
@@ -56,7 +105,12 @@ awful.spawn.with_shell("conky")
 awful.spawn.with_shell("/usr/bin/emacs --daemon &")
 -- Custom Montior config (REMOVE IF MONITORS CHANGED) (ONLY INCLUDED FOR PERSONAL SETUP)
 awful.spawn.with_shell("xrandr --output HDMI-1 --primary --mode 1920x1080 --rate 144.00 --output eDP-1 --mode 1920x1080 --rate 59.98 --left-of HDMI-1")
+#+end_src
 
+* Application Variables
+Defines shorter ames for applications. These can also be terminal commands
+
+#+begin_src lua
 browser = "brave"
 steam = "steam"
 terminal = "kitty"
@@ -72,7 +126,13 @@ calculator = "rofi -show calc"
 emoji = "rofi -show emoji"
 power = "powermenu.sh"
 wifi = "rofi-wifi-menu"
+#+end_src
 
+* Layouts
+This segment is a list of all available layouts
+Layouts not used are commented out so you can easily enable them
+
+#+begin_src lua
 awful.layout.layouts = {
     awful.layout.suit.tile,
     awful.layout.suit.tile.left,
@@ -91,7 +151,13 @@ awful.layout.layouts = {
     -- awful.layout.suit.corner.sw,
     -- awful.layout.suit.corner.se,
 }
+#+end_src
 
+
+* Menu
+This makes a menu for AwesomeWM, brought up by right-clicking on the desktop
+
+#+begin_src lua
 myawesomemenu = {
    { "hotkeys", function() hotkeys_popup.show_help(nil, awful.screen.focused()) end },
    { "manual", terminal .. " -e man awesome" },
@@ -118,7 +184,14 @@ mylauncher = awful.widget.launcher({ image = beautiful.awesome_icon,
 
 -- Menubar configuration
 menubar.utils.terminal = terminal -- Set the terminal for applications that require it
+#+end_src
 
+* Wibar, Monitors, and Wallpaper
+AwesomeWM by default uses wibar (A bar configured in lua)
+This segment also contains settings for multi-monitors and to set the wallpaper
+This is some settings for wibar
+
+#+begin_src lua
 -- Keyboard map indicator and switcher
 mykeyboardlayout = awful.widget.keyboardlayout()
 
@@ -244,7 +317,18 @@ awful.screen.connect_for_each_screen(function(s)
         },
     }
 end)
+#+end_src
 
+* Keybindings
+This segment defines keybindings and mouse bindings along with the default Super Key
+
+By default, the modkey is set to Mod4
+Usually, Mod4 is the key with a logo between Control and Alt.
+If you do not like this or do not have such a key,
+I suggest you to remap Mod4 to another key using xmodmap or other tools.
+However, you can use another modifier like Mod1, but it may interact with others.
+
+#+begin_src lua
 modkey = "Mod4"
 
 -- {{{ Mouse bindings
@@ -482,7 +566,13 @@ clientbuttons = gears.table.join(
 -- Set keys
 root.keys(globalkeys)
 -- }}}
+#+end_src
 
+* Rules
+Rules are rules that new windows have to follow.
+These can range from things like no titlebars to things like a specific application being forced into floating
+
+#+begin_src lua
 -- Rules to apply to new clients (through the "manage" signal).
 awful.rules.rules = {
     -- All clients will match this rule.
@@ -539,7 +629,12 @@ awful.rules.rules = {
     -- { rule = { class = "Firefox" },
     --   properties = { screen = 1, tag = "2" } },
 }
+#+end_src
 
+* Signals
+Signals are a function that executes when a new client (window) appears
+
+#+begin_src lua
 client.connect_signal("manage", function (c)
     -- Set the windows at the slave,
     -- i.e. put it at the end of others instead of setting it master.
@@ -552,7 +647,13 @@ client.connect_signal("manage", function (c)
         awful.placement.no_offscreen(c)
     end
 end)
+#+end_src
 
+* Titlebar
+By default, window titlebars are disabled
+This is here just incase you enable titlebars in the rules segment
+
+#+begin_src lua
 client.connect_signal("request::titlebars", function(c)
     -- buttons for the titlebar
     local buttons = gears.table.join(
@@ -591,10 +692,16 @@ client.connect_signal("request::titlebars", function(c)
         layout = wibox.layout.align.horizontal
     }
 end)
+#+end_src
 
+* Focus
+Idk what this does but I think it has to do with window focus and I don't want breakage
+
+#+begin_src lua
 client.connect_signal("mouse::enter", function(c)
     c:emit_signal("request::activate", "mouse_enter", {raise = false})
 end)
 
 client.connect_signal("focus", function(c) c.border_color = beautiful.border_focus end)
 client.connect_signal("unfocus", function(c) c.border_color = beautiful.border_normal end)
+#+end_src

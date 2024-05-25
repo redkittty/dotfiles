@@ -2,7 +2,7 @@
 
 # PATH
 set -e fish_user_paths
-set -U fish_user_paths $HOME/.local/bin $HOME/.config/emacs/bin $fish_user_paths
+set -U fish_user_paths $HOME/.local/bin $HOME/.config/emacs/bin /var/lib/flatpak/app $fish_user_paths
 
 ### EXPORT ###
 set fish_greeting                                 # Supresses fish's intro message
@@ -12,6 +12,9 @@ set VISUAL "emacsclient -c -a emacs"              # $VISUAL use Emacs in GUI mod
 
 ### "nvim" as manpager
 set -x MANPAGER "nvim +Man!"
+
+### Vi-Keybindings
+fish_vi_key_bindings
 
 ### AUTOCOMPLETE AND HIGHLIGHT COLORS ###
 set fish_color_normal gray
@@ -92,6 +95,7 @@ alias pacs="doas pacman -S"
 alias pacsy="doas pacman -Syy"
 alias pacrem="doas pacman -R"
 alias pacrems="doas pacman -Rs"
+alias pacun="doas rm /var/lib/pacman/db.lck"
 
 # Aur Helper Aliases
 alias parusyu="paru -Sua --noconfirm"
@@ -126,6 +130,10 @@ alias top="htop"
 # E and F grep aliases
 alias egrep="grep -E"
 alias fgrep="grep -F"
+
+# Interactive CP Command
+# Asks you if you want to overwrite a file
+alias cp="cp -i"
 
 # Parent Directory alias
 alias 1.="cd .."
