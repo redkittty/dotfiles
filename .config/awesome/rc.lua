@@ -6,14 +6,20 @@ pcall(require, "luarocks.loader")
 local gears = require("gears")
 local awful = require("awful")
 require("awful.autofocus")
+
 -- Widget and layout library
 local wibox = require("wibox")
+
 -- Theme handling library
 local beautiful = require("beautiful")
+
 -- Notification library
 local naughty = require("naughty")
 local menubar = require("menubar")
 local hotkeys_popup = require("awful.hotkeys_popup")
+
+local lain          = require("lain")
+
 -- Enable hotkeys help widget for VIM and other apps
 -- when client with a matching name is opened:
 require("awful.hotkeys_popup.keys")
@@ -41,7 +47,7 @@ do
     end)
 end
 
-local theme_path = string.format("%s/.config/awesome/themes/%s/theme.lua", os.getenv("HOME"), "default")
+local theme_path = string.format("%s/.config/awesome/themes/%s/theme.lua", os.getenv("HOME"), "envixty")
 beautiful.init(theme_path)
 beautiful.useless_gap = 2.3
 beautiful.border_width = 1.5
@@ -103,11 +109,19 @@ myinternetmenu = {
     { "qBittorrent", "qbittorrent" },
 }
 
+mypowermenu = {
+  { "Log out", function() awesome.quit() end },
+  { "Restart", "systemctl reboot" },
+  { "Power Off", "systemctl poweroff" },
+}
+
 mymainmenu = awful.menu({ items = { { "Internet", myinternetmenu },
                                     { "Awesome", myawesomemenu, beautiful.awesome_icon },
+                                    { "Power", mypowermenu },
                                     { "Open Terminal", terminal },
                                     { "Open Text Editor", edit },
-                                    { "Open Steam", steam }
+                                    { "Open Steam", steam },
+                                    { "RUN", "rofi -show drun" }
                                   }
                         })
 
