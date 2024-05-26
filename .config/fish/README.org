@@ -150,7 +150,6 @@ This area describes general aliases
 | ls (uses exa instead)                         |
 | egrep (grep -E for muscle memory)             |
 | fgrep (grep -F for muscle memory)             |
-| cp (Asks to overwrite a file if it can)       |
 | [1-9], (cd's to respective parent directory)  |
 | c~ (cd's to home directory)                   |
 | c- (cd's to previous directory)               |
@@ -190,10 +189,6 @@ alias l9="eza -al --color=always --group-directories-first --icons ../../../../.
 # E and F grep aliases
 alias egrep="grep -E"
 alias fgrep="grep -F"
-
-# Interactive cp command
-# Asks to overwrite
-alias cp="cp -i"
 
 # Parent Directory alias
 alias 1.="cd .."

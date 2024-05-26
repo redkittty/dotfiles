@@ -102,10 +102,6 @@ alias l9="eza -al --color=always --group-directories-first --icons ../../../../.
 alias egrep="grep -E"
 alias fgrep="grep -F"
 
-# Interactive cp command
-# Asks to overwrite
-alias cp="cp -i"
-
 # Parent Directory alias
 alias 1.="cd .."
 alias 2.="cd ../.."
