@@ -49,7 +49,7 @@ end
 
 local theme_path = string.format("%s/.config/awesome/themes/%s/theme.lua", os.getenv("HOME"), "envixty")
 beautiful.init(theme_path)
-beautiful.useless_gap = 2.3
+beautiful.useless_gap = 2.7
 beautiful.border_width = 1.5
 
 awful.spawn.with_shell("picom")
