@@ -193,6 +193,3 @@ These are based off-of Heading level
   '(org-level-4 :height 1.1 :foreground "#83A598")
   '(org-level-5 :height 1.0 :foreground "#EEBD35"))
 #+end_src
-
-
-THIS IS A README, DO NOT EDIT THE CONFIG HERE
