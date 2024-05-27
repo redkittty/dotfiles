@@ -512,6 +512,7 @@ awful.rules.rules = {
           "Arandr",
           "Blueman-manager",
           "cs2",
+          "gmod.exe",
           "Gpick",
           "Kruler",
           "MessageWin",  -- kalarm.
