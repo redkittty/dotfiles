@@ -2,7 +2,7 @@
 #+author: Envixty (redkittty on Github)
 #+startup: showeverything
 
-[[https://github.com/redkittty/dotfiles/blob/main/.screenshots/dotfiles1.png]]
+[[https://github.com/redkittty/dotfiles/blob/main/.screenshots/dotfiles2.png]]
 
 
 These are my dotfiles

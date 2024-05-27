@@ -35,7 +35,7 @@ These Configs Are Made specifically for me and this is just a well documented wa
 
 Here is a screenshot of my config:
 
-[[https://github.com/redkittty/dotfiles/blob/main/.screenshots/dotfiles1.png]]
+[[https://github.com/redkittty/dotfiles/blob/main/.screenshots/dotfiles2.png]]
 
 
 
