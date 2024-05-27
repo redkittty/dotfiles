@@ -51,14 +51,20 @@ pcall(require, "luarocks.loader")
 local gears = require("gears")
 local awful = require("awful")
 require("awful.autofocus")
+
 -- Widget and layout library
 local wibox = require("wibox")
+
 -- Theme handling library
 local beautiful = require("beautiful")
+
 -- Notification library
 local naughty = require("naughty")
 local menubar = require("menubar")
 local hotkeys_popup = require("awful.hotkeys_popup")
+
+local lain          = require("lain")
+
 -- Enable hotkeys help widget for VIM and other apps
 -- when client with a matching name is opened:
 require("awful.hotkeys_popup.keys")
@@ -197,11 +203,19 @@ myinternetmenu = {
     { "qBittorrent", "qbittorrent" },
 }
 
+mypowermenu = {
+  { "Log out", function() awesome.quit() end },
+  { "Restart", "systemctl reboot" },
+  { "Power Off", "systemctl poweroff" },
+}
+
 mymainmenu = awful.menu({ items = { { "Internet", myinternetmenu },
                                     { "Awesome", myawesomemenu, beautiful.awesome_icon },
+                                    { "Power", mypowermenu },
                                     { "Open Terminal", terminal },
                                     { "Open Text Editor", edit },
-                                    { "Open Steam", steam }
+                                    { "Open Steam", steam },
+                                    { "RUN", "rofi -show drun" }
                                   }
                         })
 
@@ -431,9 +445,9 @@ globalkeys = gears.table.join(
               {description = "increase the number of columns", group = "layout"}),
     awful.key({ modkey, "Control" }, "l",     function () awful.tag.incncol(-1, nil, true)    end,
               {description = "decrease the number of columns", group = "layout"}),
-    awful.key({ modkey,           }, "space", function () awful.layout.inc( 1)                end,
+    awful.key({ modkey,           }, "]", function () awful.layout.inc( 1)                end,
               {description = "select next", group = "layout"}),
-    awful.key({ modkey, "Shift"   }, "space", function () awful.layout.inc(-1)                end,
+    awful.key({ modkey,           }, "[", function () awful.layout.inc(-1)                end,
               {description = "select previous", group = "layout"}),
 
     awful.key({ modkey, "Control" }, "n",
@@ -483,7 +497,7 @@ clientkeys = gears.table.join(
               {description = "close", group = "client"}),
         awful.key({ modkey,       }, "v",  awful.client.floating.toggle                     ,
               {description = "toggle floating", group = "client"}),
-    awful.key({ modkey, "Control" }, "Return", function (c) c:swap(awful.client.getmaster()) end,
+    awful.key({ modkey,           }, "space", function (c) c:swap(awful.client.getmaster()) end,
               {description = "move to master", group = "client"}),
     awful.key({ modkey,           }, "o",      function (c) c:move_to_screen()               end,
               {description = "move to screen", group = "client"}),
