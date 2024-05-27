@@ -5,7 +5,7 @@
  */
 
 * {
-    background-color:      #32302F;
+    background-color:      #282828;
     border-color:          #FBF1C7;
     text-color:           #FBF1C7;
     font:            "Times New Roman 12";
@@ -35,7 +35,7 @@ element {
     padding: 0px 2px;
 }
 element selected {
-    background-color: #458588;
+    background-color: #504945;
 }
 
 element-text, element-icon {
