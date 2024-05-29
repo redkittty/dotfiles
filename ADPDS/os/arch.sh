@@ -46,7 +46,8 @@ function install_software() {
   git clone https://aur.archlinux.org/brave-bin.git && cd brave-bin && makepkg -si && cd ..
   git clone https://aur.archlinux.org/nerd-fonts-git.git && cd nerd-fonts-git && makepkg -si && cd ..
   git clone https://aur.archlinux.org/rofi-wifi-menu-git.git && cd rofi-wifi-menu-git && makepkg -si && cd ..
-  git clone https://github.com/redkittty/shell-color-scripts.git && cd shell-color-scripts && makepkg -si && cd ..
+  git clone https://aur.archlinux.org/shell-color-scripts.git && cd shell-color-scripts && makepkg -si && cd ..
+  git clone https://github.com/redkittty/st-envixty.git && cd st-envixty && makepkg -si && cd ,,
   echo -e "${green}Done installing AUR Packages!${reset}"
   echo -e "${yellow}Now tweaking the system${reset}"
   # Dash Setup

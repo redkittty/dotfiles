@@ -63,7 +63,7 @@ awful.spawn.with_shell("xrandr --output HDMI-1 --primary --mode 1920x1080 --rate
 
 browser = "brave"
 steam = "steam"
-terminal = "kitty"
+terminal = "st"
 edit = "emacsclient -c -a 'emacs'"
 
 -- If you have an editor like nvim or nano as edit
@@ -357,6 +357,8 @@ globalkeys = gears.table.join(
               {description = "opens steam", group = "launcher"}),
     awful.key({ modkey,           }, "t", function () awful.spawn(edit) end,
               {description = "opens text editor", group = "launcher"}),
+    awful.key({ modkey,           }, "Print", function () awful.spawn("flameshot gui") end,
+              {description = "opens screenshot menu", group = "client"}),
 
     -- Prompt
     awful.key({ modkey,           }, "r", function () awful.spawn(menu) end,
