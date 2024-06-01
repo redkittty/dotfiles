@@ -15,10 +15,13 @@ local beautiful = require("beautiful")
 
 -- Notification library
 local naughty = require("naughty")
+
+-- idk
 local menubar = require("menubar")
 local hotkeys_popup = require("awful.hotkeys_popup")
 
-local lain          = require("lain")
+-- Custom Libraries
+local lain = require("lain")
 
 -- Enable hotkeys help widget for VIM and other apps
 -- when client with a matching name is opened:
@@ -60,6 +63,8 @@ awful.spawn.with_shell("conky")
 awful.spawn.with_shell("/usr/bin/emacs --daemon &")
 -- Custom Montior config (REMOVE IF MONITORS CHANGED) (ONLY INCLUDED FOR PERSONAL SETUP)
 awful.spawn.with_shell("xrandr --output HDMI-1 --primary --mode 1920x1080 --rate 144.00 --output eDP-1 --mode 1920x1080 --rate 59.98 --left-of HDMI-1")
+-- Because it doesn't auto-switch
+--awful.spawn.with_shell("pactl set-default-sink alsa_output.usb-Razer_Razer_Kraken_V3_X_00000000-00.analog-stereo")
 
 browser = "brave"
 steam = "steam"
@@ -226,7 +231,7 @@ awful.screen.connect_for_each_screen(function(s)
     }
 
     -- Create the wibox
-    s.mywibox = awful.wibar({ position = "top", screen = s, height = 23.8 })
+    s.mywibox = awful.wibar({ position = "top", screen = s, height = 27 })
 
     -- Add widgets to the wibox
     s.mywibox:setup {
