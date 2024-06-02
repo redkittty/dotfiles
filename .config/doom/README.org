@@ -117,6 +117,8 @@ This segment is configs and keybindings for Neotree
 * Minimap
 This segment is for the minimap plugin for Emacs and the keybindings
 
+NOTE: Minimap does not work inside of ORG-MODE and ORG Documents.
+
 The minimap is on the right of the screen
 
 |---------------------------|
