@@ -91,12 +91,7 @@ Never lose your cursor.  When you scroll, your cursor will shine!  This is a glo
 * Emojis
 Emojify is an Emacs extension to display emojis. It can display github style emojis like :smile: or plain ascii ones like :)
 
-#+begin_src emacs-lisp
-(use-package emojify
-  :hook (after-init . global-emojify-mode))
-#+end_src
-
-This second block is for a keybind to bring up a list of emojis
+This segment also defines keybinds
 
 |------------------------------------|
 | Keybindings                        |
@@ -107,6 +102,8 @@ This second block is for a keybind to bring up a list of emojis
 #+begin_src emacs-lisp
 (map! :leader
       :desc "List of Emojis"         "e e" #'emoji-list)
+(use-package emojify
+  :hook (after-init . global-emojify-mode))
 #+end_src
 * Line Numbers
 This segment defines Line Numbers

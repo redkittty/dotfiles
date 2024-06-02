@@ -13,11 +13,10 @@
 
 (beacon-mode 1)
 
-(use-package emojify
-  :hook (after-init . global-emojify-mode))
-
 (map! :leader
       :desc "List of Emojis"         "e e" #'emoji-list)
+(use-package emojify
+  :hook (after-init . global-emojify-mode))
 
 (setq display-line-numbers-type 1)
 
