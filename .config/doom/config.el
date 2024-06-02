@@ -34,7 +34,8 @@
                     ("https://archlinux.org/feeds/news/" archlinux news)
                     ("https://www.reddit.com/r/DoomEmacs.rss" doomemacs subreddit)
                     ("https://www.computerworld.com/feed/" computerworld)
-                    ("https://www.networkworld.com/feed/" networkworld))))
+                    ("https://www.networkworld.com/feed/" networkworld)
+                    ("https://www.counter-strike.net/news/updates" cs2 news))))
 
 (map! :leader
       :desc "Org babel tangle" "m B" #'org-babel-tangle)

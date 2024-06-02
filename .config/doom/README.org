@@ -133,6 +133,23 @@ The minimap is on the right of the screen
 
 * Elfeed
 Elfeed is an RSS Reader inside of Emacs.
+
+Here is a list of feeds:
+|----------------------|
+| List of Feeds        |
+|----------------------|
+| CS2 Subreddit        |
+| Linux Subreddit      |
+| Emacs Subreddit      |
+| GamingOnLinux        |
+| Archlinux News       |
+| Doom Emacs Subreddit |
+| ComputerWorld        |
+| NetworkWorld         |
+| CS2 Website          |
+|----------------------|
+
+Here are the keybindings:
 |------------------------|
 | Keybindings            |
 |------------------------|
@@ -152,7 +169,8 @@ Elfeed is an RSS Reader inside of Emacs.
                     ("https://archlinux.org/feeds/news/" archlinux news)
                     ("https://www.reddit.com/r/DoomEmacs.rss" doomemacs subreddit)
                     ("https://www.computerworld.com/feed/" computerworld)
-                    ("https://www.networkworld.com/feed/" networkworld))))
+                    ("https://www.networkworld.com/feed/" networkworld)
+                    ("https://www.counter-strike.net/news/updates" cs2 news))))
 #+end_src
 
 * Org-Mode
