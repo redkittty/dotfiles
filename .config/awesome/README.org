@@ -241,17 +241,17 @@ mykeyboardlayout = awful.widget.keyboardlayout()
 
 -- {{{ Wibar
 -- Create a textclock widget
-mytextclock = wibox.widget.textclock("    %a %b %d, %I:%M %p  | ")
+mytextclock = wibox.widget.textclock("    TIME:  %a %b %d, %I:%M %p   | ")
 
 local cpu = lain.widget.cpu {
     settings = function()
-        widget:set_markup(" |    CPU: " .. cpu_now.usage .. "%  | ")
+        widget:set_markup(" |      CPU: " .. cpu_now.usage .. "%   | ")
     end
 }
 
 local mymem = lain.widget.mem {
     settings = function()
-        widget:set_markup("    RAM: " .. mem_now.perc .. "%  | ")
+        widget:set_markup("    RAM: " .. mem_now.perc .. "%   | ")
     end
 }
 
