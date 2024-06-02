@@ -22,6 +22,21 @@
        :desc "Toggle minimap-mode" "m" #'minimap-mode))
 
 (map! :leader
+      :desc "opens elfeed rss reader" "t t" #'elfeed)
+(require 'elfeed-goodies)
+(elfeed-goodies/setup)
+(setq elfeed-goodies/entry-pane-size 0.5)
+(setq elfeed-feeds (quote
+                   (("https://reddit.com/r/linux.rss" linux subreddit)
+                    ("https://www.reddit.com/r/cs2.rss" cs2 subreddit)
+                    ("https://www.reddit.com/r/emacs.rss" emacs subreddit)
+                    ("https://www.gamingonlinux.com/article_rss.php" gamingonlinux)
+                    ("https://archlinux.org/feeds/news/" archlinux news)
+                    ("https://www.reddit.com/r/DoomEmacs.rss" doomemacs subreddit)
+                    ("https://www.computerworld.com/feed/" computerworld)
+                    ("https://www.networkworld.com/feed/" networkworld))))
+
+(map! :leader
       :desc "Org babel tangle" "m B" #'org-babel-tangle)
 (after! org
   (setq org-directory "~/Documents/Org/"

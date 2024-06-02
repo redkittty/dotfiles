@@ -50,3 +50,4 @@
 ;; (unpin! t)
 (package! pacmacs)
 (package! minimap)
+(package! elfeed-goodies)
