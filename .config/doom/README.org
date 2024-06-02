@@ -70,9 +70,9 @@ For fonts, Doom exposes five (optional) variables for controlling fonts in Doom:
 |--------------------------------------------------------------------------------------------|
 
 #+begin_src emacs-lisp
-(setq doom-font (font-spec :family "Fira Code Nerd Font" :size 15)
-      doom-variable-pitch-font (font-spec :family "Fira Code Nerd Font" :size 15)
-      doom-big-font (font-spec :family "Fira Code Nerd Font" :size 24))
+(setq doom-font (font-spec :family "Fira Code Nerd Font" :size 13)
+      doom-variable-pitch-font (font-spec :family "Fira Code Nerd Font" :size 13)
+      doom-big-font (font-spec :family "Fira Code Nerd Font" :size 20))
 (after! doom-themes
   (setq doom-themes-enable-bold t
         doom-themes-enable-italic t))
@@ -105,6 +105,7 @@ This segment also defines keybinds
 (use-package emojify
   :hook (after-init . global-emojify-mode))
 #+end_src
+
 * Line Numbers
 This segment defines Line Numbers
 

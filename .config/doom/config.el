@@ -1,9 +1,9 @@
 ;;; $DOOMDIR/config.el -*- lexical-binding: t; -*-
 (setq doom-theme 'doom-gruvbox)
 
-(setq doom-font (font-spec :family "Fira Code Nerd Font" :size 15)
-      doom-variable-pitch-font (font-spec :family "Fira Code Nerd Font" :size 15)
-      doom-big-font (font-spec :family "Fira Code Nerd Font" :size 24))
+(setq doom-font (font-spec :family "Fira Code Nerd Font" :size 13)
+      doom-variable-pitch-font (font-spec :family "Fira Code Nerd Font" :size 13)
+      doom-big-font (font-spec :family "Fira Code Nerd Font" :size 20))
 (after! doom-themes
   (setq doom-themes-enable-bold t
         doom-themes-enable-italic t))
