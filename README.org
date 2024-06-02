@@ -22,15 +22,15 @@ Currently, the Script only supports Arch Linux
 
 My dotfiles contain configs for:
 
-- Alacritty
+- [[https://github.com/redkittty/st-envixty][ST]]
 
-- AwesomeWM
+- [[https://github.com/redkittty/dotfiles/tree/main/.config/awesome][AwesomeWM]]
 
-- ZSH
+- [[https://github.com/redkittty/dotfiles/tree/main/.config/fish][Fish Shell]]
 
-- Git
+- [[https://github.com/redkittty/dotfiles/blob/main/.gitconfig][Git]]
 
-- Doom Emacs
+- [[https://github.com/redkittty/tree/main/.config/doom][Doom Emacs]]
 
 
 For a manual here it is:
