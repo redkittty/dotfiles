@@ -4,6 +4,9 @@
 * Table of Contents :toc:
 - [[#about-this-config][About this Config]]
 - [[#theme][Theme]]
+- [[#fonts][Fonts]]
+- [[#beacon][Beacon]]
+- [[#emojis][Emojis]]
 - [[#line-numbers][Line Numbers]]
 - [[#vterm][Vterm]]
 - [[#neotree][Neotree]]
@@ -46,6 +49,13 @@ available. You can either set `doom-theme' or manually load a theme with the
 
 The theme is set to 'doom-gruvbox'
 
+#+begin_src emacs-lisp
+;;; $DOOMDIR/config.el -*- lexical-binding: t; -*-
+(setq doom-theme 'doom-gruvbox)
+#+end_src
+
+* Fonts
+This segment defines fonts in Doom Emacs.
 
 For fonts, Doom exposes five (optional) variables for controlling fonts in Doom:
 
@@ -60,10 +70,44 @@ For fonts, Doom exposes five (optional) variables for controlling fonts in Doom:
 |--------------------------------------------------------------------------------------------|
 
 #+begin_src emacs-lisp
-;;; $DOOMDIR/config.el -*- lexical-binding: t; -*-
-(setq doom-theme 'doom-gruvbox)
+(setq doom-font (font-spec :family "Fira Code Nerd Font" :size 15)
+      doom-variable-pitch-font (font-spec :family "Fira Code Nerd Font" :size 15)
+      doom-big-font (font-spec :family "Fira Code Nerd Font" :size 24))
+(after! doom-themes
+  (setq doom-themes-enable-bold t
+        doom-themes-enable-italic t))
+(custom-set-faces!
+  '(font-lock-comment-face :slant italic)
+  '(font-lock-keyword-face :slant italic))
 #+end_src
 
+* Beacon
+Never lose your cursor.  When you scroll, your cursor will shine!  This is a global minor-mode. Turn it on everywhere with:
+
+#+begin_src emacs-lisp
+(beacon-mode 1)
+#+end_src
+
+* Emojis
+Emojify is an Emacs extension to display emojis. It can display github style emojis like :smile: or plain ascii ones like :)
+
+#+begin_src emacs-lisp
+(use-package emojify
+  :hook (after-init . global-emojify-mode))
+#+end_src
+
+This second block is for a keybind to bring up a list of emojis
+
+|------------------------------------|
+| Keybindings                        |
+|------------------------------------|
+| SPC e e (Brings up list of emojis) |
+|------------------------------------|
+
+#+begin_src emacs-lisp
+(map! :leader
+      :desc "List of Emojis"         "e e" #'emoji-list)
+#+end_src
 * Line Numbers
 This segment defines Line Numbers
 

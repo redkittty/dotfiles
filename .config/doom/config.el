@@ -1,6 +1,24 @@
 ;;; $DOOMDIR/config.el -*- lexical-binding: t; -*-
 (setq doom-theme 'doom-gruvbox)
 
+(setq doom-font (font-spec :family "Fira Code Nerd Font" :size 15)
+      doom-variable-pitch-font (font-spec :family "Fira Code Nerd Font" :size 15)
+      doom-big-font (font-spec :family "Fira Code Nerd Font" :size 24))
+(after! doom-themes
+  (setq doom-themes-enable-bold t
+        doom-themes-enable-italic t))
+(custom-set-faces!
+  '(font-lock-comment-face :slant italic)
+  '(font-lock-keyword-face :slant italic))
+
+(beacon-mode 1)
+
+(use-package emojify
+  :hook (after-init . global-emojify-mode))
+
+(map! :leader
+      :desc "List of Emojis"         "e e" #'emoji-list)
+
 (setq display-line-numbers-type 1)
 
 (setq shell-file-name "/bin/fish"

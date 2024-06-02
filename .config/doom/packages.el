@@ -51,3 +51,4 @@
 (package! pacmacs)
 (package! minimap)
 (package! elfeed-goodies)
+(package! beacon)
