@@ -74,3 +74,10 @@
   '(org-level-3 :height 1.2 :foreground "#D4879C")
   '(org-level-4 :height 1.1 :foreground "#83A598")
   '(org-level-5 :height 1.0 :foreground "#EEBD35"))
+
+(custom-set-faces!
+  '(markdown-header-face-1 :height 1.5 :foreground "#B16286")
+  '(markdown-header-face-2 :height 1.3 :foreground "#8EC07C")
+  '(markdown-header-face-3 :height 1.2 :foreground "#D4879C")
+  '(markdown-header-face-4 :height 1.1 :foreground "#83A598")
+  '(markdown-header-face-5 :height 1.0 :foreground "#EEBD35"))
