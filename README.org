@@ -23,7 +23,7 @@ My dotfiles contain configs for:
 
 - [[https://github.com/redkittty/dotfiles/blob/main/.gitconfig][Git]]
 
-- [[https://github.com/redkittty/tree/main/.config/doom][Doom Emacs]]
+- [[https://github.com/redkittty/dotfiles/tree/main/.config/doom][Doom Emacs]]
 
 
 For a manual here it is:
