@@ -1,4 +1,3 @@
-;;; $DOOMDIR/config.el -*- lexical-binding: t; -*-
 (setq doom-theme 'doom-gruvbox)
 
 (setq doom-font (font-spec :family "Fira Code Nerd Font" :size 13)

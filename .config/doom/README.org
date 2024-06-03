@@ -37,7 +37,7 @@ Screenshot of Doom Emacs Config:
 [[https://github.com/redkittty/dotfiles/blob/main/.screenshots/emacs-conf.png]]
 
 * Theme
-This segment defines theme and DOOMDIR
+This segment defines the theme for Doom Emacs
 
 For Themes,
 
@@ -50,7 +50,6 @@ available. You can either set `doom-theme' or manually load a theme with the
 The theme is set to 'doom-gruvbox'
 
 #+begin_src emacs-lisp
-;;; $DOOMDIR/config.el -*- lexical-binding: t; -*-
 (setq doom-theme 'doom-gruvbox)
 #+end_src
 
