@@ -7,18 +7,11 @@
 
 These are my dotfiles
 * Install
-In order to install my dotfiles do this:
+In order to install my dotfiles, I would recommend using [[https://github.com/redkittty/envixty-os][envixty-os]], Envixty-OS is a bunch of scripts to automate the installation
 
-#+begin_src zsh
-git clone https://github.com/redkittty/dotfiles.git && cd dotfiles && chmod +x ADPDS/boot.sh && bash ADPDS/boot.sh
+#+begin_src bash
+git clone https://github.com/redkittty/envixty-os.git && cd envixty-os && chmod +x boot.sh && bash boot.sh
 #+end_src
-
-A script will automatically be loaded to install the dotfiles and related programs
-
-The script is based on another project I have called [[https://github.com/redkittty/ADPDS][ADPDS (Automated Dotfiles and Programs Deployment Script)]]
-
-Currently, the Script only supports Arch Linux
-
 
 My dotfiles contain configs for:
 
