@@ -226,7 +226,9 @@ This is due to the fact that it is so powerful that I can turn these code blocks
 code to execute.
 
 ** General
-This segment is General Configs for Org-Mode along with a keybinding
+This segment is General Configs for Org-Mode along with a keybinding. This section also defines Org-Superstar (global minor mode) is always enabled.
+
+Org-Superstar is a plugin that allows you to replace the Asteriscks (*) in Org-Headings with Unicode Characters
 
 |--------------------------------------------------------|
 | Keybindings                                            |
@@ -235,6 +237,8 @@ This segment is General Configs for Org-Mode along with a keybinding
 |--------------------------------------------------------|
 
 #+begin_src emacs-lisp
+(require 'org-superstar)
+(add-hook 'org-mode-hook (lambda () (org-superstar-mode 1)))
 (map! :leader
       :desc "Org babel tangle" "m B" #'org-babel-tangle)
 (after! org

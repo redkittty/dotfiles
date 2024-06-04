@@ -53,6 +53,8 @@
                     ("https://www.networkworld.com/feed/" networkworld)
                     ("https://www.counter-strike.net/news/updates" cs2 news))))
 
+(require 'org-superstar)
+(add-hook 'org-mode-hook (lambda () (org-superstar-mode 1)))
 (map! :leader
       :desc "Org babel tangle" "m B" #'org-babel-tangle)
 (after! org

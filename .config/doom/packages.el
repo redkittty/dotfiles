@@ -53,3 +53,4 @@
 (package! elfeed-goodies)
 (package! beacon)
 (package! 2048-game)
+(package! org-superstar)
