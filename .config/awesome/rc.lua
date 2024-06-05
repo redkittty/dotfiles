@@ -137,22 +137,38 @@ mylauncher = awful.widget.launcher({ image = beautiful.awesome_icon,
 -- Menubar configuration
 menubar.utils.terminal = terminal -- Set the terminal for applications that require it
 
+local function set_wallpaper(s)
+    -- Wallpaper
+    if beautiful.wallpaper then
+        local wallpaper = beautiful.wallpaper
+        -- If wallpaper is a function, call it with the screen
+        if type(wallpaper) == "function" then
+            wallpaper = wallpaper(s)
+        end
+        gears.wallpaper.maximized(wallpaper, s, true)
+    end
+end
+
+
+-- Re-set wallpaper when a screen's geometry changes (e.g. different resolution)
+screen.connect_signal("property::geometry", set_wallpaper)
+
 -- Keyboard map indicator and switcher
 mykeyboardlayout = awful.widget.keyboardlayout()
 
 -- {{{ Wibar
 -- Create a textclock widget
-mytextclock = wibox.widget.textclock(" 󰃭   DATE:  %a %b %d,   |      TIME:  %I:%M %p   | ")
+mytextclock = wibox.widget.textclock(" 📅 DATE:  %a %b %d,   |  🕒 TIME:  %I:%M %p   | ")
 
 local cpu = lain.widget.cpu {
     settings = function()
-        widget:set_markup(" |      CPU: " .. cpu_now.usage .. "%   | ")
+        widget:set_markup(" |  💻 CPU: " .. cpu_now.usage .. "%   | ")
     end
 }
 
 local mymem = lain.widget.mem {
     settings = function()
-        widget:set_markup("    RAM: " .. mem_now.perc .. "%   | ")
+        widget:set_markup(" 🧠 RAM: " .. mem_now.perc .. "%   | ")
     end
 }
 
@@ -195,22 +211,6 @@ local tasklist_buttons = gears.table.join(
                      awful.button({ }, 5, function ()
                                               awful.client.focus.byidx(-1)
                                           end))
-
-local function set_wallpaper(s)
-    -- Wallpaper
-    if beautiful.wallpaper then
-        local wallpaper = beautiful.wallpaper
-        -- If wallpaper is a function, call it with the screen
-        if type(wallpaper) == "function" then
-            wallpaper = wallpaper(s)
-        end
-        gears.wallpaper.maximized(wallpaper, s, true)
-    end
-end
-
-
--- Re-set wallpaper when a screen's geometry changes (e.g. different resolution)
-screen.connect_signal("property::geometry", set_wallpaper)
 
 awful.screen.connect_for_each_screen(function(s)
     -- Wallpaper
@@ -382,8 +382,8 @@ globalkeys = gears.table.join(
               {description = "opens steam", group = "launcher"}),
     awful.key({ modkey,           }, "t", function () awful.spawn(edit) end,
               {description = "opens text editor", group = "launcher"}),
-    awful.key({ modkey,           }, "Print", function () awful.spawn("flameshot gui") end,
-              {description = "opens screenshot menu", group = "client"}),
+    awful.key({ modkey,           }, "Print", function () awful.spawn("flameshot full") end,
+              {description = "takes screenshot", group = "client"}),
 
     -- Prompt
     awful.key({ modkey,           }, "r", function () awful.spawn(menu) end,
