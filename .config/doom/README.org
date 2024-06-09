@@ -7,13 +7,17 @@
 - [[#fonts][Fonts]]
 - [[#beacon][Beacon]]
 - [[#emojis][Emojis]]
+- [[#dired][Dired]]
+  - [[#general][General]]
+  - [[#dired-keybindings][Dired Keybindings]]
+  - [[#dired-peep][Dired Peep]]
 - [[#line-numbers][Line Numbers]]
 - [[#vterm][Vterm]]
 - [[#neotree][Neotree]]
 - [[#minimap][Minimap]]
 - [[#elfeed][Elfeed]]
 - [[#org-mode][Org-Mode]]
-  - [[#general][General]]
+  - [[#general-1][General]]
   - [[#font-size-headings][Font Size Headings]]
 - [[#markdown][Markdown]]
 
@@ -58,15 +62,13 @@ This segment defines fonts in Doom Emacs.
 
 For fonts, Doom exposes five (optional) variables for controlling fonts in Doom:
 
-|--------------------------------------------------------------------------------------------|
-| Font Variables                                                                             |
-|--------------------------------------------------------------------------------------------|
-| `doom-font' == the primary font to use                                                     |
-| `doom-variable-pitch-font' -- a non-monospace font (where applicable)                      |
-| `doom-big-font' -- used for `doom-big-font-mode'; use this for presentations or streaming. |
-| `doom-symbol-font' -- for symbols                                                          |
-| `doom-serif-font' -- for the `fixed-pitch-serif' fac                                       |
-|--------------------------------------------------------------------------------------------|
+| Variable Name            | Description                  |
+|--------------------------+------------------------------|
+| doom-font                | Primary font to use          |
+| doom-variable-pitch-font | Non-Monospace Font           |
+| doom-big-font            | Font to use in Big font mode |
+| doom-symbol-font         | Font to use for Symbols      |
+| doom-serif-font          | Serif Font                   |
 
 #+begin_src emacs-lisp
 (setq doom-font (font-spec :family "Fira Code Nerd Font" :size 13)
@@ -92,17 +94,74 @@ Emojify is an Emacs extension to display emojis. It can display github style emo
 
 This segment also defines keybinds
 
-|------------------------------------|
-| Keybindings                        |
-|------------------------------------|
-| SPC e e (Brings up list of emojis) |
-|------------------------------------|
+| Command    | Description          | Keybinding |
+|------------+----------------------+------------|
+| emoji-list | Shows list of emojis | SPC e e    |
 
 #+begin_src emacs-lisp
 (map! :leader
       :desc "List of Emojis"         "e e" #'emoji-list)
 (use-package emojify
   :hook (after-init . global-emojify-mode))
+#+end_src
+
+* Dired
+Dired is the default file manager in Emacs
+
+** General
+Here are some general configs for Dired
+
+This section adds icons to dired and defines what programs open certain file types
+
+| File Type | Program |
+|-----------+---------|
+| .gif      | sxiv    |
+| .jpg      | sxiv    |
+| .png      | sxiv    |
+| .mp4      | mpv     |
+| .mkv      | mpv     |
+
+#+begin_src emacs-lisp
+;; Get file icons in dired
+(add-hook 'dired-mode-hook 'all-the-icons-dired-mode)
+;; With dired-open plugin, you can launch external programs for certain extensions
+;; For example, I set all .png files to open in 'sxiv' and all .mp4 files to open in 'mpv'
+(setq dired-open-extensions '((".gif" . "sxiv")
+                              (".jpg" . "sxiv")
+                              (".png" . "sxiv")
+                              (".mkv" . "mpv")
+                              (".mp4" . "mpv")))
+#+end_src
+
+** Dired Keybindings
+This section is for dired keybindings
+
+| Command         | Description                 | Keybinding |
+|-----------------+-----------------------------+------------|
+| dired-jump      | Opens dired in fullscreen   | SPC d d    |
+| dired           | Opens dired in a prompt     | SPC d j    |
+| peep-dired      | Enables dired image preview | SPC d p    |
+| dired-view-file | Opens file in dired         | SPC d v    |
+
+#+begin_src emacs-lisp
+(map! :leader
+      (:prefix ("d" . "dired")
+       :desc "Open dired in Prompt" "j" #'dired
+       :desc "Open dired" "d" #'dired-jump)
+      (:after dired
+       (:map dired-mode-map
+        :desc "Peep-dired image previews" "d p" #'peep-dired
+        :desc "Dired view file"           "d v" #'dired-view-file)))
+#+end_src
+
+** Dired Peep
+This segment is keybinds for dired image preview (peep-dired)
+
+#+begin_src emacs-lisp
+(evil-define-key 'normal peep-dired-mode-map
+  (kbd "k") 'peep-dired-next-file
+  (kbd "j") 'peep-dired-prev-file)
+(add-hook 'peep-dired-hook 'evil-normalize-keymaps)
 #+end_src
 
 * Line Numbers
@@ -122,11 +181,9 @@ Vterm is a terminal Emulator available in Emacs
 This segment defines the shell Vterm uses, The max-scrollback,
 and the keybindings
 
-|---------------------------------|
-| Keybindings                     |
-|---------------------------------|
-| SPC v t (Toggles vterm's popup) |
-|---------------------------------|
+| Command       | Description                     | Keybinding |
+|---------------+---------------------------------+------------|
+| +vterm/toggle | Toggles Vterm in a popup buffer | SPC v t    |
 
 #+begin_src emacs-lisp
 (setq shell-file-name "/bin/fish"
@@ -139,11 +196,9 @@ and the keybindings
 Neotree is a file tree for Emacs
 This segment is configs and keybindings for Neotree
 
-|---------------------------|
-| Keybindings               |
-|---------------------------|
-| SPC t e (Toggles Neotree) |
-|---------------------------|
+| Command        | Description               | Keybinding |
+|----------------+---------------------------+------------|
+| neotree-toggle | Toggles neotree file tree | SPC t e    |
 
 #+begin_src emacs-lisp
 (after! neotree
@@ -162,11 +217,9 @@ NOTE: Minimap does not work inside of ORG-MODE and ORG Documents.
 
 The minimap is on the right of the screen
 
-|---------------------------|
-| Keybindings               |
-|---------------------------|
-| SPC t m (Toggles Minimap) |
-|---------------------------|
+| Command      | Description     | Keybinding |
+|--------------+-----------------+------------|
+| minimap-mode | Toggles minimap | SPC t m    |
 
 #+begin_src emacs-lisp
 (setq minimap-window-location 'right)
@@ -178,27 +231,23 @@ The minimap is on the right of the screen
 * Elfeed
 Elfeed is an RSS Reader inside of Emacs.
 
-Here is a list of feeds:
-|----------------------|
-| List of Feeds        |
-|----------------------|
-| CS2 Subreddit        |
-| Linux Subreddit      |
-| Emacs Subreddit      |
-| GamingOnLinux        |
-| Archlinux News       |
-| Doom Emacs Subreddit |
-| ComputerWorld        |
-| NetworkWorld         |
-| CS2 Website          |
-|----------------------|
+Here is a list of rss feeds:
+
+| RSS Feed Url                              | Description          |
+|-------------------------------------------+----------------------|
+| https://reddit.com/r/linux.rss            | linux subreddit      |
+| https://reddit.com/r/cs2.rss              | cs2 subreddit        |
+| https://reddit.com/r/emacs.rss            | emacs subreddit      |
+| https://gamingonlinux.com/article_rss.php | gamingonlinux        |
+| https://reddit.com/r/DoomEmacs.rss        | doom emacs subreddit |
+| https://computerworld.com/feed            | computerworld        |
+| https://networkworld.com/feed             | networkworld         |
 
 Here are the keybindings:
-|------------------------|
-| Keybindings            |
-|------------------------|
-| SPC t t (Opens elfeed) |
-|------------------------|
+| Command | Description                 | Keybinding |
+|---------+-----------------------------+------------|
+| elfeed  | Opens the Elfeed RSS Reader | SPC t t    |
+
 #+begin_src emacs-lisp
 (map! :leader
       :desc "opens elfeed rss reader" "t t" #'elfeed)
@@ -213,13 +262,11 @@ Here are the keybindings:
                     ("https://archlinux.org/feeds/news/" archlinux news)
                     ("https://www.reddit.com/r/DoomEmacs.rss" doomemacs subreddit)
                     ("https://www.computerworld.com/feed/" computerworld)
-                    ("https://www.networkworld.com/feed/" networkworld)
-                    ("https://www.counter-strike.net/news/updates" cs2 news))))
+                    ("https://www.networkworld.com/feed/" networkworld))))
 #+end_src
 
 * Org-Mode
 This segment is for configurations of [[https://orgmode.org/][Org-Mode]].
-
 
 [[https://orgmode.org][Org-Mode]] is a powerful note-taking feature and is what I am using to write this config.
 This is due to the fact that it is so powerful that I can turn these code blocks into actual
@@ -230,11 +277,9 @@ This segment is General Configs for Org-Mode along with a keybinding. This secti
 
 Org-Superstar is a plugin that allows you to replace the Asteriscks (*) in Org-Headings with Unicode Characters
 
-|--------------------------------------------------------|
-| Keybindings                                            |
-|--------------------------------------------------------|
-| SPC m B (Turns these src code blocks into actual code) |
-|--------------------------------------------------------|
+| Command          | Description                                 | Keybinding |
+|------------------+---------------------------------------------+------------|
+| org-babel-tangle | Tangles source code blocks into actual code | SPC m B    |
 
 #+begin_src emacs-lisp
 (require 'org-superstar)

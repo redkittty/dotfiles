@@ -20,7 +20,10 @@
 - [[#focus][Focus]]
 
 * About this Config
-[[https://awesomewm.org][AwesomeWM]] is a dynamic window manager based off of [[https://dwm.suckless.org][DWM]]. AwesomeWM is written in C and configured in Lua.
+[[https://awesomewm.org][AwesomeWM]] is a dynamic window manager based off of [[https://dwm.suckless.org][DWM]].
+
+AwesomeWM is written in C and configured in Lua.
+
 Documentation can be found [[https://awesomewm.org/doc/api/][Here]].
 
 
@@ -38,7 +41,6 @@ These Configs Are Made specifically for me and this is just a well documented wa
 Here is a screenshot of my config:
 
 [[https://github.com/redkittty/dotfiles/blob/main/.screenshots/dotfiles2.png]]
-
 
 
 * Imports
@@ -141,8 +143,6 @@ awful.spawn.with_shell("conky")
 awful.spawn.with_shell("/usr/bin/emacs --daemon &")
 -- Custom Montior config (REMOVE IF MONITORS CHANGED) (ONLY INCLUDED FOR PERSONAL SETUP)
 awful.spawn.with_shell("xrandr --output HDMI-1 --primary --mode 1920x1080 --rate 144.00 --output eDP-1 --mode 1920x1080 --rate 59.98 --left-of HDMI-1")
--- Because it doesn't auto-switch
---awful.spawn.with_shell("pactl set-default-sink alsa_output.usb-Razer_Razer_Kraken_V3_X_00000000-00.analog-stereo")
 #+end_src
 
 * Application Variables
@@ -151,7 +151,7 @@ Defines shorter ames for applications. These can also be terminal commands
 #+begin_src lua
 browser = "brave"
 steam = "steam"
-terminal = "st"
+terminal = "kitty"
 edit = "emacsclient -c -a 'emacs'"
 
 -- If you have an editor like nvim or nano as edit
@@ -511,8 +511,9 @@ globalkeys = gears.table.join(
               {description = "opens steam", group = "launcher"}),
     awful.key({ modkey,           }, "t", function () awful.spawn(edit) end,
               {description = "opens text editor", group = "launcher"}),
-    awful.key({ modkey,           }, "Print", function () awful.spawn("flameshot full") end,
+    awful.key({ modkey,           }, "Print", function () awful.spawn("flameshot screen -n 1") end,
               {description = "takes screenshot", group = "client"}),
+
 
     -- Prompt
     awful.key({ modkey,           }, "r", function () awful.spawn(menu) end,
@@ -545,8 +546,6 @@ clientkeys = gears.table.join(
               {description = "move to master", group = "client"}),
     awful.key({ modkey,           }, "o",      function (c) c:move_to_screen()               end,
               {description = "move to screen", group = "client"}),
-    awful.key({ modkey,           }, "t",      function (c) c.ontop = not c.ontop            end,
-              {description = "toggle keep on top", group = "client"}),
     awful.key({ modkey,           }, "n",
         function (c)
             -- The client currently has the input focus, so it cannot be

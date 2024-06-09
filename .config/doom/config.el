@@ -17,6 +17,30 @@
 (use-package emojify
   :hook (after-init . global-emojify-mode))
 
+;; Get file icons in dired
+(add-hook 'dired-mode-hook 'all-the-icons-dired-mode)
+;; With dired-open plugin, you can launch external programs for certain extensions
+;; For example, I set all .png files to open in 'sxiv' and all .mp4 files to open in 'mpv'
+(setq dired-open-extensions '((".gif" . "sxiv")
+                              (".jpg" . "sxiv")
+                              (".png" . "sxiv")
+                              (".mkv" . "mpv")
+                              (".mp4" . "mpv")))
+
+(map! :leader
+      (:prefix ("d" . "dired")
+       :desc "Open dired in Prompt" "j" #'dired
+       :desc "Open dired" "d" #'dired-jump)
+      (:after dired
+       (:map dired-mode-map
+        :desc "Peep-dired image previews" "d p" #'peep-dired
+        :desc "Dired view file"           "d v" #'dired-view-file)))
+
+(evil-define-key 'normal peep-dired-mode-map
+  (kbd "k") 'peep-dired-next-file
+  (kbd "j") 'peep-dired-prev-file)
+(add-hook 'peep-dired-hook 'evil-normalize-keymaps)
+
 (setq display-line-numbers-type 1)
 
 (setq shell-file-name "/bin/fish"
@@ -50,8 +74,7 @@
                     ("https://archlinux.org/feeds/news/" archlinux news)
                     ("https://www.reddit.com/r/DoomEmacs.rss" doomemacs subreddit)
                     ("https://www.computerworld.com/feed/" computerworld)
-                    ("https://www.networkworld.com/feed/" networkworld)
-                    ("https://www.counter-strike.net/news/updates" cs2 news))))
+                    ("https://www.networkworld.com/feed/" networkworld))))
 
 (require 'org-superstar)
 (add-hook 'org-mode-hook (lambda () (org-superstar-mode 1)))

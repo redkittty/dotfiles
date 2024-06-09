@@ -54,3 +54,7 @@
 (package! beacon)
 (package! 2048-game)
 (package! org-superstar)
+(package! peep-dired)
+(package! dired-open)
+(package! all-the-icons)
+(package! all-the-icons-dired)
