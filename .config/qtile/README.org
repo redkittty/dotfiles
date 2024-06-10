@@ -1,3 +1,41 @@
+#+title: Qtile Config
+#+PROPERTY: header-args :tangle config.py
+#+auto_tangle: t
+
+* Table of Contents :toc:
+- [[#about-this-config][About this Config]]
+- [[#imports][Imports]]
+- [[#variables][Variables]]
+- [[#autostart][Autostart]]
+- [[#colors][Colors]]
+- [[#keybindings][Keybindings]]
+- [[#layouts][Layouts]]
+- [[#widget-defaults][Widget Defaults]]
+- [[#screens-and-widgets][Screens and Widgets]]
+- [[#mouse-settings][Mouse Settings]]
+- [[#floating-rules][Floating Rules]]
+- [[#window-settings][Window Settings]]
+- [[#java-programs-migh-need-this][Java Programs Migh need this]]
+
+* About this Config
+Qtile is a dynamic, tiling window manager written and configured in Python
+
+This is the Qtile config of Envixty (redkittty on Github)
+
+My Personal Site: https://redkittty.github.io
+
+My Github: https://github.com/redkittty
+
+My Mastodon (mastodon.social): https://mastodon.social/@envixty
+
+These Configs Are Made specifically for me and this is just a well documented way of doing this config
+
+* Imports
+These are necassary librariies that need to be loaded
+
+ALSO, THIS CONFIG NEEDS QTILE-EXTRAS
+
+#+begin_src python
 # NOTICE: IF YOU WANT TO EDIT THIS CONFIG, EDIT IT THROUGH README.org, NOT THROUGH config.py
 import os
 import subprocess
@@ -10,7 +48,12 @@ from qtile_extras import widget
 from qtile_extras.widget.decorations import BorderDecoration
 # Distrotube's Colors Library
 import colors
+#+end_src
 
+* Variables
+This area defines shorter names for terminal commands
+
+#+begin_src python
 terminal = "kitty"
 browser = "brave"
 steam = "steam"
@@ -20,14 +63,69 @@ emacs = "emacsclient -c -a 'emacs'"
 launcher = "rofi -show drun"
 emoji = "rofi -show emoji"
 power = "powermenu.sh"
+#+end_src
 
+* Autostart
+This section is a hook for a script that starts when Qtile is loaded at boot
+
+#+begin_src python
 @hook.subscribe.startup_once
 def autostart():
     home = os.path.expanduser('~/.config/qtile/autostart.sh')
     subprocess.Popen([home])
+#+end_src
 
+* Colors
+This section defines which colorscheme to use from Distrotube's Colors Library
+
+| Available Themes             |
+|------------------------------|
+| colors.DoomOne               |
+| colors.Dracula               |
+| colors.GruvboxDark (default) |
+| colors.MonokaiPro            |
+| colors.Nord                  |
+| colors.OceanicNext           |
+| colors.Palenight             |
+| colors.SolarizedDark         |
+| colors.SolarizedLight        |
+| colors.TomorrowNight         |
+
+#+begin_src python
 colors = colors.GruvboxDark
+#+end_src
 
+* Keybindings
+This section defines keybindings for Qtile
+
+| Keybinding          | Description                             |
+|---------------------+-----------------------------------------|
+| [S]+[Arrow]         | Moves Focus                             |
+| [S]+(Shift)+[Arrow] | Moves Window                            |
+| [S]+(Ctrl)+[Arrow]  | Changes Window Size                     |
+| [S]+Space           | Moves Focus to Other Window             |
+| [S]+n               | Resets Window Sizes                     |
+| [S]+(Shift)+ENTER   | Toggles between Split and Unsplit stack |
+| [S]+TAB             | Toggles between layouts                 |
+| [S]+c               | Kills focused window                    |
+| [S]+f               | Toggles fullscreen                      |
+| [S]+v               | Toggles floating                        |
+| [S]+(Ctrl)+r        | Reloads Config                          |
+| [S]+(Ctrl)+q        | Exits Qtile                             |
+| [S]+1-9             | Moves Focus to Workspace 1-9            |
+| [S]+(Shift)+1-9     | Moves Window to Workspace 1-9           |
+|---------------------+-----------------------------------------|
+| [S]+ENTER           | Opens Terminal (Kitty)                  |
+| [S]+b               | Launches Web Browser (Brave)            |
+| [S]+t               | Opens Emacs                             |
+| [S]+g               | Launches Steam                          |
+| [S]+r               | Opens Rofi Application Launcher         |
+| [S]+e               | Opens Rofi Emoji Picker                 |
+| [S]+p               | Opens Rofi Power Menu Script            |
+| [S]+(Print)         | Takes Screenshot of primary monitor     |
+
+
+#+begin_src python
 mod = "mod4"
 keys = [
     # A list of available commands that can be bound to keys can be found
@@ -131,6 +229,14 @@ for i in groups:
         ]
     )
 
+#+end_src
+
+* Layouts
+This section defines the layouts used by Qtile,
+
+To use a layout, simply uncomment the line with the layout
+
+#+begin_src python
 layouts = [
     layout.Columns(border_focus_stack = colors[2], border_width = 4),
     layout.Tile(border_focus_stack = colors[2], border_width = 4),
@@ -145,7 +251,12 @@ layouts = [
     # layout.VerticalTile(border_focus_stack = colors[2], border_width = 4**layout_theme),
     # layout.Zoomy(border_focus_stack = colors[2], border_width = 4),
 ]
+#+end_src
 
+* Widget Defaults
+This section defines defaults for all widgets on the bar
+
+#+begin_src python
 widget_defaults = dict(
     font="sans",
     fontsize=12,
@@ -153,7 +264,12 @@ widget_defaults = dict(
     background=colors[0]
 )
 extension_defaults = widget_defaults.copy()
+#+end_src
 
+* Screens and Widgets
+This section defines what should be shown on each screen and the widgets on the bar
+
+#+begin_src python
 screens = [
     Screen(
         wallpaper='~/.local/share/wall/wall5.jpg',
@@ -278,7 +394,12 @@ screens = [
 
     ),
 ]
+#+end_src
 
+* Mouse Settings
+This section defines settings for the Mouse along with Mouse Bindings
+
+#+begin_src python
 mouse = [
     Drag([mod], "Button1", lazy.window.set_position_floating(), start=lazy.window.get_position()),
     Drag([mod], "Button3", lazy.window.set_size_floating(), start=lazy.window.get_size()),
@@ -291,7 +412,12 @@ follow_mouse_focus = True
 bring_front_click = False
 floats_kept_above = True
 cursor_warp = False
+#+end_src
 
+* Floating Rules
+This section defines which windows are floating by default
+
+#+begin_src python
 floating_layout = layout.Floating(
     float_rules=[
         # Run the utility of `xprop` to see the wm class and name of an X client.
@@ -304,7 +430,12 @@ floating_layout = layout.Floating(
         Match(title="pinentry"),  # GPG key password entry
     ]
 )
+#+end_src
 
+* Window Settings
+This section is settings for Windows in Qtile
+
+#+begin_src python
 auto_fullscreen = True
 focus_on_window_activation = "smart"
 reconfigure_screens = True
@@ -315,5 +446,25 @@ auto_minimize = True
 
 # When using the Wayland backend, this can be used to configure input devices.
 wl_input_rules = None
+#+end_src
 
+* Java Programs Migh need this
+
+XXX: Gasp! We're lying here. In fact, nobody really uses or cares about this
+
+string besides java UI toolkits; you can see several discussions on the
+
+mailing lists, GitHub issues, and other WM documentation that suggest setting
+
+this string if your java app doesn't work correctly. We may as well just lie
+
+and say that we're a working one by default.
+
+
+We choose LG3D to maximize irony: it is a 3D non-reparenting WM written in
+
+java that happens to be on java's whitelist.
+
+#+begin_src python
 wmname = "LG3D"
+#+end_src
