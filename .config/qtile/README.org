@@ -30,6 +30,10 @@ My Mastodon (mastodon.social): https://mastodon.social/@envixty
 
 These Configs Are Made specifically for me and this is just a well documented way of doing this config
 
+Here is a screenshot of my config:
+
+[[https://github.com/redkittty/dotfiles/blob/main/.screenshots/qtile.png]]
+
 * Imports
 These are necassary librariies that need to be loaded
 
