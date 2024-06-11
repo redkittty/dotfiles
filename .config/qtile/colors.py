@@ -2,6 +2,27 @@
 # Then, you can use RGBA color codes to add transparency to the colors below.
 # For ex: colors = [["#282c34ee", "#282c34dd"], ...
 
+
+# color01 = gray
+# color02 = red
+# color03 = pink
+# color04 = yellow
+# color05 = lightblue
+# color06 = magenta
+# color15 = cyan
+
+CatppuccinMacchiato = [
+    ["#24273a", "#24273a"], # bg
+    ["#CAD3F5", "#CAD3F5"], # fg
+    ["#494D64", "#494D64"], # color01
+    ["#ED8796", "#ED8796"], # color02
+    ["#f5bde6", "#f5bde6"], # color03
+    ["#EED49F", "#EED49F"], # color04
+    ["#51afef", "#51afef"], # color05
+    ["#F5BDE6", "#F5BDE6"], # color06
+    ["#8BD5CA", "#8BD5CA"]  # color15
+    ]
+
 DoomOne = [
     ["#282c34", "#282c34"], # bg
     ["#bbc2cf", "#bbc2cf"], # fg
@@ -14,7 +35,7 @@ DoomOne = [
     ["#46d9ff", "#46d9ff"]  # color15
     ]
 
-Dracula  = [
+Dracula = [
     ["#282a36", "#282a36"], # bg
     ["#f8f8f2", "#f8f8f2"], # fg
     ["#000000", "#000000"], # color01
@@ -26,7 +47,7 @@ Dracula  = [
     ["#9aedfe", "#9aedfe"]  # color15
     ]
 
-GruvboxDark  = [
+GruvboxDark = [
     ["#282828", "#282828"], # bg
     ["#ebdbb2", "#ebdbb2"], # fg
     ["#000000", "#000000"], # color01
@@ -37,6 +58,7 @@ GruvboxDark  = [
     ["#d3869b", "#d3869b"], # color06
     ["#b8bb26", "#b8bb26"], # color11
     ]
+
 MonokaiPro = [
     ["#2D2A2E", "#2D2A2E"], # bg
     ["#FCFCFA", "#FCFCFA"], # fg

@@ -20,6 +20,9 @@ emacs = "emacsclient -c -a 'emacs'"
 launcher = "rofi -show drun"
 emoji = "rofi -show emoji"
 power = "powermenu.sh"
+wifi = "rofi-wifi-menu"
+calculator = "rofi -show calc"
+altab = "rofi -show window"
 
 @hook.subscribe.startup_once
 def autostart():
@@ -68,7 +71,7 @@ keys = [
     Key([mod], "Print", lazy.spawn("flameshot screen -n 1"), desc="Takes Screenshot of Primary Monitor"),
 
     # Toggle between different layouts as defined below
-    Key([mod], "Tab", lazy.next_layout(), desc="Toggle between layouts"),
+    Key([mod], "l", lazy.next_layout(), desc="Toggle between layouts"),
     Key([mod], "c", lazy.window.kill(), desc="Kill focused window"),
     Key(
         [mod],
@@ -84,6 +87,9 @@ keys = [
     Key([mod], "r", lazy.spawn(launcher), desc="Rofi Run Launcher"),
     Key([mod], "e", lazy.spawn(emoji), desc="Rofi Emoji Picker"),
     Key([mod], "p", lazy.spawn(power), desc="Rofi Power Menu"),
+    Key([mod], "w", lazy.spawn(wifi), desc="Rofi Wifi Menu"),
+    Key([mod], "equal", lazy.spawn(calculator), desc="Rofi Calculator"),
+    Key([mod], "Tab", lazy.spawn(altab), desc="Rofi Window Switcher"),
 
     # Volume Control
     Key([], "XF86AudioRaiseVolume", lazy.spawn("wpctl set-volume @DEFAULT_AUDIO_SINK@ 5%+")),
@@ -121,7 +127,7 @@ for i in groups:
             Key(
                 [mod, "shift"],
                 i.name,
-                lazy.window.togroup(i.name, switch_group=True),
+                lazy.window.togroup(i.name, switch_group=False),
                 desc="Switch to & move focused window to group {}".format(i.name),
             ),
             # Or, use below if you prefer not to switch to that group.
@@ -132,13 +138,13 @@ for i in groups:
     )
 
 layouts = [
-    layout.Columns(border_focus_stack = colors[2], border_width = 4),
-    layout.Tile(border_focus_stack = colors[2], border_width = 4),
-    layout.Max(border_focus_stack = colors[2], border_width = 4),
+    layout.MonadTall(border_focus_stack = colors[2], border_width = 1),
+    layout.Columns(border_focus_stack = colors[2], border_width = 1),
+    layout.Tile(border_focus_stack = colors[2], border_width = 1),
+    layout.Max(border_focus_stack = colors[2], border_width = 1),
     # layout.Stack(num_stacks=2),
     # layout.Bsp(border_focus_stack = colors[2], border_width = 4),
     # layout.Matrix(border_focus_stack = colors[2], border_width = 4),
-    layout.MonadTall(border_focus_stack = colors[2], border_width = 4),
     # layout.MonadWide(border_focus_stack = colors[2], border_width = 4),
     # layout.RatioTile(border_focus_stack = colors[2], border_width = 4),
     # layout.TreeTab(border_focus_stack = colors[2], border_width = 4),
@@ -235,6 +241,21 @@ screens = [
                     ],
                 ),
                 widget.Spacer(length = 8),
+                #widget.CheckUpdates(
+                #    update_interval = 1800,
+                #    display_format = '   PKG: {updates}',
+                #    no_update_string='   PKG: No Updates',
+                #    foreground = colors[6],
+                #    distro = 'Arch_checkupdates'
+                #    execute = "kitty -e sudo pacman -Syu",
+                #    decorations=[
+                #        BorderDecoration(
+                #            colour = colors[6],
+                #            border_width = [0, 0, 2, 0],
+                #        )
+                #    ],
+                #),
+                #widget.Spacer(length = 8),
                 widget.Clock(
                     format="   TIME: %a, %b, %d - %I:%M %p",
                     foreground = colors[8],

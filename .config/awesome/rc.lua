@@ -58,17 +58,15 @@ beautiful.border_width = 1.5
 awful.spawn.with_shell("picom")
 awful.spawn.with_shell("nm-applet")
 awful.spawn.with_shell("flameshot")
-awful.spawn.with_shell("conky")
+awful.spawn.with_shell("conky -c ~/.config/conky/awesome.conkyrc")
 -- Emacs Server Daemon (REMOVE IF NOT USING EMACS)
 awful.spawn.with_shell("/usr/bin/emacs --daemon &")
 -- Custom Montior config (REMOVE IF MONITORS CHANGED) (ONLY INCLUDED FOR PERSONAL SETUP)
 awful.spawn.with_shell("xrandr --output HDMI-1 --primary --mode 1920x1080 --rate 144.00 --output eDP-1 --mode 1920x1080 --rate 59.98 --left-of HDMI-1")
--- Because it doesn't auto-switch
---awful.spawn.with_shell("pactl set-default-sink alsa_output.usb-Razer_Razer_Kraken_V3_X_00000000-00.analog-stereo")
 
 browser = "brave"
 steam = "steam"
-terminal = "st"
+terminal = "kitty"
 edit = "emacsclient -c -a 'emacs'"
 
 -- If you have an editor like nvim or nano as edit
@@ -382,8 +380,9 @@ globalkeys = gears.table.join(
               {description = "opens steam", group = "launcher"}),
     awful.key({ modkey,           }, "t", function () awful.spawn(edit) end,
               {description = "opens text editor", group = "launcher"}),
-    awful.key({ modkey,           }, "Print", function () awful.spawn("flameshot full") end,
+    awful.key({ modkey,           }, "Print", function () awful.spawn("flameshot screen -n 1") end,
               {description = "takes screenshot", group = "client"}),
+
 
     -- Prompt
     awful.key({ modkey,           }, "r", function () awful.spawn(menu) end,
@@ -416,8 +415,6 @@ clientkeys = gears.table.join(
               {description = "move to master", group = "client"}),
     awful.key({ modkey,           }, "o",      function (c) c:move_to_screen()               end,
               {description = "move to screen", group = "client"}),
-    awful.key({ modkey,           }, "t",      function (c) c.ontop = not c.ontop            end,
-              {description = "toggle keep on top", group = "client"}),
     awful.key({ modkey,           }, "n",
         function (c)
             -- The client currently has the input focus, so it cannot be
