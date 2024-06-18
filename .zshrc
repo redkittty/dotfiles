@@ -2,6 +2,22 @@
 # This is my .zshrc
 # For the Rust Shortcuts, Modify the path for your own rust folder
 
+### EXPORTS ###
+# Makes PATH ~/.local/bin
+export PATH="$PATH:$HOME/.local/bin:$HOME/.config/emacs/bin"
+
+# Default Programs
+export EDITOR="emacsclient -c -a 'emacs'"
+export TERMINAL="kitty"
+export TERM="kitty"
+export BROWSER="brave"
+export WM="qtile"
+
+# ~/Cleanup
+export XDG_CONFIG_HOME="$HOME/.config"
+export XDG_DATA_HOME="$HOME/.local/share"
+export XDG_CACHE_HOME="$HOME/.cache"
+
 # History
 HISTFILE=~/.config/zsh/.zsh_history
 HISTSIZE=3000
@@ -21,6 +37,10 @@ bindkey '^[[Z' undo
 
 # Beginning of line with HOME
 bindkey '^[[H' beginning-of-line
+
+# Substring History Search
+bindkey '^[[A' history-substring-search-up
+bindkey '^[[B' history-substring-search-down
 
 # End of line with END
 bindkey '^[[F' end-of-line
@@ -171,4 +191,6 @@ colorscript -r
 # Loads Plugins
 source ~/.config/zsh/plugins/zsh-autosuggestions/zsh-autosuggestions.zsh
 source ~/.config/zsh/plugins/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
+source ~/.config/zsh/plugins/zsh-you-should-use/you-should-use.plugin.zsh
+source ~/.config/zsh/plugins/zsh-history-substring-search/zsh-history-substring-search.zsh
 eval "$(starship init zsh)"
