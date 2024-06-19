@@ -15,6 +15,7 @@ terminal = "kitty"
 browser = "brave"
 steam = "steam"
 emacs = "emacsclient -c -a 'emacs'"
+manager = "pcmanfm"
 
 ## ROFI ##
 launcher = "rofi -show drun"
@@ -68,6 +69,7 @@ keys = [
     Key([mod], "b", lazy.spawn(browser), desc="Launch web browser"),
     Key([mod], "t", lazy.spawn(emacs), desc="Launch Emacs"),
     Key([mod], "g", lazy.spawn(steam), desc="Launch Steam"),
+    Key([mod], "m", lazy.spawn(manager), desc="Launches File Manager"),
     Key([mod], "Print", lazy.spawn("flameshot screen -n 1"), desc="Takes Screenshot of Primary Monitor"),
 
     # Toggle between different layouts as defined below
