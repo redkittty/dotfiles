@@ -2,7 +2,7 @@
 #+author: Envixty (redkittty on Github)
 #+startup: showeverything
 
-[[https://github.com/redkittty/dotfiles/blob/main/.screenshots/dotfiles2.png]]
+[[https://github.com/redkittty/dotfiles/blob/main/.screenshots/qtilescreen.png]]
 
 
 These are my dotfiles
@@ -15,11 +15,11 @@ git clone https://github.com/redkittty/envixty-os.git && cd envixty-os && chmod 
 
 My dotfiles contain configs for:
 
-- [[https://github.com/redkittty/st-envixty][ST]]
+- [[https://github.com/redkittty/dotfiles/blob/main/.config/kitty/kitty.conf][Kitty Terminal]]
 
-- [[https://github.com/redkittty/dotfiles/tree/main/.config/awesome][AwesomeWM]]
+- [[https://github.com/redkittty/dotfiles/tree/main/.config/qtile][Qtile]]
 
-- [[https://github.com/redkittty/dotfiles/tree/main/.config/fish][Fish Shell]]
+- [[https://github.com/redkittty/dotfiles/blob/main/.zshrc][ZSH]]
 
 - [[https://github.com/redkittty/dotfiles/blob/main/.gitconfig][Git]]
 
