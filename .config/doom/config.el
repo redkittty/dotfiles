@@ -13,6 +13,14 @@
 (beacon-mode 1)
 
 (map! :leader
+      (:prefix ("b". "buffer")
+       :desc "Launch Ibuffer"          "i" #'ibuffer
+       :desc "Kills current buffer"    "k" #'kill-buffer
+       :desc "Go to previous buffer"   "p" #'previous-buffer
+       :desc "Go to next buffer"       "n" #'next-buffer
+       :desc "Saves Buffer"            "s" #'save-buffer))
+
+(map! :leader
       :desc "List of Emojis"         "e e" #'emoji-list)
 (use-package emojify
   :hook (after-init . global-emojify-mode))
@@ -43,10 +51,11 @@
 
 (setq display-line-numbers-type 1)
 
-(setq shell-file-name "/bin/fish"
+(setq shell-file-name "/bin/zsh"
       vterm-max-scrollback 5000)
 (map! :leader
-      :desc "Vterm popup toggle"     "v t" #'+vterm/toggle)
+      :desc "Vterm popup toggle"     "v t" #'+vterm/toggle
+      :desc "Vterm fullscreen"       "v f" #'+vterm/here)
 
 (after! neotree
   (setq neo-smart-open t
@@ -58,11 +67,19 @@
 
 (setq minimap-window-location 'right)
 (map! :leader
-      (:prefix ("t" . "toggle")
-       :desc "Toggle minimap-mode" "m" #'minimap-mode))
+      (:prefix ("M" . "minimap")
+       :desc "Toggle minimap-mode" "t" #'minimap-mode))
+
+(set-face-attribute 'mode-line nil :font "Fira Code Nerd Font 10")
+(setq doom-modeline-height 20     ;; sets modeline height
+      doom-modeline-bar-width 5   ;; sets right bar width
+      doom-modeline-persp-name t  ;; adds perspective name to modeline
+      doom-modeline-persp-icon t) ;; adds folder icon next to persp name
 
 (map! :leader
-      :desc "opens elfeed rss reader" "t t" #'elfeed)
+      (:prefix ("f" . "elfeed")
+       :desc "opens elfeed rss reader" "f" #'elfeed
+       :desc "updated feeds in elfeed" "u" #'elfeed-update))
 (require 'elfeed-goodies)
 (elfeed-goodies/setup)
 (setq elfeed-goodies/entry-pane-size 0.5)

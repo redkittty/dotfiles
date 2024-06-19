@@ -1,11 +1,13 @@
 #+title: Doom Emacs Config
 #+PROPERTY: header-args :tangle config.el
+#+auto_tangle: t
 
 * Table of Contents :toc:
 - [[#about-this-config][About this Config]]
 - [[#theme][Theme]]
 - [[#fonts][Fonts]]
 - [[#beacon][Beacon]]
+- [[#buffers][Buffers]]
 - [[#emojis][Emojis]]
 - [[#dired][Dired]]
   - [[#general][General]]
@@ -15,6 +17,7 @@
 - [[#vterm][Vterm]]
 - [[#neotree][Neotree]]
 - [[#minimap][Minimap]]
+- [[#modeline][Modeline]]
 - [[#elfeed][Elfeed]]
 - [[#org-mode][Org-Mode]]
   - [[#general-1][General]]
@@ -87,6 +90,29 @@ Never lose your cursor.  When you scroll, your cursor will shine!  This is a glo
 
 #+begin_src emacs-lisp
 (beacon-mode 1)
+#+end_src
+
+* Buffers
+This section contains configurations for Emacs Buffers
+
+Here are the Keybindings:
+
+| Command         | Description             | Keybinding |
+|-----------------+-------------------------+------------|
+| ibuffer         | Launches Ibuffer        | SPC b i    |
+| kill-buffer     | Kills Current buffer    | SPC b k    |
+| previous-buffer | Goes to previous buffer | SPC b p    |
+| next-buffer     | Goes to next buffer     | SPC b n    |
+| save-buffer     | Saves Current Buffer    | SPC b s    |
+
+#+begin_src emacs-lisp
+(map! :leader
+      (:prefix ("b". "buffer")
+       :desc "Launch Ibuffer"          "i" #'ibuffer
+       :desc "Kills current buffer"    "k" #'kill-buffer
+       :desc "Go to previous buffer"   "p" #'previous-buffer
+       :desc "Go to next buffer"       "n" #'next-buffer
+       :desc "Saves Buffer"            "s" #'save-buffer))
 #+end_src
 
 * Emojis
@@ -184,12 +210,14 @@ and the keybindings
 | Command       | Description                     | Keybinding |
 |---------------+---------------------------------+------------|
 | +vterm/toggle | Toggles Vterm in a popup buffer | SPC v t    |
+| +vterm/here   | Opens a fullscreen Vterm buffer | SPC v f    |
 
 #+begin_src emacs-lisp
-(setq shell-file-name "/bin/fish"
+(setq shell-file-name "/bin/zsh"
       vterm-max-scrollback 5000)
 (map! :leader
-      :desc "Vterm popup toggle"     "v t" #'+vterm/toggle)
+      :desc "Vterm popup toggle"     "v t" #'+vterm/toggle
+      :desc "Vterm fullscreen"       "v f" #'+vterm/here)
 #+end_src
 
 * Neotree
@@ -219,13 +247,24 @@ The minimap is on the right of the screen
 
 | Command      | Description     | Keybinding |
 |--------------+-----------------+------------|
-| minimap-mode | Toggles minimap | SPC t m    |
+| minimap-mode | Toggles minimap | SPC M t    |
 
 #+begin_src emacs-lisp
 (setq minimap-window-location 'right)
 (map! :leader
-      (:prefix ("t" . "toggle")
-       :desc "Toggle minimap-mode" "m" #'minimap-mode))
+      (:prefix ("M" . "minimap")
+       :desc "Toggle minimap-mode" "t" #'minimap-mode))
+#+end_src
+
+* Modeline
+This section configures the Modeline built into Doom Emacs
+
+#+begin_src emacs-lisp
+(set-face-attribute 'mode-line nil :font "Fira Code Nerd Font 10")
+(setq doom-modeline-height 20     ;; sets modeline height
+      doom-modeline-bar-width 5   ;; sets right bar width
+      doom-modeline-persp-name t  ;; adds perspective name to modeline
+      doom-modeline-persp-icon t) ;; adds folder icon next to persp name
 #+end_src
 
 * Elfeed
@@ -244,13 +283,16 @@ Here is a list of rss feeds:
 | https://networkworld.com/feed             | networkworld         |
 
 Here are the keybindings:
-| Command | Description                 | Keybinding |
-|---------+-----------------------------+------------|
-| elfeed  | Opens the Elfeed RSS Reader | SPC t t    |
+| Command       | Description                     | Keybinding |
+|---------------+---------------------------------+------------|
+| elfeed        | Opens the Elfeed RSS Reader     | SPC f f    |
+| elfeed-update | Updates the feed list in Elfeed | SPC f u    |
 
 #+begin_src emacs-lisp
 (map! :leader
-      :desc "opens elfeed rss reader" "t t" #'elfeed)
+      (:prefix ("f" . "elfeed")
+       :desc "opens elfeed rss reader" "f" #'elfeed
+       :desc "updated feeds in elfeed" "u" #'elfeed-update))
 (require 'elfeed-goodies)
 (elfeed-goodies/setup)
 (setq elfeed-goodies/entry-pane-size 0.5)

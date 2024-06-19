@@ -162,7 +162,7 @@ extension_defaults = widget_defaults.copy()
 
 screens = [
     Screen(
-        wallpaper='~/.local/share/wall/wall5.jpg',
+        wallpaper='~/.local/share/wall/wall6.jpg',
         wallpaper_mode='stretch',
         top=bar.Bar(
             [
@@ -294,7 +294,7 @@ screens = [
         ),
     ),
     Screen(
-        wallpaper="~/.local/share/wall/wall5.jpg",
+        wallpaper="~/.local/share/wall/wall6.jpg",
         wallpaper_mode="stretch",
 
     ),
