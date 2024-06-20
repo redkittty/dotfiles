@@ -22,6 +22,7 @@ local hotkeys_popup = require("awful.hotkeys_popup")
 
 -- Custom Libraries
 local lain = require("lain")
+local freedesktop = require("freedesktop")
 
 -- Enable hotkeys help widget for VIM and other apps
 -- when client with a matching name is opened:
@@ -77,7 +78,7 @@ menu = "rofi -show drun"
 altab = "rofi -show window"
 calculator = "rofi -show calc"
 emoji = "rofi -show emoji"
-power = "powermenu.sh"
+power = "rofi -show power-menu -modi power-menu:~/.local/bin/rofi-power-menu"
 wifi = "rofi-wifi-menu"
 
 awful.layout.layouts = {
@@ -119,15 +120,16 @@ mypowermenu = {
   { "Power Off", "systemctl poweroff" },
 }
 
-mymainmenu = awful.menu({ items = { { "Internet", myinternetmenu },
-                                    { "Awesome", myawesomemenu, beautiful.awesome_icon },
-                                    { "Power", mypowermenu },
-                                    { "Open Terminal", terminal },
-                                    { "Open Text Editor", edit },
-                                    { "Open Steam", steam },
-                                    { "RUN", "rofi -show drun" }
-                                  }
-                        })
+--mymainmenu = awful.menu({ items = { { "Internet", myinternetmenu },
+--                                    { "Awesome", myawesomemenu, beautiful.awesome_icon },
+--                                    { "Power", mypowermenu },
+--                                    { "Open Terminal", terminal },
+--                                    { "Open Text Editor", edit },
+--                                    { "Open Steam", steam },
+--                                    { "RUN", "rofi -show drun" }
+--                                  }
+--                        })
+mymainmenu = freedesktop.menu.build()
 
 mylauncher = awful.widget.launcher({ image = beautiful.awesome_icon,
                                      menu = mymainmenu })
@@ -166,7 +168,7 @@ local cpu = lain.widget.cpu {
 
 local mymem = lain.widget.mem {
     settings = function()
-        widget:set_markup(" 🧠 RAM: " .. mem_now.perc .. "%   | ")
+        widget:set_markup(" 🧠 RAM: " .. mem_now.used .. "MB   | ")
     end
 }
 
@@ -278,35 +280,31 @@ root.buttons(gears.table.join(
 globalkeys = gears.table.join(
     awful.key({ modkey,           }, "s",      hotkeys_popup.show_help,
               {description="show help", group="awesome"}),
-    awful.key({ modkey,           }, "Left",   awful.tag.viewprev,
-              {description = "view previous", group = "tag"}),
-    awful.key({ modkey,           }, "Right",  awful.tag.viewnext,
-              {description = "view next", group = "tag"}),
     awful.key({ modkey,           }, "Escape", awful.tag.history.restore,
               {description = "go back", group = "tag"}),
 
-    awful.key({ modkey }, "j",
+    awful.key({ modkey }, "Down",
         function()
             awful.client.focus.bydirection("down")
             if client.focus then client.focus:raise() end
         end,
         {description = "focus moves down", group = "client"}
     ),
-    awful.key({ modkey }, "k",
+    awful.key({ modkey }, "Up",
         function()
             awful.client.focus.bydirection("up")
             if client.focus then client.focus:raise() end
         end,
         {description = "focus moves up", group = "client"}
     ),
-    awful.key({ modkey }, "h",
+    awful.key({ modkey }, "Left",
         function()
             awful.client.focus.bydirection("left")
             if client.focus then client.focus:raise() end
         end,
         {description = "focus moves left", group = "client"}
     ),
-    awful.key({ modkey }, "l",
+    awful.key({ modkey }, "Right",
         function()
             awful.client.focus.bydirection("right")
             if client.focus then client.focus:raise() end
@@ -325,16 +323,24 @@ globalkeys = gears.table.join(
               {description = "focus the previous screen", group = "screen"}),
     awful.key({ modkey,           }, "u", awful.client.urgent.jumpto,
               {description = "jump to urgent client", group = "client"}),
+    awful.key({ modkey, "Shift"   }, "Tab",
+        function ()
+            awful.client.focus.history.previous()
+            if client.focus then
+                client.focus:raise()
+            end
+        end,
+        {description = "go back", group = "client"}),
 
     -- Volume
     awful.key({ }, "XF86AudioRaiseVolume", function ()
-          awful.util.spawn("wpctl set-volume @DEFAULT_AUDIO_SINK@ 5%+")-- Increase volume by 2dB
+          awful.util.spawn("pactl set-sink-volume @DEFAULT_SINK@ +5%")-- Increase volume by 2dB
     end),
     awful.key({ }, "XF86AudioLowerVolume", function ()
-          awful.util.spawn("wpctl set-volume @DEFAULT_AUDIO_SINK@ 5%-") -- Decrease volume by 2dB
+          awful.util.spawn("pactl set-sink-volume @DEFAULT_SINK@ -5%") -- Decrease volume by 2dB
     end),
     awful.key({ }, "XF86AudioMute", function ()
-          awful.util.spawn("wpctl set-mute @DEFAULT_AUDIO_SINK@ toggle") -- Mute/unmute toggle
+          awful.util.spawn("wpctl set-sink-mute @DEFAULT_SINK@ toggle") -- Mute/unmute toggle
     end),
 
     -- })
@@ -348,13 +354,13 @@ globalkeys = gears.table.join(
               {description = "quit awesome", group = "awesome"}),
 
     -- Windows and Layouts
-    awful.key({ modkey, "Control" }, "l",     function () awful.tag.incmwfact( 0.05)          end,
+    awful.key({ modkey, "Control" }, "Right",     function () awful.tag.incmwfact( 0.05)          end,
               {description = "increase master width factor", group = "layout"}),
-    awful.key({ modkey, "Control" }, "h",     function () awful.tag.incmwfact(-0.05)          end,
+    awful.key({ modkey, "Control" }, "Left",     function () awful.tag.incmwfact(-0.05)          end,
               {description = "decrease master width factor", group = "layout"}),
-    awful.key({ modkey, "Shift"   }, "h",     function () awful.tag.incnmaster( 1, nil, true) end,
+    awful.key({ modkey, "Shift"   }, "Left",     function () awful.tag.incnmaster( 1, nil, true) end,
               {description = "increase the number of master clients", group = "layout"}),
-    awful.key({ modkey, "Shift"   }, "l",     function () awful.tag.incnmaster(-1, nil, true) end,
+    awful.key({ modkey, "Shift"   }, "Right",     function () awful.tag.incnmaster(-1, nil, true) end,
               {description = "decrease the number of master clients", group = "layout"}),
     awful.key({ modkey,           }, "]", function () awful.layout.inc( 1)                end,
               {description = "select next", group = "layout"}),
@@ -450,11 +456,11 @@ for i = 1, 9 do
         -- View tag only.
         awful.key({ modkey }, "#" .. i + 9,
                   function ()
-                        local screen = awful.screen.focused()
-                        local tag = screen.tags[i]
-                        if tag then
-                           tag:view_only()
-                        end
+                      local screen = awful.screen.focused()
+                      local tag = screen.tags[i]
+                      if tag then
+                        tag:view_only()
+                      end
                   end,
                   {description = "view tag #"..i, group = "tag"}),
         -- Toggle tag display.
@@ -474,6 +480,7 @@ for i = 1, 9 do
                           local tag = client.focus.screen.tags[i]
                           if tag then
                               client.focus:move_to_tag(tag)
+                              tag:view_only()
                           end
                      end
                   end,

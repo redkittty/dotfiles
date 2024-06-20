@@ -12,7 +12,7 @@ local themes_path = os.getenv("HOME") ..
 
 local theme = {}
 
-theme.font          = "sans 8.5"
+theme.font          = "sans bold 8.5"
 
 theme.bg_normal     = "#282828"
 theme.bg_focus      = "#504945"
@@ -64,7 +64,7 @@ theme.taglist_squares_unsel = theme_assets.taglist_squares_unsel(
 -- menu_[border_color|border_width]
 theme.menu_submenu_icon = themes_path.."default/submenu.png"
 theme.menu_height = dpi(15)
-theme.menu_width  = dpi(100)
+theme.menu_width  = dpi(150)
 
 -- You can add as many variables as
 -- you wish and access them by using
@@ -98,7 +98,7 @@ theme.titlebar_maximized_button_focus_inactive  = themes_path.."envixty/titlebar
 theme.titlebar_maximized_button_normal_active = themes_path.."envixty/titlebar/maximized_normal_active.png"
 theme.titlebar_maximized_button_focus_active  = themes_path.."envixty/titlebar/maximized_focus_active.png"
 
-theme.wallpaper = "~/.local/share/wall/wall4.jpeg"
+theme.wallpaper = "~/.local/share/wall/wall6.jpg"
 
 -- You can use your own layout icons like this:
 theme.layout_fairh = themes_path .. "envixty/layouts/fairhw.png"
@@ -136,7 +136,7 @@ theme.awesome_icon = theme_assets.awesome_icon(
 
 -- Define the icon theme for application icons. If not set then the icons
 -- from /usr/share/icons and /usr/share/icons/hicolor will be used.
-theme.icon_theme = "~/.local/share/icons/Papirus-Dark"
+theme.icon_theme = "$HOME/.local/share/icons/Tela-red"
 
 return theme
 
