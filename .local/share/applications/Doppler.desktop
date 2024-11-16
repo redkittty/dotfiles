@@ -1,0 +1,6 @@
+[Desktop Entry]
+Version=1.0
+Type=Application
+Terminal=true
+Exec=doppler
+Name=Doppler

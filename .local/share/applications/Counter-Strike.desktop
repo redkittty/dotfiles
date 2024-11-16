@@ -1,0 +1,8 @@
+[Desktop Entry]
+Name=Counter-Strike
+Comment=Play this game on Steam
+Exec=steam steam://rungameid/10
+Icon=steam_icon_10
+Terminal=false
+Type=Application
+Categories=Game;

@@ -1,0 +1,6 @@
+#!/bin/sh
+
+notify-send "🔄 Loading Doppler Radar..." "Please wait a moment..."
+
+mpv --loop-file=inf "https://radar.weather.gov/ridge/standard/KDIX_loop.gif"
+

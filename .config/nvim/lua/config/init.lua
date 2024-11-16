@@ -33,7 +33,7 @@ opt.hlsearch = false
 -- Appearance
 opt.number = true
 opt.relativenumber = false
-opt.colorcolumn = '188'
+opt.colorcolumn = '300'
 opt.completeopt = "menuone,noselect"
 opt.showmode = false
 
@@ -42,6 +42,18 @@ opt.hidden = true
 opt.errorbells = false
 opt.swapfile = false
 opt.backup = false
+
+-- Clipboard
+opt.clipboard = "unnamedplus"
+
+-- Colorscheme
+vim.opt.termguicolors = true
+--vim.cmd('colorscheme onedark')
+-- Lua
+require('onedark').setup {
+    style = 'darker'
+}
+require('onedark').load()
 
 -- Keymappings
 -- Ctrl + Backspace for deleting previous word
@@ -53,9 +65,6 @@ keybind("i", "<C-w>", "<cmd>w<CR>")
 -- Nvim Tree Toggle
 keybind("n", "<space>e", "<cmd>NvimTreeToggle<CR>")
 keybind("n", "<space>we", "<cmd>NvimTreeFocus<CR>")
-
--- Neogit
-keybind("n", "<space>gg", "<cmd>Neogit<CR>")
 
 -- Telescope
 keybind("n", "<space>f", "<cmd>Telescope<CR>")

@@ -1,0 +1,8 @@
+[Desktop Entry]
+Name=Half-Life: MMod
+Comment=Play this game on Steam
+Exec=steam steam://rungameid/1761270
+Icon=steam_icon_1761270
+Terminal=false
+Type=Application
+Categories=Game;

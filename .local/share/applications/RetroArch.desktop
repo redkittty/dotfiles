@@ -1,0 +1,8 @@
+[Desktop Entry]
+Name=RetroArch
+Comment=Play this game on Steam
+Exec=steam steam://rungameid/1118310
+Icon=steam_icon_1118310
+Terminal=false
+Type=Application
+Categories=Game;

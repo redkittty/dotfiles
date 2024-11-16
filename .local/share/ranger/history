@@ -1,0 +1,9 @@
+restart
+touch hunk.lua
+rename hunk.lua
+shell w
+rename dwmblocks-envixtyq
+open_with 
+rename st
+shell 
+trash

@@ -1,0 +1,7 @@
+[Desktop Entry]
+Name=Game 1176718791388975124
+Exec=/usr/share/spotube-bin/spotube %u
+Type=Application
+NoDisplay=true
+Categories=Discord;Games;
+MimeType=x-scheme-handler/discord-1176718791388975124;

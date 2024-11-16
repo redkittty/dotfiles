@@ -1,12 +1,1 @@
-@theme "~/.config/rofi/dmenu.rasi"
-
-configuration {
-  display-drun: "Applications: ";
-  display-window: "Windows: ";
-  display-calc: "Calculator: ";
-  drun-display-format: "{name}";
-  font: "Fira Code Nerd Font Medium 10";
-  modi: "window,run,drun,emoji,calc";
-  show-icons: true;
-  icon-theme: "Papirus-Dark";
-}
+@theme "/usr/share/rofi/themes/DarkBlue.rasi"

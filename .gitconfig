@@ -1,5 +1,5 @@
 [core]
-  editor = emacs
+  editor = nvim
 
 [color "branch"]
   current = green
@@ -17,3 +17,6 @@
 
 [help]
   autocorrect = 1
+
+[init]
+	defaultBranch = main

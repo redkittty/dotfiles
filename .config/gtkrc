@@ -1,0 +1,6 @@
+# created by KDE Plasma, Sat Oct 26 16:21:03 2024
+#
+include "/usr/share/themes/OneDarkDeep-theme/gtk-2.0/gtkrc"
+
+gtk-theme-name="OneDarkDeep-theme"
+
