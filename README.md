@@ -1,19 +1,18 @@
-# dotfiles
+# dotfiles 2.0
 
-These are my dotfiles for my hyprland config. My hyprland config will be finished soon
+These are my brand new dotfiles after switching back to linux after switching back to windows for 6 months (windows->linux->windows->linux)
 
-NOTE: YOU NEED [Hyprshot](https://github.com/Gustash/Hyprshot/tree/main) TO SCREENSHOT IN HYPRLAND
+I am using Hyprland for these dotfiles and yeah hope you enjoy
 
 # Programs Used
 
-- Zsh
+- Hyprland
+- Hyprpaper
+- Hyprlock
+- Hypridle
+- Bash
 - Git
-- Alacritty
-- Dunst
-- Almost entirety of hypr ecosystem (hyprland, hyprlock, hypridle, hyprpaper)
-- Newsboat
-- Neovim
-- Ranger
-- Rofi (default rn)
+- Kitty
+- SwayNC
+- Rofi
 - Thunar
-- Waybar
