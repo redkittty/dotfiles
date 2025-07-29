@@ -1,8 +1,0 @@
-[Desktop Entry]
-Name=Quake
-Comment=Play this game on Steam
-Exec=steam steam://rungameid/2310
-Icon=steam_icon_2310
-Terminal=false
-Type=Application
-Categories=Game;

@@ -1,1 +1,2 @@
-@theme "/usr/share/rofi/themes/DarkBlue.rasi"
+
+@theme "./theme.rasi"

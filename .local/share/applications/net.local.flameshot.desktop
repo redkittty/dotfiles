@@ -1,7 +1,0 @@
-[Desktop Entry]
-Exec=flameshot screen -n 1
-Name=flameshot
-NoDisplay=true
-StartupNotify=false
-Type=Application
-X-KDE-GlobalAccel-CommandShortcut=true

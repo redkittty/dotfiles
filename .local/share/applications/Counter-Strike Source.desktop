@@ -1,8 +1,0 @@
-[Desktop Entry]
-Name=Counter-Strike: Source
-Comment=Play this game on Steam
-Exec=steam steam://rungameid/240
-Icon=steam_icon_240
-Terminal=false
-Type=Application
-Categories=Game;
