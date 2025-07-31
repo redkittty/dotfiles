@@ -23,6 +23,7 @@ if [ -n "$selection" ]; then
   do
     hyprctl hyprpaper wallpaper "$monitor,$background"
   done
+  notify-send "Wallpaper changed to $selection"
 else
   echo "No selection made."
   exit 1
