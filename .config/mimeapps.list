@@ -2,6 +2,7 @@
 image/png=sxiv.desktop
 image/jpg=sxiv.desktop
 image/jpeg=sxiv.desktop
+image/webp=sxiv.desktop
 video/mp4=mpv.desktop
 video/x-matroska=mpv.desktop
 text/html=brave-browser.desktop
