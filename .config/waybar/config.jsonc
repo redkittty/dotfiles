@@ -51,12 +51,12 @@
   },
   "hyprland/workspaces": {
     "disable-scroll": false,
-    "all-outputs": true,
+    "all-outputs": false,
     "format": "{icon}",
     "on-click": "activate",
-    "persistent-workspaces": {
-    "*":[1,2,3,4,5,6,7,8,9]
-    },
+//    "persistent-workspaces": {
+//    "*":[1,2,3,4,5,6,7,8,9]
+//    },
     "format-icons": {
       "1": "1",
       "2": "2",
@@ -66,8 +66,18 @@
       "6": "6",
       "7": "7",
       "8": "8",
-      "9": "9"
-    }
+      "9": "9",
+      "10": "1",
+      "11": "2",
+      "12": "3",
+      "13": "4",
+      "14": "5",
+      "15": "6",
+      "16": "7",
+      "17": "8",
+      "18": "9",
+      "19": "10"
+    } 
   },
   "custom/lock": {
   	"format": "<span color='#19b3b2'>  </span>",

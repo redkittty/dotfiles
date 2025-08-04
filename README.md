@@ -6,9 +6,11 @@ These are my brand new dotfiles after switching back to linux after switching ba
 
 I am using Hyprland for these dotfiles
 
+YOU NEED TO USE [split-monitor-workspaces](https://github.com/Duckonaut/split-monitor-workspaces) plugin!
+
 # Programs Used
 
-- Hyprland
+- Hyprland 
 - Hyprpaper
 - Hyprlock
 - Hypridle
