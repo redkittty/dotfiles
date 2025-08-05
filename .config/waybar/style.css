@@ -72,6 +72,7 @@
 #custom-temperature,
 #custom-notification,
 #memory,
+#disk,
 #cpu{
   /*background-color: rgba(15,27,53,0.9);*/
   background-color: rgb(0,0,0);
@@ -98,6 +99,7 @@
 #memory:hover,
 #cpu:hover,
 #clock:hover,
+#disk:hover,
 #custom-os:hover,
 #custom-logout:hover,
 #custom-lock:hover,

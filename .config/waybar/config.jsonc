@@ -19,6 +19,7 @@
     "pulseaudio",
     "backlight",
     "custom/temperature",
+    "disk",
     "memory",
     "cpu",
     "custom/notification",
@@ -139,7 +140,7 @@
         "<span color='#00FF7F'>  </span>"
       ]
     },
-    "on-click-right": "pavucontrol -t 3",
+    "on-click-right": "pwvucontrol",
     "on-click": "pactl -- set-sink-mute 0 toggle",
     "tooltip": true,
     "tooltip-format": "Volume: {volume}%"
@@ -151,19 +152,27 @@
     "tooltip": true,
     "tooltip-format": " CPU: {}°C"
   },
+  "disk": {
+    "interval": 60,
+    "format": "<span color='#b319b2'>  </span>{percentage_used}%",
+    "path": "/",
+    "tooltip": true,
+    "unit": "GB",
+    "tooltip-format": "/: {free} free of {total}"
+  },
   "memory": {
-    "format": "<span color='#b319b2'>  </span>{used:0.1f}G/{total:0.1f}G ",
+    "format": "<span color='#b26919'>  </span>{used:0.1f}G/{total:0.1f}G ",
     "tooltip": true,
     "tooltip-format": " USED: {used:0.2f}G/{total:0.2f}G"
   },
   "cpu": {
-    "format": "<span color='#b26919'>  </span>{usage}% ",
+    "format": "<span color='#b319b2'>  </span>{usage}% ",
     "tooltip": true
   },
   "clock": {
     "interval": 1,
     "timezone": "America/New_York",
-    "format": "<span color='#b319b2'>  </span>{:%I:%M:%S %p} ",
+    "format": "<span color='#b26919'>  </span>{:%I:%M:%S %p} ",
     "tooltip": true,
     "tooltip-format": " :  {:%A, %b %d, %Y}"
   },
