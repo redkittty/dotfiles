@@ -63,11 +63,23 @@
   border-radius: 10px 0 0 10px;
   border-width: 0px;
 }
-#custom-lock,
-#custom-reboot,
+#custom-lock{
+  background-color: rgb(0,0,0);
+  margin-top: 6px;
+}
+#custom-reboot{
+  background-color: rgb(0,0,0);
+  margin-top: 6px;
+}
 #bluetooth,
 #battery,
-#pulseaudio,
+#pulseaudio{
+  background-color: rgb(0,0,0);
+  margin-top: 6px;
+  border-radius: 10px 0 0 10px;
+  border-width: 0px;
+}
+
 #backlight,
 #custom-temperature,
 #custom-notification,
