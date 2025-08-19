@@ -27,7 +27,8 @@
   border-radius: 10px;
   border-width: 0px;
 }
-
+#mpris,
+#taskbar,
 #custom-os{
   /*background-color: rgba(29,31,46, 0.95);*/
   /*background-color: rgba(15,27,53,0.9);*/
@@ -79,7 +80,6 @@
   border-radius: 10px 0 0 10px;
   border-width: 0px;
 }
-
 #backlight,
 #custom-temperature,
 #custom-notification,

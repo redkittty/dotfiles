@@ -1,20 +1,22 @@
 {
   "layer": "top",
   "position": "top",
-  "height": 32,
+  "height": 30,
   "spacing": 0,
   "modules-left": [
     "custom/os",  
     "hyprland/workspaces",
-    "custom/logout",
-    "custom/lock",
-    "custom/reboot",
-    "custom/power"
+    "wlr/taskbar"
+    //"custom/logout",
+    //"custom/lock",
+    //"custom/reboot",
+    //"custom/power"
   ],
   "modules-center": ["hyprland/window"],
   "modules-right": [
     "tray",
     "battery",
+    // "mpris",
     "pulseaudio",
     "backlight",
     "custom/temperature",
@@ -24,9 +26,38 @@
     "custom/notification",
     "clock"
   ],
+  "wlr/taskbar": {
+    "format": "{icon}",
+    "icon-size": 14,
+    "icon-theme": "Numix-Circle",
+    "tooltip-format": "{title}",
+    "on-click": "activate",
+    "on-click-middle": "close",
+    "ignore-list": [
+       "kitty"
+    ],
+    "app_ids-mapping": {
+      "firefoxdeveloperedition": "firefox-developer-edition"
+    },
+    "rewrite": {
+        "Firefox Web Browser": "Firefox"
+    }
+  },
+  "mpris": {
+	  "format": "{status_icon} {title}",
+	  "format-paused": "{status_icon} <i>{title}</i>",
+	  "player-icons": {
+		  "default": "▶"
+	  },
+	  "status-icons": {
+      "playing": "󰐊",
+		  "paused": "⏸"
+	  }
+	  // "ignored-players": ["brave"]
+  },
   "custom/os": {
         "format": "<span color='#55fffe'> 󰣇 </span>",
-        "on-click": "rofi -show drun",
+        "on-click": "rofi -show power-menu -modi power-menu:rofi-power-menu",
         "tooltip": false
   },
   "custom/notification": {
@@ -78,6 +109,10 @@
       "18": "9",
       "19": "10"
     } 
+  },
+  "hyprland/window": {
+    "format": "{title}",
+    "icon": true
   },
   "custom/lock": {
   	"format": "<span color='#19b3b2'>  </span>",
