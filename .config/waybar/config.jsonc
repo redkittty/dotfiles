@@ -162,7 +162,7 @@
       "default": [
         "<span color='#808080'>  </span>",
         "<span color='#FFFF66'>  </span>",
-        "<span color='#00FF7F'>  </span>"
+        "<span color='#00FF7F'>   </span>"
       ]
     },
     "on-click-right": "pwvucontrol",
