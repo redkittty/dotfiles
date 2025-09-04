@@ -1,6 +1,6 @@
 /* 全局设置 */
 * {
-  font-family: "CaskaydiaCove Nerd Font", "Font Awesome 6 Free", "Font Awesome 6 Free Solid";
+  font-family: "Noto Nerd Font", "Font Awesome 6 Free", "Font Awesome 6 Free Solid";
   font-weight: bold;
   font-size: 16px;
   color: #dcdfe1;
@@ -33,7 +33,7 @@
   /*background-color: rgba(29,31,46, 0.95);*/
   /*background-color: rgba(15,27,53,0.9);*/
   background-color: rgb(0,0,0);
-  padding: 4px 6px; /* 保持内部间距 */
+  padding: 4px 5px; /* 保持内部间距 */
   margin-top: 6px; /* 外部间距增加 */
   margin-left: 6px; /* 外部间距增加 */
   margin-right: 6px; /* 外部间距增加 */

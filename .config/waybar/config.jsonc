@@ -151,7 +151,7 @@
   },
   "pulseaudio": {
     "format": "<span color='#55fe54'>{icon}</span>{volume}% ",
-    "format-muted": "<span color='#fe5554'> 󰖁 </span>0% ",
+    "format-muted": "<span color='#fe5554'> 󰖁  </span>0% ",
     "format-icons": {
       "headphone": "<span color='#BF00FF'>  </span>",
       "hands-free": "<span color='#BF00FF'>  </span>",
@@ -160,9 +160,9 @@
       "portable": "<span color='#00FFFF'>  </span>",
       "car": "<span color='#FFA500'>  </span>",
       "default": [
-        "<span color='#808080'>  </span>",
-        "<span color='#FFFF66'>  </span>",
-        "<span color='#00FF7F'>   </span>"
+        "<span color='#808080'>   </span>",
+        "<span color='#FFFF66'>   </span>",
+        "<span color='#00FF7F'>    </span>"
       ]
     },
     "on-click-right": "pwvucontrol",
@@ -186,18 +186,18 @@
     "tooltip-format": "/: {free} free of {total}"
   },
   "memory": {
-    "format": "<span color='#b26919'>  </span>{used:0.1f}G/{total:0.1f}G ",
+    "format": "<span color='#b26919'>   </span>{used:0.1f}G/{total:0.1f}G ",
     "tooltip": true,
     "tooltip-format": " USED: {used:0.2f}G/{total:0.2f}G"
   },
   "cpu": {
-    "format": "<span color='#b319b2'>  </span>{usage}% ",
+    "format": "<span color='#b319b2'>   </span>{usage}% ",
     "tooltip": true
   },
   "clock": {
     "interval": 1,
     "timezone": "America/New_York",
-    "format": "<span color='#b26919'>  </span>{:%I:%M:%S %p} ",
+    "format": "<span color='#b26919'>   </span>{:%I:%M:%S %p} ",
     "tooltip": true,
     "tooltip-format": " :  {:%A, %b %d, %Y}"
   },
