@@ -15,6 +15,7 @@ selection=$(echo -e "$options" | rofi -dmenu -p "Select a background")
 if [ -n "$selection" ]; then
   background="$search_dir/$selection"
   swww img "$background" --transition-step 255 --transition-type center
+  echo "Wallpaper changed to $selection"
   notify-send "Wallpaper changed to $selection"
 else
   echo "No selection made."
