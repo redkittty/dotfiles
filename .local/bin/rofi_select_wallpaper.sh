@@ -1,6 +1,6 @@
 #!/bin/bash
 
-search_dir=$HOME/wallpapers
+search_dir=$WALLPAPER_DIR
 
 options=""
 for entry in "$search_dir"/*
@@ -12,17 +12,9 @@ done
 # Show the Rofi menu and get the selection
 selection=$(echo -e "$options" | rofi -dmenu -p "Select a background")
 
-# get all wallpapers
-monitors=`hyprctl monitors | grep Monitor | awk '{print $2}'`
-
 if [ -n "$selection" ]; then
   background="$search_dir/$selection"
-  hyprctl hyprpaper unload all
-  hyprctl hyprpaper preload "$background"
-  for monitor in $monitors; 
-  do
-    hyprctl hyprpaper wallpaper "$monitor,$background"
-  done
+  swww img "$background" --transition-step 255 --transition-type center
   notify-send "Wallpaper changed to $selection"
 else
   echo "No selection made."

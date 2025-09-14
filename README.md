@@ -11,7 +11,6 @@ YOU NEED TO USE [split-monitor-workspaces](https://github.com/Duckonaut/split-mo
 # Programs Used
 
 - Hyprland 
-- Hyprpaper
 - Hyprlock
 - Hypridle
 - Bash
@@ -20,3 +19,4 @@ YOU NEED TO USE [split-monitor-workspaces](https://github.com/Duckonaut/split-mo
 - SwayNC
 - Rofi
 - Thunar
+- Swww
