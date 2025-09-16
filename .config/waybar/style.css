@@ -19,7 +19,7 @@
 #tray{
   /*background-color: rgba(29,31,46, 0.95);*/
   /* background-color: rgba(15,27,53,0.9); */
-  background-color: rgb(0,0,0);
+  background-color: #282c34;
   padding: 4px 6px; /* 保持内部间距 */
   margin-top: 6px; /* 外部间距增加 */
   margin-left: 6px; /* 外部间距增加 */
@@ -32,7 +32,7 @@
 #custom-os{
   /*background-color: rgba(29,31,46, 0.95);*/
   /*background-color: rgba(15,27,53,0.9);*/
-  background-color: rgb(0,0,0);
+  background-color: #282c34;
   padding: 4px 5px; /* 保持内部间距 */
   margin-top: 6px; /* 外部间距增加 */
   margin-left: 6px; /* 外部间距增加 */
@@ -44,7 +44,7 @@
 #clock,
 #custom-power{
   /*background-color: rgba(15,27,53,0.9);*/
-  background-color: rgb(0,0,0);
+  background-color: #282c34;
   margin-top: 6px; /* 与屏幕顶部留出距离 */
   margin-right: 6px;
   /*margin-bottom: 4px;*/
@@ -56,7 +56,7 @@
 #network,
 #custom-logout{
   /*background-color: rgba(15,27,53,0.9);*/
-  background-color: rgb(0,0,0);
+  background-color: #282c34;
   margin-top: 6px; /* 与屏幕顶部留出距离 */
   margin-left: 6px;
   /*margin-bottom: 4px;*/
@@ -65,17 +65,17 @@
   border-width: 0px;
 }
 #custom-lock{
-  background-color: rgb(0,0,0);
+  background-color: #282c34;
   margin-top: 6px;
 }
 #custom-reboot{
-  background-color: rgb(0,0,0);
+  background-color: #282c34;
   margin-top: 6px;
 }
 #bluetooth,
 #battery,
 #pulseaudio{
-  background-color: rgb(0,0,0);
+  background-color: #282c34;
   margin-top: 6px;
   border-radius: 10px 0 0 10px;
   border-width: 0px;
@@ -87,7 +87,7 @@
 #disk,
 #cpu{
   /*background-color: rgba(15,27,53,0.9);*/
-  background-color: rgb(0,0,0);
+  background-color: #282c34;
   margin-top: 6px; /* 与屏幕顶部留出距离 */
   /*margin-bottom: 4px;*/
   padding: 4px 2px; /* 保持内部间距 */
