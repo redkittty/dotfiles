@@ -15,4 +15,4 @@ hyprsunset &
 # User Programs
 steam &
 discord &
-
+thunar --daemon &
