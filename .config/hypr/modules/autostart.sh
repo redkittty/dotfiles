@@ -11,6 +11,7 @@ hypridle &
 systemctl --user start hyprpolkitagent &
 hyprpm reload -nn &
 hyprsunset &
+swayosd-server &
 
 # User Programs
 steam -silent &
