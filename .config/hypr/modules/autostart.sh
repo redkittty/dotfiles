@@ -13,6 +13,6 @@ hyprpm reload -nn &
 hyprsunset &
 
 # User Programs
-steam &
+steam -silent &
 discord &
 thunar --daemon &
