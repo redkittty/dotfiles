@@ -14,6 +14,6 @@ hyprsunset &
 swayosd-server &
 
 # User Programs
-steam -silent &
+steam &
 discord &
 thunar --daemon &
