@@ -3,17 +3,18 @@
 # Hyprland Autostart
 
 # Programs for config
-waybar &
-swww-daemon &
-nm-applet &
-swaync &
-hypridle &
-systemctl --user start hyprpolkitagent &
-hyprpm reload -nn &
-hyprsunset &
-swayosd-server &
+exec waybar &
+exec swww-daemon &
+exec nm-applet &
+exec swaync &
+exec hypridle &
+exec systemctl --user start hyprpolkitagent &
+exec hyprpm reload -nn &
+exec hyprsunset &
+exec swayosd-server &
+exec udiskie -a -T &
 
 # User Programs
-steam &
-discord &
-thunar --daemon &
+exec steam &
+exec discord &
+exec thunar --daemon &
