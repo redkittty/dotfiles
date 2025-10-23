@@ -19,34 +19,49 @@
 }
 
 /* 所有模块统一风格 */
-#workspaces,
-#window,
-#tray,
-#mpris,
-#taskbar,
-#custom-os,
-#clock,
-#custom-power,
-#network,
-#custom-logout,
-#custom-lock,
-#custom-reboot,
-#bluetooth,
-#battery,
-#pulseaudio,
-#backlight,
-#custom-temperature,
-#custom-notification,
+#clock {
+  background-color: #1E1E24;
+  border-radius: 0px 10px 10px 0px;
+  margin-left: 0px;
+  margin-right: 6px;
+  margin-top: 6px;
+  margin-bottom: 6px;
+}
+#pulseaudio {
+  background-color: #1E1E24;
+  border-radius: 10px 0px 0px 10px;
+  margin-left: 0px;
+  margin-right: 0px;
+  margin-top: 6px;
+  margin-bottom: 6px;
+}
 #memory,
 #disk,
-#cpu {
-  color: #dcdfe1;
-}
-#custpm-temperature.critical,
+#cpu,
+#custom-temperature,
 #custom-notification {
-  color: #dcdfe1;
-  padding: 4px 6px;
+  background-color: #1E1E24;
+  padding: 2px 4px;
+  margin-top: 6px;
+  margin-bottom: 6px;
+  margin-right: 0px;
+  margin-left: 0px;
 }
+#window,
+#taskbar,
+#workspaces,
+#tray {
+  background-color: #1E1E24;
+  padding: 2px 4px;
+  margin-top: 6px;
+  margin-bottom: 6px;
+  margin-right: 6px;
+  margin-left: 6px;
+  border-width: 0px;
+  border-radius: 10px;
+}
+
+#custpm-temperature.critical,
 #pulseaudio.muted {
   color: #FF0000;
 }
@@ -80,6 +95,8 @@
 #workspaces button.active {
   background-color: #61afef; /* 蓝色高亮 */
   color: #ffffff;
+  padding: 2px 6px;
+  border-radius: 10px;
 }
 
 /* 未激活工作区按钮 */
