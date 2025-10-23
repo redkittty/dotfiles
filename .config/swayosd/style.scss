@@ -1,7 +1,8 @@
 window#osd {
-  border-radius: 999px;
+  background-color: #282c34;
+  border-radius: 10px;
   border: none;
-  background: #{"alpha(@theme_bg_color, 0.8)"};
+  background: #{"alpha(@background-color, 0.8)"};
 
   #container {
     margin: 16px;
