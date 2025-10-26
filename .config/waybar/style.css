@@ -1,6 +1,6 @@
 /* 全局设置 */
 * {
-  font-family: "Noto Nerd Font", "Font Awesome 6 Free", "Font Awesome 6 Free Solid";
+  font-family: "Noto Sans Mono Regular", "Noto Nerd Font Mono";
   font-weight: bold;
   font-size: 16px;
   color: #dcdfe1;
@@ -90,13 +90,16 @@
 /* 工作区激活状态高亮 */
 #workspaces button:hover{
   background-color: rgba(97, 175, 239, 0.2);
+/*  color: #ffffff;
+  padding: 2px 6px;
+  border-radius: 10px; */
 }
 
 #workspaces button.active {
   background-color: #61afef; /* 蓝色高亮 */
-  color: #ffffff;
+/*  color: #ffffff;
   padding: 2px 6px;
-  border-radius: 10px;
+  border-radius: 10px; */
 }
 
 /* 未激活工作区按钮 */
