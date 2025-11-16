@@ -20,3 +20,4 @@ application/zip=xarchiver.desktop;
 application/json=nvim.desktop;
 application/octet-stream=xarchiver.desktop;
 application/x-zerosize=nvim.desktop;
+application/vnd.microsoft.portable-executable=wine.desktop;
