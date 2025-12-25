@@ -17,4 +17,3 @@ exec udiskie -a -T &
 # User Programs
 exec steam &
 exec discord &
-exec thunar --daemon &
