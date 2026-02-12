@@ -16,6 +16,8 @@ x-scheme-handler/discord-455712169795780630=discord-455712169795780630.desktop
 x-scheme-handler/discord-1159627283506679839=discord-1159627283506679839.desktop
 x-scheme-handler/http=firefox.desktop
 x-scheme-handler/https=firefox.desktop
+audio/flac=org.gnome.Lollypop.desktop
+audio/mp3=org.gnome.Lollypop.desktop
 
 [Added Associations]
 application/zip=xarchiver.desktop;
