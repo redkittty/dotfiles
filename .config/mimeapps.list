@@ -19,6 +19,7 @@ x-scheme-handler/http=firefox.desktop
 x-scheme-handler/https=firefox.desktop
 audio/flac=org.gnome.Lollypop.desktop
 audio/mp3=org.gnome.Lollypop.desktop
+x-scheme-handler/discord=vesktop.desktop
 
 [Added Associations]
 application/zip=xarchiver.desktop;

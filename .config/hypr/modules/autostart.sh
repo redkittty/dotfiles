@@ -17,4 +17,4 @@ exec dbus-update-activation-environment --systemd WAYLAND_DISPLAY XDG_CURRENT_DE
 
 # User Programs
 exec steam &
-exec discord &
+exec vesktop --enable-blink-features=MiddleClickAutoscroll &
