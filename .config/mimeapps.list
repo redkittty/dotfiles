@@ -12,6 +12,7 @@ x-scheme-handler/https=brave-browser.desktop
 x-scheme-handler/terminal=kitty.desktop
 application/octet-stream=xarchiver.desktop
 application/x-zerosize=nvim.desktop
+application/pdf=org.pwmt.zathura.desktop
 x-scheme-handler/discord-455712169795780630=discord-455712169795780630.desktop
 x-scheme-handler/discord-1159627283506679839=discord-1159627283506679839.desktop
 x-scheme-handler/http=firefox.desktop
