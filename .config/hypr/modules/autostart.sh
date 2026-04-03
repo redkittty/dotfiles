@@ -9,6 +9,7 @@ exec nm-applet &
 exec swaync &
 exec hypridle &
 exec systemctl --user start hyprpolkitagent &
+exec blueman-applet &
 #exec hyprpm reload -nn &
 exec hyprsunset &
 exec swayosd-server &
