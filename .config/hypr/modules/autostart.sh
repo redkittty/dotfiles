@@ -4,7 +4,7 @@
 
 # Programs for config
 exec waybar &
-exec swww-daemon &
+exec awww-daemon &
 exec nm-applet &
 exec swaync &
 exec hypridle &
