@@ -155,7 +155,7 @@
     "format-icons": {
       "headphone": "<span color='#BF00FF'>   </span>",
       "hands-free": "<span color='#BF00FF'>   </span>",
-      "headset": "<span color='#BF00FF'>  </span>",
+      "headset": "<span color='#BF00FF'>   </span>",
       "phone": "<span color='#00FFFF'>  </span>",
       "portable": "<span color='#00FFFF'>  </span>",
       "car": "<span color='#FFA500'>  </span>",
