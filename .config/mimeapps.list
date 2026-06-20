@@ -6,6 +6,7 @@ image/webp=sxiv.desktop
 image/tiff=sxiv.desktop
 video/mp4=mpv.desktop
 video/x-matroska=mpv.desktop
+video/mov=mpv.desktop
 text/html=firefox.desktop
 inode/directory=pcmanfm.desktop
 x-scheme-handler/terminal=kitty.desktop
