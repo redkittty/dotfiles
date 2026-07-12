@@ -14,7 +14,15 @@ exec blueman-applet &
 exec hyprsunset &
 exec swayosd-server &
 exec udiskie -a -T &
-exec dbus-update-activation-environment --systemd WAYLAND_DISPLAY XDG_CURRENT_DESKTOP &
+exec dbus-update-activation-environment --systemd WAYLAND_DISPLAY XDG_CURRENT_DESKTOP &\
+
+# Hypr Portal
+sleep 1
+killall -e xdg-desktop-portal-hyprland
+killall xdg-desktop-portal
+/usr/lib/xdg-desktop-portal-hyprland &
+sleep 2
+/usr/lib/xdg-desktop-portal &
 
 # User Programs
 exec steam &
