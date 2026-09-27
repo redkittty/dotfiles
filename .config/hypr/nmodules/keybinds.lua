@@ -32,7 +32,6 @@ local wallpapermenu = "rofi_select_wallpaper.sh"
 local notitray = "swaync-client -t -sw"
 local colorpicker = "hyprpicker -a -n"
 local calc = "qalculate-qt"
-local osd = [[swayosd-client --monitor "$(hyprctl monitors -j | jq -r '.[] | select(.focused == true).name')"]]
 
 -- Keybinds
 local mainMod = "SUPER"
@@ -114,9 +113,9 @@ hl.bind(mainMod .. " + mouse_down", function()
 end)
 
 -- Multimedia
-hl.bind("XF86AudioRaiseVolume", hl.dsp.exec_cmd(osd .. "--output-volume raise"), {repeating = true})
-hl.bind("XF86AudioLowerVolume", hl.dsp.exec_cmd(osd .. "--output-volume lower"), {repeating = true, locked = true})
-hl.bind("XF86AudioMute", hl.dsp.exec_cmd(osd .. "--output-volume mute-toggle"), {locked = true})
+hl.bind("XF86AudioRaiseVolume", hl.dsp.exec_cmd("~/.config/hypr/nmodules/volume.sh raise"), {repeating = true})
+hl.bind("XF86AudioLowerVolume", hl.dsp.exec_cmd("~/.config/hypr/nmodules/volume.sh lower"), {repeating = true, locked = true})
+hl.bind("XF86AudioMute", hl.dsp.exec_cmd("~/.config/hypr/nmodules/volume.sh mute-toggle"), {locked = true})
 
 hl.bind("XF86AudioNext", hl.dsp.exec_cmd("playerctl next"), {locked = true})
 hl.bind("XF86AudioPrev", hl.dsp.exec_cmd("playerctl previous"), {locked = true})
