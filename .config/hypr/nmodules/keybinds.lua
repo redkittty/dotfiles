@@ -104,7 +104,7 @@ local function zoom(offset)
     hl.config({ cursor = { zoom_factor = current } })
 end
 
--- hl.bind("SUPER + Z", zoom)
+hl.bind("SUPER + SHIFT + mouse_up", zoom)
 hl.bind(mainMod .. " + mouse_up", function()
     zoom(0.5)
 end)
