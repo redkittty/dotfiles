@@ -40,7 +40,7 @@ icons[cancel]="\Uf0156"
 declare -A actions
 actions[lockscreen]="hyprlock"
 #actions[switchuser]="???"
-actions[logout]="hyprctl dispatch exit"
+actions[logout]="hyprctl eval 'hl.dispatch(hl.dsp.exit())'"
 actions[suspend]="systemctl suspend"
 actions[hibernate]="systemctl hibernate"
 actions[reboot]="systemctl reboot"
